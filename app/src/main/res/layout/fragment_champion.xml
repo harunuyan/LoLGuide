@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/lol_blue_light"
-        android:fontFamily="@font/arbutus"
+        android:fontFamily="@font/audiowide"
         android:padding="12dp"
         android:textColor="@color/lol_blue"
         android:text="@string/champions"
