@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">LoL Guide &amp; Stats</string>
+    <string name="home">Home</string>
+    <string name="champions">Champions</string>
+    <string name="game_info">Game Info</string>
+    <string name="statistics">Statistics</string>
 </resources>
