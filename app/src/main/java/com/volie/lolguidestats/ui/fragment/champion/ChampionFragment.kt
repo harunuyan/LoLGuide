@@ -5,13 +5,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import com.volie.lolguidestats.data.model.champion.Data
 import com.volie.lolguidestats.databinding.FragmentChampionBinding
+import com.volie.lolguidestats.helper.Status
+import com.volie.lolguidestats.ui.adapter.ChampRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ChampionFragment : Fragment() {
     private var _mBinding: FragmentChampionBinding? = null
     private val mBinding get() = _mBinding!!
+    private val mViewModel: ChampionViewModel by viewModels()
+    private val mAdapter = ChampRVAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -20,6 +26,36 @@ class ChampionFragment : Fragment() {
     ): View {
         _mBinding = FragmentChampionBinding.inflate(inflater, container, false)
         return mBinding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        mBinding.rvChampions.adapter = mAdapter
+
+        mViewModel.getChampions()
+        observeLiveData()
+    }
+
+    private fun observeLiveData() {
+        mViewModel.champs.observe(viewLifecycleOwner) {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    it.data?.let { data ->
+                        val championMap = data.data
+                        val championList = championMap.values.toList()
+
+                        val myData = Data(championMap)
+                        // myData nesnesini kullanabilirsiniz veya doğrudan championList'i kullanabilirsiniz
+
+                        mAdapter.submitList(championList)
+                    }
+                }
+
+                Status.ERROR -> {}
+                Status.LOADING -> {}
+            }
+        }
     }
 
     override fun onDestroy() {
