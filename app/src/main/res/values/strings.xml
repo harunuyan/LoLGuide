@@ -4,4 +4,8 @@
     <string name="champions">Champions</string>
     <string name="game_info">Game Info</string>
     <string name="statistics">Statistics</string>
+    <string name="champion_class">Champion Class</string>
+    <string name="arm">ARM</string>
+    <string name="spell_nblock">Spell\nBlock</string>
+    <string name="skins">Skins</string>
 </resources>

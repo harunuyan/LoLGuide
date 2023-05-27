@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/lol_blue_light">
+
+        <TextView
+            android:id="@+id/tv_champ_name"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@color/lol_blue_light"
+            android:fontFamily="@font/audiowide"
+            android:padding="12dp"
+            android:text="Aatrox"
+            android:textColor="@color/lol_blue"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_first"
+            android:layout_width="match_parent"
+            android:layout_height="4dp"
+            android:background="@color/lol_yellow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_champ_name" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_champ_image"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_margin="8dp"
+            android:src="@color/lol_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_first"
+            app:shapeAppearanceOverlay="@style/RadiusImageView" />
+
+        <ImageView
+            android:id="@+id/iv_champ_class_first"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_margin="8dp"
+            android:src="@color/lol_blue_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_champ_image" />
+
+        <ImageView
+            android:id="@+id/iv_champ_class_second"
+            android:layout_width="44dp"
+            android:layout_height="44dp"
+            android:layout_margin="8dp"
+            android:src="@color/lol_blue_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_champ_image" />
+
+        <TextView
+            android:id="@+id/tv_hp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="HP"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_champ_class_first" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pb_hp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:max="1500"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintBottom_toBottomOf="@id/tv_hp"
+            app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
+            app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
+            app:layout_constraintTop_toTopOf="@id/tv_hp"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_hp_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="643"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_hp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_hp" />
+
+        <TextView
+            android:id="@+id/tv_mp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="MP"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_hp" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pb_mp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:max="1000"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintBottom_toBottomOf="@id/tv_mp"
+            app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
+            app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
+            app:layout_constraintTop_toTopOf="@id/tv_mp"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_mp_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="327"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_mp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_mp" />
+
+        <TextView
+            android:id="@+id/tv_armor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/arm"
+            android:textColor="@color/lol_blue"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_mp" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pb_armor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:max="200"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintBottom_toBottomOf="@id/tv_armor"
+            app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
+            app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
+            app:layout_constraintTop_toTopOf="@id/tv_armor"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_armor_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="36"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_armor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_armor" />
+
+        <TextView
+            android:id="@+id/tv_spell_block"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/spell_nblock"
+            android:textColor="@color/lol_blue"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_armor" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pb_spell_block"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:max="200"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintBottom_toBottomOf="@id/tv_spell_block"
+            app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
+            app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
+            app:layout_constraintTop_toTopOf="@id/tv_spell_block"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_spell_block_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="32"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_spell_block"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_spell_block" />
+
+        <TextView
+            android:id="@+id/tv_attack_damage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="AD"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_spell_block" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pb_attack_damage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:max="150"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintBottom_toBottomOf="@id/tv_attack_damage"
+            app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
+            app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
+            app:layout_constraintTop_toTopOf="@id/tv_attack_damage"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_attack_damage_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="63"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_attack_damage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_attack_damage" />
+
+        <TextView
+            android:id="@+id/tv_hp_regen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="HP\nReg"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_attack_damage" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pb_hp_regen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:max="50"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintBottom_toBottomOf="@id/tv_hp_regen"
+            app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
+            app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
+            app:layout_constraintTop_toTopOf="@id/tv_hp_regen"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_hp_regen_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="7.5"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_hp_regen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_hp_regen" />
+
+        <TextView
+            android:id="@+id/tv_mp_regen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="MP\nReg"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_hp_regen" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pb_mp_regen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:max="20"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintBottom_toBottomOf="@id/tv_mp_regen"
+            app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
+            app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
+            app:layout_constraintTop_toTopOf="@id/tv_mp_regen"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_mp_regen_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="7.59"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_mp_regen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_mp_regen" />
+
+        <TextView
+            android:id="@+id/tv_attack_range"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="Attack\nRange"
+            android:textColor="@color/lol_blue"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_mp_regen" />
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/pb_attack_Range"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"
+            android:max="20"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintBottom_toBottomOf="@id/tv_attack_range"
+            app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
+            app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
+            app:layout_constraintTop_toTopOf="@id/tv_attack_range"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_attack_range_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="125"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/tv_attack_range"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_attack_range" />
+
+        <View
+            android:id="@+id/view_second"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/lol_yellow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_attack_range" />
+
+        <TextView
+            android:id="@+id/tv_skins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/audiowide"
+            android:gravity="center"
+            android:text="@string/skins"
+            android:textColor="@color/lol_blue"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_second" />
+
+        <View
+            android:id="@+id/view_third"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/lol_yellow"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_skins" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tab_layout_skins"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@color/lol_blue_light"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_third"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/lol_yellow"
+            app:tabMode="scrollable" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager_skins"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tab_layout_skins" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
