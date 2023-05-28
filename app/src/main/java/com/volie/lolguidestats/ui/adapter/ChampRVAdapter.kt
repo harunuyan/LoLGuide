@@ -10,7 +10,9 @@ import com.volie.lolguidestats.data.model.champion.Champion
 import com.volie.lolguidestats.databinding.ItemChampionBinding
 import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
 
-class ChampRVAdapter : ListAdapter<Champion, ChampRVAdapter.ChampViewHolder>(
+class ChampRVAdapter(
+    val onChampClick: (Champion) -> Unit
+) : ListAdapter<Champion, ChampRVAdapter.ChampViewHolder>(
     ChampDiffCallback()
 ) {
     inner class ChampViewHolder(private val binding: ItemChampionBinding) :
@@ -18,29 +20,13 @@ class ChampRVAdapter : ListAdapter<Champion, ChampRVAdapter.ChampViewHolder>(
         fun bind(position: Int) {
             val champ = currentList[position]
             Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}champion/${champ.image.full}")
+                .load("${CHAMPION_IMAGE_URL}champion/${champ.image?.full}")
                 .into(binding.ivChampImageItem)
             binding.tvChampNameItem.text = champ.name
 
-            Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}passive/${champ.name}_P.png")
-                .into(binding.ivPassive)
-
-            Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}spell/${champ.name}Q.png")
-                .into(binding.ivSkillQ)
-
-            Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}spell/${champ.name}W.png")
-                .into(binding.ivSkillW)
-
-            Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}spell/${champ.name}E.png")
-                .into(binding.ivSkillE)
-
-            Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}spell/${champ.name}R.png")
-                .into(binding.ivSkillR)
+            binding.root.setOnClickListener {
+                onChampClick(champ)
+            }
         }
     }
 
