@@ -34,49 +34,6 @@
                 android:textColor="@color/lol_yellow"
                 android:textStyle="bold" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:visibility="gone">
-
-                <ImageView
-                    android:id="@+id/iv_passive"
-                    android:layout_width="0dp"
-                    android:layout_height="24dp"
-                    android:layout_weight="1"
-                    android:src="@color/white" />
-
-                <ImageView
-                    android:id="@+id/iv_skill_q"
-                    android:layout_width="0dp"
-                    android:layout_height="24dp"
-                    android:layout_weight="1"
-                    android:src="@color/black" />
-
-                <ImageView
-                    android:id="@+id/iv_skill_w"
-                    android:layout_width="0dp"
-                    android:layout_height="24dp"
-                    android:layout_weight="1"
-                    android:src="@color/white" />
-
-                <ImageView
-                    android:id="@+id/iv_skill_e"
-                    android:layout_width="0dp"
-                    android:layout_height="24dp"
-                    android:layout_weight="1"
-                    android:src="@color/black" />
-
-                <ImageView
-                    android:id="@+id/iv_skill_r"
-                    android:layout_width="0dp"
-                    android:layout_height="24dp"
-                    android:layout_weight="1"
-                    android:src="@color/white" />
-
-            </LinearLayout>
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
