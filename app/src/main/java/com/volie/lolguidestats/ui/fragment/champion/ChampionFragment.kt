@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.volie.lolguidestats.data.model.champion.Data
+import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentChampionBinding
 import com.volie.lolguidestats.helper.Status
 import com.volie.lolguidestats.ui.adapter.ChampRVAdapter
@@ -17,7 +17,13 @@ class ChampionFragment : Fragment() {
     private var _mBinding: FragmentChampionBinding? = null
     private val mBinding get() = _mBinding!!
     private val mViewModel: ChampionViewModel by viewModels()
-    private val mAdapter = ChampRVAdapter()
+    private val mAdapter: ChampRVAdapter by lazy {
+        ChampRVAdapter {
+            val action =
+                ChampionFragmentDirections.actionChampionFragmentToChampionsDetailsFragment(it)
+            findNavController().navigate(action)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,10 +50,6 @@ class ChampionFragment : Fragment() {
                     it.data?.let { data ->
                         val championMap = data.data
                         val championList = championMap.values.toList()
-
-                        val myData = Data(championMap)
-                        // myData nesnesini kullanabilirsiniz veya doğrudan championList'i kullanabilirsiniz
-
                         mAdapter.submitList(championList)
                     }
                 }

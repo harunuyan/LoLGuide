@@ -6,14 +6,14 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/lol_blue_light">
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_background">
 
         <TextView
             android:id="@+id/tv_champ_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/lol_blue_light"
+            android:background="@drawable/gradient_background"
             android:fontFamily="@font/audiowide"
             android:padding="12dp"
             android:text="Aatrox"
@@ -27,40 +27,60 @@
         <View
             android:id="@+id/view_first"
             android:layout_width="match_parent"
-            android:layout_height="4dp"
-            android:background="@color/lol_yellow"
+            android:layout_height="1dp"
+            android:background="@color/lol_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_champ_name" />
 
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/iv_champ_image"
+        <HorizontalScrollView
+            android:id="@+id/hv_champ_image"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
-            android:layout_margin="8dp"
-            android:src="@color/lol_blue"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_first"
-            app:shapeAppearanceOverlay="@style/RadiusImageView" />
+            app:layout_constraintTop_toBottomOf="@id/view_first">
+
+            <ImageView
+                android:id="@+id/iv_champ_image"
+                android:layout_width="wrap_content"
+                android:layout_height="350dp"
+                android:scaleType="centerCrop"
+                android:src="@color/lol_blue" />
+
+        </HorizontalScrollView>
 
         <ImageView
             android:id="@+id/iv_champ_class_first"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
             android:layout_margin="8dp"
-            android:src="@color/lol_blue_light"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_champ_image" />
+            app:layout_constraintTop_toBottomOf="@+id/hv_champ_image" />
+
+        <TextView
+            android:id="@+id/tv_champ_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/audiowide"
+            android:gravity="center"
+            android:text="the Heart of the Tempest"
+            android:textAlignment="center"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
+            app:layout_constraintTop_toBottomOf="@id/hv_champ_image" />
 
         <ImageView
             android:id="@+id/iv_champ_class_second"
-            android:layout_width="44dp"
-            android:layout_height="44dp"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
             android:layout_margin="8dp"
-            android:src="@color/lol_blue_light"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/iv_champ_image" />
+            app:layout_constraintTop_toBottomOf="@+id/hv_champ_image" />
 
         <TextView
             android:id="@+id/tv_hp"
@@ -191,7 +211,7 @@
             android:fontFamily="@font/audiowide"
             android:text="@string/spell_nblock"
             android:textColor="@color/lol_blue"
-            android:textSize="13sp"
+            android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_armor" />
@@ -350,9 +370,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
-            android:text="Attack\nRange"
+            android:text="Atc\nRng"
             android:textColor="@color/lol_blue"
-            android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_mp_regen" />
@@ -390,41 +409,167 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_yellow"
+            android:background="@color/lol_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_attack_range" />
 
+
         <TextView
-            android:id="@+id/tv_skins"
+            android:id="@+id/tv_blurb"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:gravity="center"
+            android:text="Innately connected to the magic of the spirit realm, Ahri is a fox-like vastaya who can manipulate her prey's emotions and consume their essence—receiving flashes of their memory and insight from each soul she consumes. Once a powerful yet wayward..."
+            android:textAlignment="center"
+            android:textColor="@color/lol_blue"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_second" />
+
+        <View
+            android:id="@+id/view_fourth"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/lol_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_blurb" />
+
+        <TextView
+            android:id="@+id/tv_circular_pb_attack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/attack"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_fourth" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circular_pb_attack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:max="10"
+
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintStart_toStartOf="@id/tv_circular_pb_attack"
+            app:layout_constraintTop_toBottomOf="@id/tv_circular_pb_attack"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_circular_pb_defense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/defense"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tv_circular_pb_magic"
+            app:layout_constraintStart_toEndOf="@id/tv_circular_pb_attack"
+            app:layout_constraintTop_toBottomOf="@id/view_fourth" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circular_pb_defense"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:max="10"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintStart_toStartOf="@id/tv_circular_pb_defense"
+            app:layout_constraintTop_toBottomOf="@id/tv_circular_pb_attack"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_circular_pb_magic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/magic"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/tv_circular_pb_difficulty"
+            app:layout_constraintStart_toEndOf="@id/tv_circular_pb_defense"
+            app:layout_constraintTop_toBottomOf="@id/view_fourth" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circular_pb_magic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:max="10"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintStart_toStartOf="@id/tv_circular_pb_magic"
+            app:layout_constraintTop_toBottomOf="@id/tv_circular_pb_attack"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_circular_pb_difficulty"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/difficulty"
+            android:textColor="@color/lol_blue"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_fourth" />
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circular_pb_difficulty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:max="10"
+            app:indicatorColor="@color/lol_yellow"
+            app:layout_constraintStart_toStartOf="@id/tv_circular_pb_difficulty"
+            app:layout_constraintTop_toBottomOf="@id/tv_circular_pb_attack"
+            app:trackColor="@color/lol_blue_light"
+            app:trackThickness="12dp" />
+
+        <TextView
+            android:id="@+id/tv_skills"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:fontFamily="@font/audiowide"
             android:gravity="center"
-            android:text="@string/skins"
+            android:text="@string/skills"
             android:textColor="@color/lol_blue"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_second" />
+            app:layout_constraintTop_toBottomOf="@id/circular_pb_attack" />
 
         <View
             android:id="@+id/view_third"
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_yellow"
+            android:background="@color/lol_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_skins" />
+            app:layout_constraintTop_toBottomOf="@id/tv_skills" />
 
         <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tab_layout_skins"
+            android:id="@+id/tab_layout_skills"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_blue_light"
+            android:background="@drawable/gradient_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_third"
@@ -433,13 +578,15 @@
             app:tabMode="scrollable" />
 
         <androidx.viewpager2.widget.ViewPager2
-            android:id="@+id/view_pager_skins"
+            android:id="@+id/view_pager_skills"
             android:layout_width="match_parent"
             android:layout_height="300dp"
+            android:background="@drawable/gradient_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tab_layout_skins" />
+            app:layout_constraintTop_toBottomOf="@id/tab_layout_skills" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </ScrollView>

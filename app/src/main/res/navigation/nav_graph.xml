@@ -11,7 +11,11 @@
     <fragment
         android:id="@+id/championFragment"
         android:name="com.volie.lolguidestats.ui.fragment.champion.ChampionFragment"
-        android:label="ChampionFragment" />
+        android:label="ChampionFragment">
+        <action
+            android:id="@+id/action_championFragment_to_championsDetailsFragment"
+            app:destination="@id/championsDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/infoFragment"
         android:name="com.volie.lolguidestats.ui.fragment.info.InfoFragment"
@@ -20,4 +24,12 @@
         android:id="@+id/statsFragment"
         android:name="com.volie.lolguidestats.ui.fragment.stats.StatsFragment"
         android:label="StatisticFragment" />
+    <fragment
+        android:id="@+id/championsDetailsFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.champ_detail.ChampionsDetailsFragment"
+        android:label="ChampionsDetailsFragment">
+        <argument
+            android:name="details"
+            app:argType="com.volie.lolguidestats.data.model.champion.Champion" />
+    </fragment>
 </navigation>

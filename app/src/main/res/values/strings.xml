@@ -8,4 +8,9 @@
     <string name="arm">ARM</string>
     <string name="spell_nblock">Spell\nBlock</string>
     <string name="skins">Skins</string>
+    <string name="attack">Attack</string>
+    <string name="defense">Defense</string>
+    <string name="difficulty">Difficulty</string>
+    <string name="magic">Magic</string>
+    <string name="skills">Skills</string>
 </resources>

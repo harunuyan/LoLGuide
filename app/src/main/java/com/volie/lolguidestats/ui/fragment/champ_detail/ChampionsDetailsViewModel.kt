@@ -1,4 +1,4 @@
-package com.volie.lolguidestats.ui.fragment.champion
+package com.volie.lolguidestats.ui.fragment.champ_detail
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -13,19 +13,18 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class ChampionViewModel
+class ChampionsDetailsViewModel
 @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    private val _champs = MutableLiveData<Resource<Data>>()
-    val champs: LiveData<Resource<Data>> = _champs
+    private val _champions = MutableLiveData<Resource<Data>>()
+    val champions: LiveData<Resource<Data>> = _champions
 
-    fun getChampions() {
-        _champs.postValue(Resource.loading(null))
+    fun getChampionDetails(champ: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.getChampions(".json")
-            _champs.postValue(result)
+            val result = repository.getChampions("/${champ}.json")
+            _champions.postValue(result)
         }
     }
 }
