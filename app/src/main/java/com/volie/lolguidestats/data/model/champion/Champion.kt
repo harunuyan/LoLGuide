@@ -5,20 +5,21 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Champion(
-    val id: String,
-    val name: String,
-    val title: String,
-    val blurb: String,
-    val info: Info,
-    val image: Image,
-    val skins: List<Skin>,
-    val lore: String,
-    val allytips: List<String>,
-    val enemytips: List<String>,
-    val tags: List<String>,
-    val partype: String,
-    val stats: Stats,
-    val spells: List<Spell>
+    val id: String? = null,
+    val name: String? = null,
+    val title: String? = null,
+    val blurb: String? = null,
+    val info: Info? = null,
+    val image: Image? = null,
+    val skins: List<Skin>? = null,
+    val lore: String? = null,
+    val passive: Passive? = null,
+    val allytips: List<String>? = null,
+    val enemytips: List<String>? = null,
+    val tags: List<String>? = null,
+    val partype: String? = null,
+    val stats: Stats? = null,
+    val spells: List<Spell>? = null,
 ) : Parcelable
 
 
