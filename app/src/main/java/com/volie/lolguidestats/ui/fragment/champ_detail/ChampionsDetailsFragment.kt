@@ -19,7 +19,6 @@ import com.volie.lolguidestats.databinding.FragmentChampionsDetailsBinding
 import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
 import com.volie.lolguidestats.helper.Constant.CHAMPION_URL
 import com.volie.lolguidestats.helper.Status
-import com.volie.lolguidestats.ui.adapter.ViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -28,8 +27,8 @@ class ChampionsDetailsFragment : Fragment() {
     private val mBinding get() = _mBinding!!
     private val mViewModel: ChampionsDetailsViewModel by viewModels()
     private val mArgs: ChampionsDetailsFragmentArgs by navArgs()
-    private val skillFragments = ArrayList<Fragment>()
-
+    private val skillFragment = ArrayList<Fragment>()
+    private val skinFragment = ArrayList<Fragment>()
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -190,7 +189,7 @@ class ChampionsDetailsFragment : Fragment() {
                 Status.SUCCESS -> {
                     val result = it.data!!.data.get(mArgs.details.id)
 
-                    with(skillFragments) {
+                    with(skillFragment) {
                         add(
                             SkillPageFragment(
                                 result?.passive?.name!!,
@@ -232,12 +231,35 @@ class ChampionsDetailsFragment : Fragment() {
                         )
                     }
 
-                    val adapter = ViewPagerAdapter(
-                        skillFragments,
+                    for (i in 1 until result?.skins!!.size) {
+                        skinFragment.add(
+                            SkinPageFragment("${CHAMPION_URL}${result.id}_$i.jpg")
+                        )
+                    }
+
+                    val skinVPAdapter = SkinViewPagerAdapter(
+                        skinFragment,
                         requireActivity()
                     )
 
-                    mBinding.viewPagerSkills.adapter = adapter
+                    mBinding.viewPagerSkins.isUserInputEnabled = false
+                    mBinding.viewPagerSkins.offscreenPageLimit = result.skins.size
+                    mBinding.viewPagerSkins.adapter = skinVPAdapter
+
+
+                    val skillVPAdapter = SkillViewPagerAdapter(
+                        skillFragment,
+                        requireActivity()
+                    )
+
+                    TabLayoutMediator(
+                        mBinding.tabLayoutSkins,
+                        mBinding.viewPagerSkins
+                    ) { tab, position ->
+                        tab.text = result.skins[position + 1].name
+                    }.attach()
+
+                    mBinding.viewPagerSkills.adapter = skillVPAdapter
 
                     TabLayoutMediator(
                         mBinding.tabLayoutSkills,

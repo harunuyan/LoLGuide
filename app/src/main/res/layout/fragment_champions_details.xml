@@ -568,17 +568,17 @@
             android:id="@+id/tab_layout_skills"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:tabGravity="center"
-            app:tabIndicatorGravity="stretch"
-            app:tabIndicatorFullWidth="true"
-            app:tabTextColor="@color/lol_yellow"
             android:layout_marginTop="12dp"
             android:background="@drawable/gradient_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_third"
+            app:tabGravity="center"
             app:tabIndicatorColor="@color/lol_blue"
-            app:tabMode="scrollable" />
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorGravity="stretch"
+            app:tabMode="scrollable"
+            app:tabTextColor="@color/lol_yellow" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager_skills"
@@ -593,9 +593,9 @@
             android:id="@+id/view_fifth"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            app:layout_constraintStart_toStartOf="parent"
             android:background="@color/lol_blue"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_pager_skills" />
 
         <TextView
@@ -617,26 +617,25 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginTop="12dp"
-            app:layout_constraintStart_toStartOf="parent"
             android:background="@color/lol_blue"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_skins" />
 
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tab_layout_skins"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:tabGravity="center"
-            app:tabIndicatorGravity="stretch"
-            app:tabIndicatorFullWidth="true"
-            app:tabTextColor="@color/lol_yellow"
             android:layout_marginTop="12dp"
             android:background="@drawable/gradient_background"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_sixth"
             app:tabIndicatorColor="@color/lol_blue"
-            app:tabMode="scrollable" />
+            app:tabIndicatorFullWidth="true"
+            app:tabIndicatorGravity="stretch"
+            app:tabMode="scrollable"
+            app:tabTextColor="@color/lol_yellow" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager_skins"
