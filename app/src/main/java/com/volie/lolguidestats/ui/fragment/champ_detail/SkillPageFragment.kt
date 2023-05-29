@@ -7,7 +7,9 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.databinding.FragmentSkillPageBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SkillPageFragment(
     private val skillName: String,
     private val skillDescription: String,
