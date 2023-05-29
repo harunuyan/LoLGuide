@@ -1,10 +1,10 @@
-package com.volie.lolguidestats.ui.adapter
+package com.volie.lolguidestats.ui.fragment.champ_detail
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 
-class ViewPagerAdapter(
+class SkillViewPagerAdapter(
     private val pages: List<Fragment>,
     fragmentActivity: FragmentActivity
 ) : FragmentStateAdapter(fragmentActivity) {
