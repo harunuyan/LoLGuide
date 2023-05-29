@@ -1,9 +1,7 @@
 package com.volie.lolguidestats.ui.fragment.champ_detail
 
 import android.animation.ObjectAnimator
-import android.graphics.drawable.Drawable
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -13,17 +11,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.CustomViewTarget
-import com.bumptech.glide.request.transition.Transition
 import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.progressindicator.LinearProgressIndicator
-import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.volie.lolguidestats.R
 import com.volie.lolguidestats.databinding.FragmentChampionsDetailsBinding
 import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
 import com.volie.lolguidestats.helper.Constant.CHAMPION_URL
 import com.volie.lolguidestats.helper.Status
+import com.volie.lolguidestats.ui.adapter.ViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -32,8 +28,7 @@ class ChampionsDetailsFragment : Fragment() {
     private val mBinding get() = _mBinding!!
     private val mViewModel: ChampionsDetailsViewModel by viewModels()
     private val mArgs: ChampionsDetailsFragmentArgs by navArgs()
-    private val fragments = ArrayList<Fragment>()
-    private val title = ArrayList<String>()
+    private val skillFragments = ArrayList<Fragment>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,7 +54,7 @@ class ChampionsDetailsFragment : Fragment() {
         mBinding.tvChampName.text = champ.name
 
         Glide.with(requireContext())
-            .load("${CHAMPION_URL}${champ.name}_0.jpg")
+            .load("${CHAMPION_URL}${champ.id}_0.jpg")
             .into(mBinding.ivChampImage)
 
         mBinding.tvChampTitle.text = champ.title
@@ -195,38 +190,50 @@ class ChampionsDetailsFragment : Fragment() {
                 Status.SUCCESS -> {
                     val result = it.data!!.data.get(mArgs.details.id)
 
-                    with(fragments) {
+                    with(skillFragments) {
                         add(
                             SkillPageFragment(
-                                result?.spells?.get(0)!!.name,
-                                result.spells.get(0).description
+                                result?.passive?.name!!,
+                                result.passive.description!!,
+                                "${CHAMPION_IMAGE_URL}passive/${result.passive.image?.full}"
+                            )
+                        )
+
+                        add(
+                            SkillPageFragment(
+                                result.spells?.get(0)!!.name,
+                                result.spells.get(0).description,
+                                "${CHAMPION_IMAGE_URL}spell/${result.spells.get(0).image.full}"
                             )
                         )
 
                         add(
                             SkillPageFragment(
                                 result.spells.get(1).name,
-                                result.spells.get(1).description
+                                result.spells.get(1).description,
+                                "${CHAMPION_IMAGE_URL}spell/${result.spells.get(1).image.full}"
                             )
                         )
 
                         add(
                             SkillPageFragment(
                                 result.spells.get(2).name,
-                                result.spells.get(2).description
+                                result.spells.get(2).description,
+                                "${CHAMPION_IMAGE_URL}spell/${result.spells.get(2).image.full}"
                             )
                         )
 
                         add(
                             SkillPageFragment(
                                 result.spells.get(3).name,
-                                result.spells.get(3).description
+                                result.spells.get(3).description,
+                                "${CHAMPION_IMAGE_URL}spell/${result.spells.get(3).image.full}"
                             )
                         )
                     }
 
-                    val adapter = SkillViewPagerAdapter(
-                        fragments,
+                    val adapter = ViewPagerAdapter(
+                        skillFragments,
                         requireActivity()
                     )
 
@@ -235,23 +242,13 @@ class ChampionsDetailsFragment : Fragment() {
                     TabLayoutMediator(
                         mBinding.tabLayoutSkills,
                         mBinding.viewPagerSkills
-                    ) { _, position ->
+                    ) { tab, position ->
                         when (position) {
-                            0 -> loadSpellsImage(
-                                "${CHAMPION_IMAGE_URL}/spell/${result?.spells?.get(0)?.id}.png", 0
-                            )
-
-                            1 -> loadSpellsImage(
-                                "${CHAMPION_IMAGE_URL}/spell/${result?.spells?.get(1)?.id}.png", 1
-                            )
-
-                            2 -> loadSpellsImage(
-                                "${CHAMPION_IMAGE_URL}/spell/${result?.spells?.get(2)?.id}.png", 2
-                            )
-
-                            3 -> loadSpellsImage(
-                                "${CHAMPION_IMAGE_URL}/spell/${result?.spells?.get(3)?.id}.png", 3
-                            )
+                            0 -> tab.text = "Passive"
+                            1 -> tab.text = "Q"
+                            2 -> tab.text = "W"
+                            3 -> tab.text = "E"
+                            4 -> tab.text = "R"
                         }
                     }.attach()
                 }
@@ -260,30 +257,6 @@ class ChampionsDetailsFragment : Fragment() {
                 Status.ERROR -> {}
             }
         }
-    }
-
-    private fun loadSpellsImage(url: String, index: Int) {
-        Glide.with(requireContext())
-            .load(url)
-            .override(64, 64)
-            .into(object : CustomViewTarget<TabLayout, Drawable>(mBinding.tabLayoutSkills) {
-                override fun onLoadFailed(errorDrawable: Drawable?) {
-                    Log.e("TAG", "onLoadFailed: ")
-                }
-
-                override fun onResourceCleared(placeholder: Drawable?) {
-                    Log.e("TAG", "onResourceCleared: ")
-                }
-
-                override fun onResourceReady(
-                    resource: Drawable,
-                    transition: Transition<in Drawable>?
-                ) {
-                    val tab = mBinding.tabLayoutSkills.getTabAt(index)
-                    tab?.icon = resource
-                }
-
-            })
     }
 
     private fun updateLinearProgressWithAnimator(
