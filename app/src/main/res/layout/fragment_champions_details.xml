@@ -65,7 +65,6 @@
             android:layout_marginTop="16dp"
             android:fontFamily="@font/audiowide"
             android:gravity="center"
-            android:text="the Heart of the Tempest"
             android:textAlignment="center"
             android:textColor="@color/lol_blue"
             android:textStyle="bold"
@@ -382,7 +381,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:max="20"
+            android:max="1000"
             app:indicatorColor="@color/lol_yellow"
             app:layout_constraintBottom_toBottomOf="@id/tv_attack_range"
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
@@ -442,6 +441,106 @@
             app:layout_constraintTop_toBottomOf="@id/tv_blurb" />
 
         <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/gradient_blue"
+            android:fontFamily="@font/audiowide"
+            android:gravity="center"
+            android:text="@string/tips"
+            android:textColor="@color/lol_blue"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_fourth" />
+
+        <View
+            android:id="@+id/view_tips"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/lol_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_tips" />
+
+        <TextView
+            android:id="@+id/tv_tips_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/lol_blue"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_tips" />
+
+        <View
+            android:id="@+id/view_tips_end"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/lol_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_tips_content" />
+
+        <TextView
+            android:id="@+id/tv_enemy_tips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/gradient_blue"
+            android:fontFamily="@font/audiowide"
+            android:gravity="center"
+            android:text="@string/tips_against_the_enemy"
+            android:textColor="@color/lol_blue"
+            android:textSize="22sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_tips_end" />
+
+        <View
+            android:id="@+id/view_enemy_tips"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/lol_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_enemy_tips" />
+
+        <TextView
+            android:id="@+id/tv_enemy_tips_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp"
+            android:fontFamily="@font/audiowide"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/lol_blue"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_enemy_tips" />
+
+        <View
+            android:id="@+id/view_enemy_tips_end"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/lol_blue"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_enemy_tips_content" />
+
+        <TextView
             android:id="@+id/tv_circular_pb_attack"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -451,7 +550,7 @@
             android:textColor="@color/lol_blue"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_fourth" />
+            app:layout_constraintTop_toBottomOf="@id/view_enemy_tips_end" />
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/circular_pb_attack"
@@ -459,7 +558,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:max="10"
-
             app:indicatorColor="@color/lol_yellow"
             app:layout_constraintStart_toStartOf="@id/tv_circular_pb_attack"
             app:layout_constraintTop_toBottomOf="@id/tv_circular_pb_attack"
@@ -477,7 +575,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/tv_circular_pb_magic"
             app:layout_constraintStart_toEndOf="@id/tv_circular_pb_attack"
-            app:layout_constraintTop_toBottomOf="@id/view_fourth" />
+            app:layout_constraintTop_toBottomOf="@id/view_enemy_tips_end" />
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/circular_pb_defense"
@@ -502,7 +600,7 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/tv_circular_pb_difficulty"
             app:layout_constraintStart_toEndOf="@id/tv_circular_pb_defense"
-            app:layout_constraintTop_toBottomOf="@id/view_fourth" />
+            app:layout_constraintTop_toBottomOf="@id/view_enemy_tips_end" />
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/circular_pb_magic"
@@ -526,7 +624,7 @@
             android:textColor="@color/lol_blue"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/view_fourth" />
+            app:layout_constraintTop_toBottomOf="@id/view_enemy_tips_end" />
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/circular_pb_difficulty"
@@ -545,6 +643,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
             android:gravity="center"
             android:text="@string/skills"
@@ -569,7 +668,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="@drawable/gradient_background"
+            android:background="@drawable/gradient_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_third"
@@ -603,6 +702,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
+            android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
             android:gravity="center"
             android:text="@string/skins"
@@ -627,7 +727,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:background="@drawable/gradient_background"
+            android:background="@drawable/gradient_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_sixth"

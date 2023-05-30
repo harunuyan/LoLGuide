@@ -13,4 +13,7 @@
     <string name="difficulty">Difficulty</string>
     <string name="magic">Magic</string>
     <string name="skills">Skills</string>
+    <string name="tips">Tips</string>
+    <string name="tips_against_the_enemy">Tips against the enemy</string>
+    <string name="items">Items</string>
 </resources>

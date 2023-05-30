@@ -11,7 +11,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
-import com.google.android.material.progressindicator.CircularProgressIndicator
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.android.material.tabs.TabLayoutMediator
 import com.volie.lolguidestats.R
@@ -114,12 +113,10 @@ class ChampionsDetailsFragment : Fragment() {
             champ.stats.attackrange.toInt()
         )
 
-        mBinding.tvBlurb.text = champ.blurb
-
-        updateCircularProgressWithAnimator(mBinding.circularPbAttack, champ.info!!.attack)
-        updateCircularProgressWithAnimator(mBinding.circularPbDefense, champ.info.defense)
-        updateCircularProgressWithAnimator(mBinding.circularPbMagic, champ.info.magic)
-        updateCircularProgressWithAnimator(mBinding.circularPbDifficulty, champ.info.difficulty)
+        mBinding.circularPbAttack.progress = champ.info!!.attack
+        mBinding.circularPbDefense.progress = champ.info.defense
+        mBinding.circularPbMagic.progress = champ.info.magic
+        mBinding.circularPbDifficulty.progress = champ.info.difficulty
 
 
         when (champ.tags?.get(0)) {
@@ -187,12 +184,36 @@ class ChampionsDetailsFragment : Fragment() {
         mViewModel.champions.observe(viewLifecycleOwner) {
             when (it.status) {
                 Status.SUCCESS -> {
-                    val result = it.data!!.data.get(mArgs.details.id)
+                    val result = it.data!!.data[mArgs.details.id]!!
+
+                    mBinding.tvBlurb.text = result.lore
+
+                    if (!result.allytips.isNullOrEmpty()) {
+                        for (i in result.allytips.indices) {
+                            mBinding.tvTipsContent.append("${result.allytips[i]}\n\n")
+                        }
+                    } else {
+                        mBinding.tvTips.visibility = View.GONE
+                        mBinding.tvTipsContent.visibility = View.GONE
+                        mBinding.viewTips.visibility = View.GONE
+                        mBinding.viewTipsEnd.visibility = View.GONE
+                    }
+
+                    if (!result.enemytips.isNullOrEmpty()) {
+                        for (i in result.enemytips.indices) {
+                            mBinding.tvEnemyTipsContent.append("${result.enemytips[i]}\n\n")
+                        }
+                    } else {
+                        mBinding.tvEnemyTips.visibility = View.GONE
+                        mBinding.tvEnemyTipsContent.visibility = View.GONE
+                        mBinding.viewEnemyTips.visibility = View.GONE
+                        mBinding.viewEnemyTipsEnd.visibility = View.GONE
+                    }
 
                     with(skillFragment) {
                         add(
                             SkillPageFragment(
-                                result?.passive?.name!!,
+                                result.passive?.name!!,
                                 result.passive.description!!,
                                 "${CHAMPION_IMAGE_URL}passive/${result.passive.image?.full}"
                             )
@@ -231,7 +252,7 @@ class ChampionsDetailsFragment : Fragment() {
                         )
                     }
 
-                    for (i in 1 until result?.skins!!.size) {
+                    for (i in 0 until result.skins!!.size) {
                         skinFragment.add(
                             SkinPageFragment("${CHAMPION_URL}${result.id}_$i.jpg")
                         )
@@ -256,7 +277,7 @@ class ChampionsDetailsFragment : Fragment() {
                         mBinding.tabLayoutSkins,
                         mBinding.viewPagerSkins
                     ) { tab, position ->
-                        tab.text = result.skins[position + 1].name
+                        tab.text = result.skins[position].name
                     }.attach()
 
                     mBinding.viewPagerSkills.adapter = skillVPAdapter
@@ -291,21 +312,8 @@ class ChampionsDetailsFragment : Fragment() {
 
         val animator = ObjectAnimator.ofInt(progressIndicator, "progress", 0, endValue)
         with(animator) {
-            duration = 1500
+            duration = 1000
             interpolator = LinearInterpolator()
-            start()
-        }
-    }
-
-    private fun updateCircularProgressWithAnimator(
-        progressIndicator: CircularProgressIndicator,
-        endValue: Int,
-    ) {
-        progressIndicator.progress = endValue
-
-        val animator = ObjectAnimator.ofInt(progressIndicator, "progress", 0, endValue)
-        with(animator) {
-            duration = 3000
             start()
         }
     }
