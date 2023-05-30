@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeFragment">
+    app:startDestination="@id/itemFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -32,4 +32,16 @@
             android:name="details"
             app:argType="com.volie.lolguidestats.data.model.champion.Champion" />
     </fragment>
+    <fragment
+        android:id="@+id/skillPageFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.champ_detail.SkillPageFragment"
+        android:label="SkillPageFragment" />
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.item.ItemFragment"
+        android:label="ItemFragment" />
+    <fragment
+        android:id="@+id/skinPageFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.champ_detail.SkinPageFragment"
+        android:label="SkinPageFragment" />
 </navigation>
