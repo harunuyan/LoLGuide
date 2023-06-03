@@ -1,4 +1,4 @@
-package com.volie.lolguidestats.ui.adapter
+package com.volie.lolguidestats.ui.fragment.item
 
 import android.view.LayoutInflater
 import android.view.View
@@ -22,15 +22,15 @@ class ItemRVAdapter(
             val item = currentList[position]
 
             Glide.with(binding.root)
-                .load("${ITEM_IMAGE}${item.itemImage.full}")
+                .load("${ITEM_IMAGE}${item.itemImage?.full}")
                 .into(binding.ivItemImage)
 
             binding.tvItemName.text = item.name
 
             binding.tvItemPlain.text = item.plaintext
 
-            if (item.gold.base != 0) {
-                binding.tvGold.text = item.gold.base.toString()
+            if (item.gold?.base != 0) {
+                binding.tvGold.text = item.gold?.total.toString()
             } else {
                 binding.tvGold.visibility = View.GONE
                 binding.ivGold.visibility = View.GONE
@@ -47,12 +47,12 @@ class ItemRVAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ItemRVAdapter.ItemViewHolder {
+    ): ItemViewHolder {
         val binding = ItemItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ItemViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ItemRVAdapter.ItemViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.bind(position)
     }
 

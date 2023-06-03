@@ -1,4 +1,4 @@
-package com.volie.lolguidestats.ui.adapter
+package com.volie.lolguidestats.ui.fragment.champion
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -33,13 +33,13 @@ class ChampRVAdapter(
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ChampRVAdapter.ChampViewHolder {
+    ): ChampViewHolder {
         val binding =
             ItemChampionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ChampViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: ChampRVAdapter.ChampViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ChampViewHolder, position: Int) {
         holder.bind(position)
     }
 

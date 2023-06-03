@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentChampionBinding
 import com.volie.lolguidestats.helper.Status
-import com.volie.lolguidestats.ui.adapter.ChampRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
