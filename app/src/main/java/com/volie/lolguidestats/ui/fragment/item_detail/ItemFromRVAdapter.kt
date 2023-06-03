@@ -5,14 +5,13 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.volie.lolguidestats.data.model.item.Item
 import com.volie.lolguidestats.databinding.ItemIntoAndFromBinding
 import com.volie.lolguidestats.helper.Constant.ITEM_IMAGE
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
-class ItemFromAdapter(
-    private val onItemClick: (Item) -> Unit
-) : BaseAdapter<Item>(ItemFromDiffCallback()) {
+class ItemFromRVAdapter(
+    private val onItemClick: () -> Unit
+) : BaseAdapter<String>(ItemFromDiffCallback()) {
 
     inner class ItemFromViewHolder(private val binding: ItemIntoAndFromBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -20,11 +19,11 @@ class ItemFromAdapter(
             val itemFrom = currentList[position]
 
             Glide.with(binding.root)
-                .load("${ITEM_IMAGE}${itemFrom.from?.get(position)}.png")
+                .load("${ITEM_IMAGE}${itemFrom}.png")
                 .into(binding.ivItem)
 
             binding.root.setOnClickListener {
-                onItemClick(itemFrom)
+                onItemClick()
             }
         }
     }
@@ -38,19 +37,19 @@ class ItemFromAdapter(
         return ItemFromViewHolder(binding)
     }
 
-    override fun bindViewHolder(holder: RecyclerView.ViewHolder, item: Item, position: Int) {
+    override fun bindViewHolder(holder: RecyclerView.ViewHolder, item: String, position: Int) {
         if (holder is ItemFromViewHolder) {
             holder.bind(position)
         }
     }
 }
 
-class ItemFromDiffCallback : DiffUtil.ItemCallback<Item>() {
-    override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean {
+class ItemFromDiffCallback : DiffUtil.ItemCallback<String>() {
+    override fun areItemsTheSame(oldItem: String, newItem: String): Boolean {
         return oldItem == newItem
     }
 
-    override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean {
+    override fun areContentsTheSame(oldItem: String, newItem: String): Boolean {
         return oldItem == newItem
     }
 }
