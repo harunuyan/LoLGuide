@@ -2,6 +2,7 @@ package com.volie.lolguidestats.data.remote.service
 
 import com.volie.lolguidestats.data.model.champion.Data
 import com.volie.lolguidestats.data.model.item.ItemData
+import com.volie.lolguidestats.data.model.profile_icon.IconData
 import com.volie.lolguidestats.data.model.summoner_spell.SummonerSpellData
 import retrofit2.Response
 import retrofit2.http.GET
@@ -24,8 +25,14 @@ interface LOLApi {
     ): Response<ItemData>
 
     @GET("data/{region}/summoner.json")
-    suspend fun getSummonerSpell(
+    suspend fun getSummonerSpells(
         @Path("region")
         region: String = "en_US"
     ): Response<SummonerSpellData>
+
+    @GET("data/{region}/profileicon.json")
+    suspend fun getProfileIcons(
+        @Path("region")
+        region: String = "en_US"
+    ): Response<IconData>
 }
