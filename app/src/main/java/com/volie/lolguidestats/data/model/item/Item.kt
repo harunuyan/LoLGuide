@@ -1,18 +1,21 @@
 package com.volie.lolguidestats.data.model.item
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Item(
-    val name: String,
-    val description: String,
-    val plaintext: String,
+    val name: String? = null,
+    val description: String? = null,
+    val plaintext: String? = null,
     val into: List<String>,
     @SerializedName("image")
-    val itemImage: ItemImage,
-    val gold: Gold,
-    val from: List<String>,
-    val tags: List<String>,
+    val itemImage: ItemImage? = null,
+    val gold: Gold? = null,
+    val from: List<String>? = null,
+    val tags: List<String>? = null,
     @SerializedName("stats")
-    val itemStats: Map<String, Double>,
-    val maps: Map<String, Boolean>
-)
+    val itemStats: Map<String, Double>? = null,
+    val maps: Map<String, Boolean>? = null,
+) : Parcelable
