@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_item_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lol_blue_light"
+        android:fontFamily="@font/audiowide"
+        android:padding="12dp"
+        android:text="@string/items"
+        android:textColor="@color/lol_blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/view_header"
+        android:layout_width="match_parent"
+        android:layout_height="4dp"
+        android:background="@color/lol_yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_header" />
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_item_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="24dp"
+        android:src="@color/lol_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_header"
+        app:shapeAppearanceOverlay="@style/RadiusImageView" />
+
+    <TextView
+        android:id="@+id/tv_gold"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="1800"
+        android:textColor="@color/lol_yellow"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/iv_gold"
+        app:layout_constraintEnd_toStartOf="@id/iv_gold"
+        app:layout_constraintTop_toTopOf="@id/iv_gold" />
+
+    <ImageView
+        android:id="@+id/iv_gold"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_margin="12dp"
+        android:src="@drawable/ic_gold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_header" />
+
+    <TextView
+        android:id="@+id/tv_gold_Sell"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="-1000"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/iv_gold_sell"
+        app:layout_constraintTop_toBottomOf="@id/tv_gold" />
+
+    <ImageView
+        android:id="@+id/iv_gold_sell"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="12dp"
+        android:src="@drawable/ic_gold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_gold" />
+
+    <TextView
+        android:id="@+id/tv_item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
+        android:padding="12dp"
+        android:text="Broken Stopwatch"
+        android:textAlignment="center"
+        android:textColor="@color/lol_blue"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/iv_item_image" />
+
+    <TextView
+        android:id="@+id/tv_item_plain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
+        android:padding="12dp"
+        android:text="Broken Stopwatch"
+        android:textAlignment="center"
+        android:textColor="@color/lol_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_name" />
+
+    <TextView
+        android:id="@+id/tv_item_tags"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
+        android:padding="12dp"
+        android:text="Broken Stopwatch"
+        android:textAlignment="center"
+        android:textColor="@color/lol_yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_plain" />
+
+    <TextView
+        android:id="@+id/tv_item_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/audiowide"
+        android:padding="12dp"
+        android:text="Broken Stopwatch"
+        android:textAlignment="center"
+        android:textColor="@color/lol_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_tags" />
+
+    <TextView
+        android:id="@+id/tv_from"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lol_blue_light"
+        android:fontFamily="@font/audiowide"
+        android:padding="12dp"
+        android:text="@string/from"
+        android:textAlignment="center"
+        android:textColor="@color/lol_blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_description" />
+
+    <View
+        android:id="@+id/view_from"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/lol_yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_from" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_from"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_from" />
+
+    <TextView
+        android:id="@+id/tv_into"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/lol_blue_light"
+        android:fontFamily="@font/audiowide"
+        android:padding="12dp"
+        android:text="@string/into"
+        android:textAlignment="center"
+        android:textColor="@color/lol_blue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rv_from" />
+
+    <View
+        android:id="@+id/view_into"
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:background="@color/lol_yellow"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_into" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_into"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/view_into" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

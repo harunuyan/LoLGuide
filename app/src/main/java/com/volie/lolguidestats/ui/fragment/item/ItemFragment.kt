@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentItemBinding
 import com.volie.lolguidestats.helper.Status
-import com.volie.lolguidestats.ui.adapter.ItemRVAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,7 +19,8 @@ class ItemFragment : Fragment() {
     private val mAdapter: ItemRVAdapter by lazy {
         ItemRVAdapter(
             onItemClick = {
-
+                val action = ItemFragmentDirections.actionItemFragmentToItemDetailsFragment(it)
+                findNavController().navigate(action)
             }
         )
     }
