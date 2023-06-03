@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/summonerSpellFragment">
+    app:startDestination="@id/profileIconFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -60,4 +60,8 @@
         android:id="@+id/summonerSpellFragment"
         android:name="com.volie.lolguidestats.ui.fragment.summoner_spell.SummonerSpellFragment"
         android:label="SummonerSpellFragment" />
+    <fragment
+        android:id="@+id/profileIconFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.icon.ProfileIconFragment"
+        android:label="ProfileIconFragment" />
 </navigation>
