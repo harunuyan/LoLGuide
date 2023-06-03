@@ -2,6 +2,7 @@ package com.volie.lolguidestats.data.remote
 
 import com.volie.lolguidestats.data.model.champion.Data
 import com.volie.lolguidestats.data.model.item.ItemData
+import com.volie.lolguidestats.data.model.summoner_spell.SummonerSpellData
 import com.volie.lolguidestats.data.remote.service.LOLApi
 import com.volie.lolguidestats.helper.Resource
 import javax.inject.Inject
@@ -29,6 +30,21 @@ class Repository
     suspend fun getItems(): Resource<ItemData> {
         return try {
             val response = service.getItems()
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    return@let Resource.success(it)
+                } ?: Resource.error("Error*1", null)
+            } else {
+                Resource.error("Error*2", null)
+            }
+        } catch (e: Exception) {
+            Resource.error("$e", null)
+        }
+    }
+
+    suspend fun getSummonerSpell(): Resource<SummonerSpellData> {
+        return try {
+            val response = service.getSummonerSpell()
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@let Resource.success(it)

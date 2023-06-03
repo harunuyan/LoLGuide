@@ -16,13 +16,13 @@ class ItemDetailsFragment : Fragment() {
     private var _mBinding: FragmentItemDetailsBinding? = null
     private val mBinding get() = _mBinding!!
     private val mArgs: ItemDetailsFragmentArgs by navArgs()
-    private val intoAdapter: ItemIntoAdapter by lazy {
-        ItemIntoAdapter {
+    private val intoAdapter: ItemIntoRVAdapter by lazy {
+        ItemIntoRVAdapter {
 
         }
     }
-    private val fromAdapter: ItemFromAdapter by lazy {
-        ItemFromAdapter {
+    private val fromAdapter: ItemFromRVAdapter by lazy {
+        ItemFromRVAdapter {
 
         }
     }
@@ -46,8 +46,9 @@ class ItemDetailsFragment : Fragment() {
 
     private fun showDetails() {
 
-        intoAdapter.submitList(listOf(mArgs.items))
-        fromAdapter.submitList(listOf(mArgs.items))
+        intoAdapter.submitList(mArgs.items.into)
+        fromAdapter.submitList(mArgs.items.from)
+
 
         Glide.with(requireContext())
             .load("$ITEM_IMAGE${mArgs.items.itemImage?.full}")

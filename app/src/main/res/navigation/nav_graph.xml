@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/itemFragment">
+    app:startDestination="@id/summonerSpellFragment">
 
     <fragment
         android:id="@+id/homeFragment"
@@ -39,9 +39,25 @@
     <fragment
         android:id="@+id/itemFragment"
         android:name="com.volie.lolguidestats.ui.fragment.item.ItemFragment"
-        android:label="ItemFragment" />
+        android:label="ItemFragment">
+        <action
+            android:id="@+id/action_itemFragment_to_itemDetailsFragment"
+            app:destination="@id/itemDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/skinPageFragment"
         android:name="com.volie.lolguidestats.ui.fragment.champ_detail.SkinPageFragment"
         android:label="SkinPageFragment" />
+    <fragment
+        android:id="@+id/itemDetailsFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.item_detail.ItemDetailsFragment"
+        android:label="ItemDetailsFragment">
+        <argument
+            android:name="items"
+            app:argType="com.volie.lolguidestats.data.model.item.Item" />
+    </fragment>
+    <fragment
+        android:id="@+id/summonerSpellFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.summoner_spell.SummonerSpellFragment"
+        android:label="SummonerSpellFragment" />
 </navigation>
