@@ -63,5 +63,17 @@
     <fragment
         android:id="@+id/profileIconFragment"
         android:name="com.volie.lolguidestats.ui.fragment.icon.ProfileIconFragment"
-        android:label="ProfileIconFragment" />
+        android:label="ProfileIconFragment">
+        <action
+            android:id="@+id/action_profileIconFragment_to_profileIconDetailsFragment"
+            app:destination="@id/profileIconDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileIconDetailsFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.icon_detail.ProfileIconDetailsFragment"
+        android:label="ProfileIconDetailsFragment">
+        <argument
+            android:name="itemImage"
+            app:argType="string" />
+    </fragment>
 </navigation>

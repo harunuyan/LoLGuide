@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentProfileIconBinding
 import com.volie.lolguidestats.helper.Status
 import dagger.hilt.android.AndroidEntryPoint
@@ -14,8 +15,17 @@ import dagger.hilt.android.AndroidEntryPoint
 class ProfileIconFragment : Fragment() {
     private var _mBinding: FragmentProfileIconBinding? = null
     private val mBinding get() = _mBinding!!
-    private val mAdapter = ProfileIconRVAdapter()
     private val mViewModel: ProfileIconViewModel by viewModels()
+
+    private val mAdapter: ProfileIconRVAdapter by lazy {
+        ProfileIconRVAdapter {
+            val action =
+                ProfileIconFragmentDirections.actionProfileIconFragmentToProfileIconDetailsFragment(
+                    it.image.full
+                )
+            findNavController().navigate(action)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,

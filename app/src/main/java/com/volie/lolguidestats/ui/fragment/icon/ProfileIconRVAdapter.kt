@@ -10,7 +10,9 @@ import com.volie.lolguidestats.databinding.ItemIntoAndFromBinding
 import com.volie.lolguidestats.helper.Constant.PROFILE_ICON_IMAGE
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
-class ProfileIconRVAdapter : BaseAdapter<Icon>(IconDiffCallback()) {
+class ProfileIconRVAdapter(
+    val onIconClick: (Icon) -> Unit
+) : BaseAdapter<Icon>(IconDiffCallback()) {
 
     inner class ProfileIconViewHolder(private val binding: ItemIntoAndFromBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -21,6 +23,10 @@ class ProfileIconRVAdapter : BaseAdapter<Icon>(IconDiffCallback()) {
             Glide.with(binding.root)
                 .load("${PROFILE_ICON_IMAGE}${icon.image.full}")
                 .into(binding.ivItem)
+
+            binding.root.setOnClickListener {
+                onIconClick(icon)
+            }
         }
     }
 
