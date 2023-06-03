@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="12dp">
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/iv_item_image"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@color/lol_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shapeAppearanceOverlay="@style/RadiusImageView" />
+
+    <TextView
+        android:id="@+id/tv_item_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/audiowide"
+        android:padding="2dp"
+        android:text="Barrier"
+        android:textColor="@color/lol_blue"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@id/tv_level"
+        app:layout_constraintStart_toEndOf="@id/iv_item_image"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_item_plain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/audiowide"
+        android:padding="2dp"
+        android:text="Ignites target enemy champion, dealing 70-410 true damage (depending on champion level) over 5 seconds, grants you vision of the target, and reduces healing effects on them for the duration"
+        android:textColor="@color/lol_blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_item_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_name" />
+
+    <TextView
+        android:id="@+id/tv_item_mode"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/audiowide"
+        android:padding="2dp"
+        android:text="URF, NEXUSBLITZ, CLASSIC"
+        android:textColor="@color/lol_yellow"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/iv_item_image"
+        app:layout_constraintTop_toBottomOf="@id/tv_item_plain" />
+
+    <ImageView
+        android:id="@+id/iv_gold"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:src="@drawable/ic_level"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_level"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:text="Level 4"
+        android:textColor="@color/lol_blue"
+        app:layout_constraintBottom_toBottomOf="@id/iv_gold"
+        app:layout_constraintEnd_toStartOf="@id/iv_gold"
+        app:layout_constraintTop_toTopOf="@id/iv_gold" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

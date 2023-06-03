@@ -18,4 +18,5 @@
     <string name="items">Items</string>
     <string name="from">From</string>
     <string name="into">Into</string>
+    <string name="summoner_spell">Summoner Spell</string>
 </resources>
