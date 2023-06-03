@@ -16,4 +16,6 @@
     <string name="tips">Tips</string>
     <string name="tips_against_the_enemy">Tips against the enemy</string>
     <string name="items">Items</string>
+    <string name="from">From</string>
+    <string name="into">Into</string>
 </resources>
