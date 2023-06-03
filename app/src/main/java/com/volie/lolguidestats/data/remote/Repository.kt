@@ -2,6 +2,7 @@ package com.volie.lolguidestats.data.remote
 
 import com.volie.lolguidestats.data.model.champion.Data
 import com.volie.lolguidestats.data.model.item.ItemData
+import com.volie.lolguidestats.data.model.profile_icon.IconData
 import com.volie.lolguidestats.data.model.summoner_spell.SummonerSpellData
 import com.volie.lolguidestats.data.remote.service.LOLApi
 import com.volie.lolguidestats.helper.Resource
@@ -44,7 +45,22 @@ class Repository
 
     suspend fun getSummonerSpell(): Resource<SummonerSpellData> {
         return try {
-            val response = service.getSummonerSpell()
+            val response = service.getSummonerSpells()
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    return@let Resource.success(it)
+                } ?: Resource.error("Error*1", null)
+            } else {
+                Resource.error("Error*2", null)
+            }
+        } catch (e: Exception) {
+            Resource.error("$e", null)
+        }
+    }
+
+    suspend fun getProfileIcons(): Resource<IconData> {
+        return try {
+            val response = service.getProfileIcons()
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@let Resource.success(it)
