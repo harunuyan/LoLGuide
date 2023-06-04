@@ -1,7 +1,9 @@
 package com.volie.lolguidestats.data.di
 
 import com.volie.lolguidestats.data.remote.service.LOLApi
+import com.volie.lolguidestats.data.remote.service.LOLApiGithub
 import com.volie.lolguidestats.helper.Constant.BASE_URL
+import com.volie.lolguidestats.helper.Constant.INFO_BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,6 +13,7 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
@@ -43,6 +46,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
+    @Named("retrofitOfficial")
     fun provideRetrofitInstance(
         okHttpClient: OkHttpClient,
         gsonConverterFactory: GsonConverterFactory
@@ -56,7 +60,27 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideService(retrofit: Retrofit): LOLApi {
+    @Named("retrofitGithub")
+    fun provideRetrofitInstanceGithub(
+        okHttpClient: OkHttpClient,
+        gsonConverterFactory: GsonConverterFactory
+    ): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl(INFO_BASE_URL)
+            .client(okHttpClient)
+            .addConverterFactory(gsonConverterFactory)
+            .build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideServiceOfficial(@Named("retrofitOfficial") retrofit: Retrofit): LOLApi {
         return retrofit.create(LOLApi::class.java)
+    }
+
+    @Singleton
+    @Provides
+    fun provideServiceGithub(@Named("retrofitGithub") retrofit: Retrofit): LOLApiGithub {
+        return retrofit.create(LOLApiGithub::class.java)
     }
 }
