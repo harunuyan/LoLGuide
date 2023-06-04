@@ -20,4 +20,7 @@
     <string name="into">Into</string>
     <string name="summoner_spell">Summoner Spell</string>
     <string name="profile_icons">Profile Icons</string>
+    <string name="ranks">Ranks</string>
+    <string name="maps">Maps</string>
+    <string name="game_modes">Game Modes</string>
 </resources>
