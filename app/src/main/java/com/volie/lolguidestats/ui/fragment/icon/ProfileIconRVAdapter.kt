@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.profile_icon.Icon
 import com.volie.lolguidestats.databinding.ItemIntoAndFromBinding
-import com.volie.lolguidestats.helper.Constant.PROFILE_ICON_IMAGE
+import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
 class ProfileIconRVAdapter(
@@ -21,7 +21,7 @@ class ProfileIconRVAdapter(
             val icon = currentList[position]
 
             Glide.with(binding.root)
-                .load("${PROFILE_ICON_IMAGE}${icon.image.full}")
+                .load("${CHAMPION_IMAGE_URL}profileicon/${icon.image.full}")
                 .into(binding.ivItem)
 
             binding.root.setOnClickListener {

@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.databinding.FragmentItemDetailsBinding
-import com.volie.lolguidestats.helper.Constant.ITEM_IMAGE
+import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,7 +51,7 @@ class ItemDetailsFragment : Fragment() {
 
 
         Glide.with(requireContext())
-            .load("$ITEM_IMAGE${mArgs.items.itemImage?.full}")
+            .load("${CHAMPION_IMAGE_URL}item/${mArgs.items.itemImage?.full}")
             .into(mBinding.ivItemImage)
 
         mBinding.tvGold.text = mArgs.items.gold?.total.toString()

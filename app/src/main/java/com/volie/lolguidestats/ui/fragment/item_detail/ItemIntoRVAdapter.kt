@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.databinding.ItemIntoAndFromBinding
-import com.volie.lolguidestats.helper.Constant.ITEM_IMAGE
+import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
 class ItemIntoRVAdapter(
@@ -18,7 +18,7 @@ class ItemIntoRVAdapter(
         fun bind(position: Int) {
             val itemInto = currentList[position]
             Glide.with(binding.root)
-                .load("${ITEM_IMAGE}${itemInto}.png")
+                .load("${CHAMPION_IMAGE_URL}item/${itemInto}.png")
                 .into(binding.ivItem)
 
             binding.root.setOnClickListener {
