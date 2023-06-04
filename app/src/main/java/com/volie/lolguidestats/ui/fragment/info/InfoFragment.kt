@@ -38,6 +38,11 @@ class InfoFragment : Fragment() {
             val action = InfoFragmentDirections.actionInfoFragmentToProfileIconFragment()
             findNavController().navigate(action)
         }
+
+        mBinding.flGameModes.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoFragmentToGameModeFragment()
+            findNavController().navigate(action)
+        }
     }
 
     override fun onDestroy() {

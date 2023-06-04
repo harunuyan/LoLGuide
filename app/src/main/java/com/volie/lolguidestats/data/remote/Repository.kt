@@ -2,15 +2,18 @@ package com.volie.lolguidestats.data.remote
 
 import com.volie.lolguidestats.data.model.champion.Data
 import com.volie.lolguidestats.data.model.item.ItemData
+import com.volie.lolguidestats.data.model.mode.ModeData
 import com.volie.lolguidestats.data.model.profile_icon.IconData
 import com.volie.lolguidestats.data.model.summoner_spell.SummonerSpellData
 import com.volie.lolguidestats.data.remote.service.LOLApi
+import com.volie.lolguidestats.data.remote.service.LOLApiGithub
 import com.volie.lolguidestats.helper.Resource
 import javax.inject.Inject
 
 class Repository
 @Inject constructor(
-    private val service: LOLApi
+    private val service: LOLApi,
+    private val serviceGithub: LOLApiGithub
 ) {
 
     suspend fun getChampions(detail: String): Resource<Data> {
@@ -61,6 +64,21 @@ class Repository
     suspend fun getProfileIcons(): Resource<IconData> {
         return try {
             val response = service.getProfileIcons()
+            if (response.isSuccessful) {
+                response.body()?.let {
+                    return@let Resource.success(it)
+                } ?: Resource.error("Error*1", null)
+            } else {
+                Resource.error("Error*2", null)
+            }
+        } catch (e: Exception) {
+            Resource.error("$e", null)
+        }
+    }
+
+    suspend fun getGameModes(): Resource<ModeData> {
+        return try {
+            val response = serviceGithub.getGameModes()
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@let Resource.success(it)

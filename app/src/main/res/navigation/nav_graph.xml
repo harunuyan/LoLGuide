@@ -29,6 +29,9 @@
         <action
             android:id="@+id/action_infoFragment_to_itemFragment"
             app:destination="@id/itemFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_gameModeFragment"
+            app:destination="@id/gameModeFragment" />
     </fragment>
     <fragment
         android:id="@+id/statsFragment"
@@ -86,4 +89,8 @@
             android:name="itemImage"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/gameModeFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.mode.GameModeFragment"
+        android:label="GameModeFragment" />
 </navigation>
