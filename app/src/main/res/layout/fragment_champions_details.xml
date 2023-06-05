@@ -12,11 +12,11 @@
             android:id="@+id/tv_champ_name"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient_background"
+            android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
             android:padding="12dp"
             android:text="Aatrox"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -26,8 +26,8 @@
         <View
             android:id="@+id/view_first"
             android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/lol_blue"
+            android:layout_height="2dp"
+            android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_champ_name" />
@@ -65,7 +65,7 @@
             android:fontFamily="@font/audiowide"
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
             app:layout_constraintHorizontal_bias="0.0"
@@ -87,7 +87,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="HP"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/iv_champ_class_first" />
@@ -104,7 +104,7 @@
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
             app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
             app:layout_constraintTop_toTopOf="@id/tv_hp"
-            app:trackColor="@color/lol_blue_light"
+            app:trackColor="@color/lol_blue"
             app:trackThickness="12dp" />
 
         <TextView
@@ -114,7 +114,7 @@
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/audiowide"
             android:text="643"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_hp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -127,7 +127,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="MP"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_hp" />
@@ -144,7 +144,7 @@
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
             app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
             app:layout_constraintTop_toTopOf="@id/tv_mp"
-            app:trackColor="@color/lol_blue_light"
+            app:trackColor="@color/lol_blue"
             app:trackThickness="12dp" />
 
         <TextView
@@ -154,7 +154,7 @@
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/audiowide"
             android:text="327"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_mp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -167,7 +167,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="@string/arm"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -185,7 +185,7 @@
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
             app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
             app:layout_constraintTop_toTopOf="@id/tv_armor"
-            app:trackColor="@color/lol_blue_light"
+            app:trackColor="@color/lol_blue"
             app:trackThickness="12dp" />
 
         <TextView
@@ -195,7 +195,7 @@
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/audiowide"
             android:text="36"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_armor"
             app:layout_constraintEnd_toEndOf="parent"
@@ -208,7 +208,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="@string/spell_nblock"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="11sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -226,7 +226,7 @@
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
             app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
             app:layout_constraintTop_toTopOf="@id/tv_spell_block"
-            app:trackColor="@color/lol_blue_light"
+            app:trackColor="@color/lol_blue"
             app:trackThickness="12dp" />
 
         <TextView
@@ -236,7 +236,7 @@
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/audiowide"
             android:text="32"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_spell_block"
             app:layout_constraintEnd_toEndOf="parent"
@@ -249,7 +249,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="AD"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_spell_block" />
@@ -266,7 +266,7 @@
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
             app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
             app:layout_constraintTop_toTopOf="@id/tv_attack_damage"
-            app:trackColor="@color/lol_blue_light"
+            app:trackColor="@color/lol_blue"
             app:trackThickness="12dp" />
 
         <TextView
@@ -276,7 +276,7 @@
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/audiowide"
             android:text="63"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_attack_damage"
             app:layout_constraintEnd_toEndOf="parent"
@@ -289,7 +289,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="HP\nReg"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_attack_damage" />
@@ -306,7 +306,7 @@
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
             app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
             app:layout_constraintTop_toTopOf="@id/tv_hp_regen"
-            app:trackColor="@color/lol_blue_light"
+            app:trackColor="@color/lol_blue"
             app:trackThickness="12dp" />
 
         <TextView
@@ -316,7 +316,7 @@
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/audiowide"
             android:text="7.5"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_hp_regen"
             app:layout_constraintEnd_toEndOf="parent"
@@ -329,7 +329,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="MP\nReg"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_hp_regen" />
@@ -346,7 +346,7 @@
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
             app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
             app:layout_constraintTop_toTopOf="@id/tv_mp_regen"
-            app:trackColor="@color/lol_blue_light"
+            app:trackColor="@color/lol_blue"
             app:trackThickness="12dp" />
 
         <TextView
@@ -356,7 +356,7 @@
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/audiowide"
             android:text="7.59"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_mp_regen"
             app:layout_constraintEnd_toEndOf="parent"
@@ -369,7 +369,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="Atc\nRng"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_mp_regen" />
@@ -386,7 +386,7 @@
             app:layout_constraintEnd_toStartOf="@id/iv_champ_class_second"
             app:layout_constraintStart_toEndOf="@id/iv_champ_class_first"
             app:layout_constraintTop_toTopOf="@id/tv_attack_range"
-            app:trackColor="@color/lol_blue_light"
+            app:trackColor="@color/lol_blue"
             app:trackThickness="12dp" />
 
         <TextView
@@ -396,7 +396,7 @@
             android:layout_marginEnd="12dp"
             android:fontFamily="@font/audiowide"
             android:text="125"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/tv_attack_range"
             app:layout_constraintEnd_toEndOf="parent"
@@ -422,7 +422,7 @@
             android:gravity="center"
             android:text="Innately connected to the magic of the spirit realm, Ahri is a fox-like vastaya who can manipulate her prey's emotions and consume their essence—receiving flashes of their memory and insight from each soul she consumes. Once a powerful yet wayward..."
             android:textAlignment="center"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -434,7 +434,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_blue"
+            android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_blurb" />
@@ -448,7 +448,7 @@
             android:fontFamily="@font/audiowide"
             android:gravity="center"
             android:text="@string/tips"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -459,7 +459,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_blue"
+            android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_tips" />
@@ -472,7 +472,7 @@
             android:fontFamily="@font/audiowide"
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -484,7 +484,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_blue"
+            android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_tips_content" />
@@ -498,7 +498,7 @@
             android:fontFamily="@font/audiowide"
             android:gravity="center"
             android:text="@string/tips_against_the_enemy"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -509,7 +509,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_blue"
+            android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_enemy_tips" />
@@ -522,7 +522,7 @@
             android:fontFamily="@font/audiowide"
             android:gravity="center"
             android:textAlignment="center"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -534,7 +534,7 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_blue"
+            android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_enemy_tips_content" />
@@ -546,7 +546,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="@string/attack"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_enemy_tips_end" />
@@ -570,7 +570,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="@string/defense"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/tv_circular_pb_magic"
             app:layout_constraintStart_toEndOf="@id/tv_circular_pb_attack"
@@ -595,7 +595,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="@string/magic"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toStartOf="@id/tv_circular_pb_difficulty"
             app:layout_constraintStart_toEndOf="@id/tv_circular_pb_defense"
@@ -620,7 +620,7 @@
             android:layout_margin="12dp"
             android:fontFamily="@font/audiowide"
             android:text="@string/difficulty"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_enemy_tips_end" />
@@ -646,7 +646,7 @@
             android:fontFamily="@font/audiowide"
             android:gravity="center"
             android:text="@string/skills"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -657,7 +657,7 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_blue"
+            android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_skills" />
@@ -672,17 +672,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_third"
             app:tabGravity="center"
-            app:tabIndicatorColor="@color/lol_blue"
+            app:tabIndicatorColor="@color/gray_tab"
             app:tabIndicatorFullWidth="true"
             app:tabIndicatorGravity="stretch"
             app:tabMode="scrollable"
-            app:tabTextColor="@color/lol_yellow" />
+            app:tabTextColor="@color/white" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager_skills"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient_background"
+            android:background="@drawable/gradient_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tab_layout_skills" />
@@ -691,7 +691,7 @@
             android:id="@+id/view_fifth"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/lol_blue"
+            android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_pager_skills" />
@@ -705,7 +705,7 @@
             android:fontFamily="@font/audiowide"
             android:gravity="center"
             android:text="@string/skins"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="22sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -716,7 +716,7 @@
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:layout_marginTop="12dp"
-            android:background="@color/lol_blue"
+            android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_skins" />
@@ -730,17 +730,17 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_sixth"
-            app:tabIndicatorColor="@color/lol_blue"
+            app:tabIndicatorColor="@color/gray_tab"
             app:tabIndicatorFullWidth="true"
             app:tabIndicatorGravity="stretch"
             app:tabMode="scrollable"
-            app:tabTextColor="@color/lol_yellow" />
+            app:tabTextColor="@color/white" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager_skins"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient_background"
+            android:background="@drawable/gradient_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tab_layout_skins" />

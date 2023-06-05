@@ -12,30 +12,21 @@
             android:id="@+id/tv_item_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lol_blue_light"
+            android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
             android:padding="12dp"
             android:text="@string/items"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/tv_item_header"
-            android:layout_marginEnd="12dp"
-            app:layout_constraintBottom_toBottomOf="@id/tv_item_header"
-            android:src="@drawable/ic_search" />
-
         <View
             android:id="@+id/view_header"
             android:layout_width="match_parent"
-            android:layout_height="4dp"
+            android:layout_height="2dp"
             android:background="@color/lol_yellow"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +41,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_header"
-            app:shapeAppearanceOverlay="@style/RadiusImageView" />
+            app:shapeAppearanceOverlay="@style/RadiusImageView"
+            app:strokeColor="@color/lol_yellow"
+            app:strokeWidth="4dp" />
 
         <TextView
             android:id="@+id/tv_gold"
@@ -101,7 +94,7 @@
             android:padding="12dp"
             android:text="Broken Stopwatch"
             android:textAlignment="center"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -115,7 +108,7 @@
             android:padding="12dp"
             android:text="Broken Stopwatch"
             android:textAlignment="center"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_item_name" />
@@ -141,7 +134,7 @@
             android:padding="12dp"
             android:text="Broken Stopwatch"
             android:textAlignment="center"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_item_tags" />
@@ -150,12 +143,12 @@
             android:id="@+id/tv_from"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lol_blue_light"
+            android:background="@drawable/gradient_background"
             android:fontFamily="@font/audiowide"
             android:padding="12dp"
             android:text="@string/from"
             android:textAlignment="center"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -165,8 +158,8 @@
         <View
             android:id="@+id/view_from"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@color/lol_yellow"
+            android:layout_height="2dp"
+            android:background="@drawable/gradient_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_from" />
@@ -185,12 +178,12 @@
             android:id="@+id/tv_into"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lol_blue_light"
+            android:background="@drawable/gradient_background"
             android:fontFamily="@font/audiowide"
             android:padding="12dp"
             android:text="@string/into"
             android:textAlignment="center"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -200,8 +193,8 @@
         <View
             android:id="@+id/view_into"
             android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@color/lol_yellow"
+            android:layout_height="2dp"
+            android:background="@drawable/gradient_blue"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/tv_into" />

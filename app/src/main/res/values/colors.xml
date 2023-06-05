@@ -6,5 +6,6 @@
     <color name="lol_yellow">#e3ce82</color>
     <color name="lol_blue_light">#052b3b</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="gray_tab">#636159</color>
     <color name="red">#A10303</color>
 </resources>

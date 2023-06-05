@@ -1,6 +1,7 @@
 package com.volie.lolguidestats.ui.fragment.item_detail
 
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -18,9 +19,14 @@ class ItemFromRVAdapter(
         fun bind(position: Int) {
             val itemFrom = currentList[position]
 
-            Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}item/${itemFrom}.png")
-                .into(binding.ivItem)
+            if (!itemFrom.isNullOrEmpty()) {
+                Glide.with(binding.root)
+                    .load("${CHAMPION_IMAGE_URL}item/${itemFrom}.png")
+                    .into(binding.ivItem)
+            } else {
+                binding.ivItem.visibility = View.GONE
+            }
+
 
             binding.root.setOnClickListener {
                 onItemClick()

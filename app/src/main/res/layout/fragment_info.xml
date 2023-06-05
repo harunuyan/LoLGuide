@@ -12,11 +12,11 @@
             android:id="@+id/tv_game_info_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/lol_blue_light"
+            android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
             android:padding="12dp"
             android:text="@string/game_info"
-            android:textColor="@color/lol_blue"
+            android:textColor="@color/white"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -36,231 +36,284 @@
             android:id="@+id/iv_summoner_spell"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:layout_margin="8dp"
+            android:layout_margin="12dp"
+            android:padding="6dp"
             android:scaleType="center"
             android:src="@drawable/summoner_spells"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view"
-            app:shapeAppearanceOverlay="@style/RadiusImageView" />
+            app:shapeAppearanceOverlay="@style/RadiusImageView"
+            app:strokeColor="@color/lol_yellow"
+            app:strokeWidth="2dp" />
 
-        <FrameLayout
-            android:id="@+id/fl_summoner_spell"
+        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#73FFFFFF"
-            android:backgroundTint="@color/lol_blue_light"
+            android:layout_height="8dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintBottom_toTopOf="@id/tv_summoner_spell"
+            app:layout_constraintEnd_toEndOf="@id/iv_summoner_spell"
+            app:layout_constraintStart_toStartOf="@id/iv_summoner_spell" />
+
+        <TextView
+            android:id="@+id/tv_summoner_spell"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_blue"
+            android:fontFamily="@font/audiowide"
+            android:padding="4dp"
+            android:text="@string/summoner_spell"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/iv_summoner_spell"
             app:layout_constraintEnd_toEndOf="@id/iv_summoner_spell"
+            app:layout_constraintStart_toStartOf="@id/iv_summoner_spell" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintEnd_toEndOf="@id/iv_summoner_spell"
             app:layout_constraintStart_toStartOf="@id/iv_summoner_spell"
-            app:layout_constraintTop_toTopOf="@id/iv_summoner_spell">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/radius_background"
-                android:backgroundTint="#33FFFFFF"
-                android:fontFamily="@font/audiowide"
-                android:padding="24dp"
-                android:text="@string/summoner_spell"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@id/tv_summoner_spell" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_items"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_margin="12dp"
+            android:padding="6dp"
             android:scaleType="center"
             android:src="@drawable/items"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fl_summoner_spell"
-            app:shapeAppearanceOverlay="@style/RadiusImageView" />
+            app:layout_constraintTop_toBottomOf="@id/iv_summoner_spell"
+            app:shapeAppearanceOverlay="@style/RadiusImageView"
+            app:strokeColor="@color/lol_yellow"
+            app:strokeWidth="2dp" />
 
-        <FrameLayout
-            android:id="@+id/fl_items"
+        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#73FFFFFF"
-            android:backgroundTint="@color/lol_blue_light"
+            android:layout_height="8dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintBottom_toTopOf="@id/tv_items"
+            app:layout_constraintEnd_toEndOf="@id/iv_items"
+            app:layout_constraintStart_toStartOf="@id/iv_items" />
+
+        <TextView
+            android:id="@+id/tv_items"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_blue"
+            android:fontFamily="@font/audiowide"
+            android:padding="4dp"
+            android:text="@string/items"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/iv_items"
             app:layout_constraintEnd_toEndOf="@id/iv_items"
+            app:layout_constraintStart_toStartOf="@id/iv_items" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintEnd_toEndOf="@id/iv_items"
             app:layout_constraintStart_toStartOf="@id/iv_items"
-            app:layout_constraintTop_toTopOf="@id/iv_items">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/radius_background"
-                android:backgroundTint="#33FFFFFF"
-                android:fontFamily="@font/audiowide"
-                android:padding="24dp"
-                android:text="@string/items"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-        </FrameLayout>
+            app:layout_constraintTop_toBottomOf="@id/tv_items" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_profile_icon"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:layout_margin="8dp"
+            android:layout_margin="12dp"
+            android:padding="6dp"
             android:scaleType="center"
             android:src="@drawable/profileicon"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fl_items"
-            app:shapeAppearanceOverlay="@style/RadiusImageView" />
+            app:layout_constraintTop_toBottomOf="@id/iv_items"
+            app:shapeAppearanceOverlay="@style/RadiusImageView"
+            app:strokeColor="@color/lol_yellow"
+            app:strokeWidth="2dp" />
 
-        <FrameLayout
-            android:id="@+id/fl_profile_icon"
+        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#73FFFFFF"
-            android:backgroundTint="@color/lol_blue_light"
+            android:layout_height="8dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintBottom_toTopOf="@id/tv_profile_icon"
+            app:layout_constraintEnd_toEndOf="@id/tv_profile_icon"
+            app:layout_constraintStart_toStartOf="@id/tv_profile_icon" />
+
+        <TextView
+            android:id="@+id/tv_profile_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_blue"
+            android:fontFamily="@font/audiowide"
+            android:padding="4dp"
+            android:text="@string/profile_icons"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/iv_profile_icon"
             app:layout_constraintEnd_toEndOf="@id/iv_profile_icon"
-            app:layout_constraintStart_toStartOf="@id/iv_profile_icon"
-            app:layout_constraintTop_toTopOf="@id/iv_profile_icon">
+            app:layout_constraintStart_toStartOf="@id/iv_profile_icon" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/radius_background"
-                android:backgroundTint="#33FFFFFF"
-                android:fontFamily="@font/audiowide"
-                android:padding="24dp"
-                android:text="@string/profile_icons"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-        </FrameLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintEnd_toEndOf="@id/tv_profile_icon"
+            app:layout_constraintStart_toStartOf="@id/tv_profile_icon"
+            app:layout_constraintTop_toBottomOf="@id/tv_profile_icon" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_ranks"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:layout_margin="8dp"
-            android:src="@drawable/ranks"
+            android:layout_margin="12dp"
+            android:padding="6dp"
             android:scaleType="centerCrop"
+            android:src="@drawable/ranks"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fl_profile_icon"
-            app:shapeAppearanceOverlay="@style/RadiusImageView" />
+            app:layout_constraintTop_toBottomOf="@id/iv_profile_icon"
+            app:shapeAppearanceOverlay="@style/RadiusImageView"
+            app:strokeColor="@color/lol_yellow"
+            app:strokeWidth="2dp" />
 
-        <FrameLayout
-            android:id="@+id/fl_ranks"
+        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#73FFFFFF"
-            android:backgroundTint="@color/lol_blue_light"
+            android:layout_height="8dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintBottom_toTopOf="@id/tv_ranks"
+            app:layout_constraintEnd_toEndOf="@id/tv_ranks"
+            app:layout_constraintStart_toStartOf="@id/tv_ranks" />
+
+        <TextView
+            android:id="@+id/tv_ranks"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_blue"
+            android:fontFamily="@font/audiowide"
+            android:padding="4dp"
+            android:text="@string/ranks"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/iv_ranks"
             app:layout_constraintEnd_toEndOf="@id/iv_ranks"
-            app:layout_constraintStart_toStartOf="@id/iv_ranks"
-            app:layout_constraintTop_toTopOf="@id/iv_ranks">
+            app:layout_constraintStart_toStartOf="@id/iv_ranks" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/radius_background"
-                android:backgroundTint="#33FFFFFF"
-                android:fontFamily="@font/audiowide"
-                android:padding="24dp"
-                android:text="@string/ranks"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-        </FrameLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintEnd_toEndOf="@id/tv_ranks"
+            app:layout_constraintStart_toStartOf="@id/tv_ranks"
+            app:layout_constraintTop_toBottomOf="@id/tv_ranks" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_maps"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:layout_margin="8dp"
-            android:src="@drawable/maps"
+            android:layout_margin="12dp"
+            android:padding="6dp"
             android:scaleType="centerCrop"
+            android:src="@drawable/maps"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fl_ranks"
-            app:shapeAppearanceOverlay="@style/RadiusImageView" />
+            app:layout_constraintTop_toBottomOf="@id/iv_ranks"
+            app:shapeAppearanceOverlay="@style/RadiusImageView"
+            app:strokeColor="@color/lol_yellow"
+            app:strokeWidth="2dp" />
 
-        <FrameLayout
-            android:id="@+id/fl_maps"
+        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#73FFFFFF"
-            android:backgroundTint="@color/lol_blue_light"
+            android:layout_height="8dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintBottom_toTopOf="@id/tv_maps"
+            app:layout_constraintEnd_toEndOf="@id/tv_maps"
+            app:layout_constraintStart_toStartOf="@id/tv_maps" />
+
+        <TextView
+            android:id="@+id/tv_maps"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_blue"
+            android:fontFamily="@font/audiowide"
+            android:padding="4dp"
+            android:text="@string/maps"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/iv_maps"
             app:layout_constraintEnd_toEndOf="@id/iv_maps"
-            app:layout_constraintStart_toStartOf="@id/iv_maps"
-            app:layout_constraintTop_toTopOf="@id/iv_maps">
+            app:layout_constraintStart_toStartOf="@id/iv_maps" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/radius_background"
-                android:backgroundTint="#33FFFFFF"
-                android:fontFamily="@font/audiowide"
-                android:padding="24dp"
-                android:text="@string/maps"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-        </FrameLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintEnd_toEndOf="@id/tv_maps"
+            app:layout_constraintStart_toStartOf="@id/tv_maps"
+            app:layout_constraintTop_toBottomOf="@id/tv_maps" />
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_game_modes"
             android:layout_width="0dp"
             android:layout_height="190dp"
-            android:layout_margin="8dp"
-            android:src="@drawable/game_modes"
+            android:layout_margin="12dp"
+            android:padding="6dp"
             android:scaleType="centerCrop"
+            android:src="@drawable/game_modes"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/fl_maps"
-            app:shapeAppearanceOverlay="@style/RadiusImageView" />
+            app:layout_constraintTop_toBottomOf="@id/iv_maps"
+            app:shapeAppearanceOverlay="@style/RadiusImageView"
+            app:strokeColor="@color/lol_yellow"
+            app:strokeWidth="2dp" />
 
-        <FrameLayout
-            android:id="@+id/fl_game_modes"
+        <View
             android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="#73FFFFFF"
-            android:backgroundTint="@color/lol_blue_light"
+            android:layout_height="8dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintBottom_toTopOf="@id/tv_game_modes"
+            app:layout_constraintEnd_toEndOf="@id/tv_game_modes"
+            app:layout_constraintStart_toStartOf="@id/tv_game_modes" />
+
+        <TextView
+            android:id="@+id/tv_game_modes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/gradient_blue"
+            android:fontFamily="@font/audiowide"
+            android:padding="4dp"
+            android:text="@string/game_modes"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@id/iv_game_modes"
             app:layout_constraintEnd_toEndOf="@id/iv_game_modes"
-            app:layout_constraintStart_toStartOf="@id/iv_game_modes"
-            app:layout_constraintTop_toTopOf="@id/iv_game_modes">
+            app:layout_constraintStart_toStartOf="@id/iv_game_modes" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/radius_background"
-                android:backgroundTint="#33FFFFFF"
-                android:fontFamily="@font/audiowide"
-                android:padding="24dp"
-                android:text="@string/game_modes"
-                android:textColor="@color/black"
-                android:textSize="22sp"
-                android:textStyle="bold" />
-
-        </FrameLayout>
+        <View
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintEnd_toEndOf="@id/tv_game_modes"
+            app:layout_constraintStart_toStartOf="@id/tv_game_modes"
+            app:layout_constraintTop_toBottomOf="@id/tv_game_modes" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

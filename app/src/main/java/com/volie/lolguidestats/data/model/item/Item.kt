@@ -9,7 +9,7 @@ data class Item(
     val name: String? = null,
     val description: String? = null,
     val plaintext: String? = null,
-    val into: List<String>,
+    val into: List<String>? = null,
     @SerializedName("image")
     val itemImage: ItemImage? = null,
     val gold: Gold? = null,

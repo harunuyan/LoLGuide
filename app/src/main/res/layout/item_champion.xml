@@ -20,13 +20,13 @@
             <ImageView
                 android:id="@+id/iv_champ_image_item"
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:src="@color/lol_blue" />
+                android:layout_height="120dp" />
 
             <TextView
                 android:id="@+id/tv_champ_name_item"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/gradient_blue"
                 android:gravity="center"
                 android:padding="4dp"
                 android:text="Aurelion Sol"

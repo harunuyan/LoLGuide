@@ -12,7 +12,9 @@
         android:src="@color/lol_blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/RadiusImageView" />
+        app:shapeAppearanceOverlay="@style/RadiusImageView"
+        app:strokeColor="@color/lol_yellow"
+        app:strokeWidth="5dp" />
 
     <TextView
         android:id="@+id/tv_item_name"
@@ -22,7 +24,7 @@
         android:fontFamily="@font/audiowide"
         android:padding="2dp"
         android:text="Barrier"
-        android:textColor="@color/lol_blue"
+        android:textColor="@color/white"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@id/tv_level"
         app:layout_constraintStart_toEndOf="@id/iv_item_image"
@@ -36,7 +38,7 @@
         android:fontFamily="@font/audiowide"
         android:padding="2dp"
         android:text="Ignites target enemy champion, dealing 70-410 true damage (depending on champion level) over 5 seconds, grants you vision of the target, and reduces healing effects on them for the duration"
-        android:textColor="@color/lol_blue"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_item_image"
         app:layout_constraintTop_toBottomOf="@id/tv_item_name" />
@@ -46,6 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
+        android:background="@drawable/gradient_background"
         android:fontFamily="@font/audiowide"
         android:padding="2dp"
         android:text="URF, NEXUSBLITZ, CLASSIC"
@@ -61,7 +64,8 @@
         android:layout_height="22dp"
         android:src="@drawable/ic_level"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="@color/white" />
 
     <TextView
         android:id="@+id/tv_level"
@@ -69,7 +73,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:text="Level 4"
-        android:textColor="@color/lol_blue"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="@id/iv_gold"
         app:layout_constraintEnd_toStartOf="@id/iv_gold"
         app:layout_constraintTop_toTopOf="@id/iv_gold" />

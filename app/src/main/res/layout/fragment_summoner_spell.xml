@@ -8,17 +8,17 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/lol_blue_light"
+        android:background="@drawable/gradient_blue"
         android:fontFamily="@font/audiowide"
         android:padding="12dp"
         android:text="@string/summoner_spell"
-        android:textColor="@color/lol_blue"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="4dp"
+        android:layout_height="2dp"
         android:background="@color/lol_yellow" />
 
     <androidx.recyclerview.widget.RecyclerView

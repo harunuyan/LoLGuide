@@ -7,22 +7,22 @@
 
     <TextView
         android:id="@+id/tv_skill_name"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
+        android:background="@drawable/gradient_background"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
         android:text="Example"
+        android:padding="4dp"
         android:textAlignment="center"
-        android:textColor="@color/lol_blue"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginEnd="12dp"
-        android:background="@color/lol_blue" />
+        android:layout_height="2dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/gradient_background" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -32,6 +32,8 @@
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/iv_skill_image"
             android:layout_width="64dp"
+            app:strokeColor="@color/lol_yellow"
+            app:strokeWidth="3dp"
             android:layout_height="64dp"
             android:layout_gravity="top"
             android:layout_margin="12dp"
@@ -44,6 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="top"
             android:layout_margin="12dp"
+            android:textColor="@color/white"
             android:text="Example"
             android:textSize="16sp"
             android:textStyle="bold" />

@@ -49,13 +49,37 @@ class ItemDetailsFragment : Fragment() {
         intoAdapter.submitList(mArgs.items.into)
         fromAdapter.submitList(mArgs.items.from)
 
+        if (mArgs.items.from.isNullOrEmpty()) {
+            mBinding.tvFrom.visibility = View.GONE
+            mBinding.rvFrom.visibility = View.GONE
+            mBinding.viewFrom.visibility = View.GONE
+        }
+
+        if (mArgs.items.into.isNullOrEmpty()) {
+            mBinding.tvInto.visibility = View.GONE
+            mBinding.rvInto.visibility = View.GONE
+            mBinding.viewInto.visibility = View.GONE
+        }
+
 
         Glide.with(requireContext())
             .load("${CHAMPION_IMAGE_URL}item/${mArgs.items.itemImage?.full}")
             .into(mBinding.ivItemImage)
 
-        mBinding.tvGold.text = mArgs.items.gold?.total.toString()
-        mBinding.tvGoldSell.text = "-${mArgs.items.gold?.sell.toString()}"
+
+        if (mArgs.items.gold?.sell != 0) {
+            mBinding.tvGoldSell.text = "-${mArgs.items.gold?.sell.toString()}"
+        } else {
+            mBinding.ivGoldSell.visibility = View.GONE
+            mBinding.tvGoldSell.visibility = View.GONE
+        }
+
+        if (mArgs.items.gold?.total != 0) {
+            mBinding.tvGold.text = mArgs.items.gold?.total.toString()
+        } else {
+            mBinding.tvGold.visibility = View.GONE
+            mBinding.ivGold.visibility = View.GONE
+        }
 
         mBinding.tvItemName.text = mArgs.items.name
         mBinding.tvItemPlain.text = mArgs.items.plaintext

@@ -24,22 +24,22 @@ class InfoFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mBinding.flSummonerSpell.setOnClickListener {
+        mBinding.ivSummonerSpell.setOnClickListener {
             val action = InfoFragmentDirections.actionInfoFragmentToSummonerSpellFragment()
             findNavController().navigate(action)
         }
 
-        mBinding.flItems.setOnClickListener {
+        mBinding.ivItems.setOnClickListener {
             val action = InfoFragmentDirections.actionInfoFragmentToItemFragment()
             findNavController().navigate(action)
         }
 
-        mBinding.flProfileIcon.setOnClickListener {
+        mBinding.ivProfileIcon.setOnClickListener {
             val action = InfoFragmentDirections.actionInfoFragmentToProfileIconFragment()
             findNavController().navigate(action)
         }
 
-        mBinding.flGameModes.setOnClickListener {
+        mBinding.ivGameModes.setOnClickListener {
             val action = InfoFragmentDirections.actionInfoFragmentToGameModeFragment()
             findNavController().navigate(action)
         }
