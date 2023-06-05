@@ -92,5 +92,17 @@
     <fragment
         android:id="@+id/gameModeFragment"
         android:name="com.volie.lolguidestats.ui.fragment.mode.GameModeFragment"
-        android:label="GameModeFragment" />
+        android:label="GameModeFragment">
+        <action
+            android:id="@+id/action_gameModeFragment_to_modeDetailsFragment"
+            app:destination="@id/modeDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/modeDetailsFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.mode_detail.ModeDetailsFragment"
+        android:label="ModeDetailsFragment">
+        <argument
+            android:name="modeDetails"
+            app:argType="com.volie.lolguidestats.data.model.mode.Mode" />
+    </fragment>
 </navigation>
