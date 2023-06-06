@@ -7,22 +7,45 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_rank"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_margin="12dp"
-        android:src="@color/gray_tab"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="12dp"
         app:shapeAppearanceOverlay="@style/RadiusImageView"
-        app:strokeColor="@color/lol_blue"
-        app:strokeWidth="4dp" />
+        app:strokeColor="@color/lol_yellow"
+        app:strokeWidth="5dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/radius_background"
+        android:backgroundTint="@color/lol_yellow" />
 
     <TextView
         android:id="@+id/tv_rank"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/radius_background"
+        android:backgroundTint="@color/lol_yellow"
         android:fontFamily="@font/audiowide"
         android:text="rank"
+        android:textAlignment="center"
+        android:textColor="@color/lol_blue_light"
+        android:textSize="22sp"
         android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:background="@drawable/radius_background"
+        android:backgroundTint="@color/lol_yellow" />
 
 </LinearLayout>
