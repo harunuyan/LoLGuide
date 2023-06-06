@@ -7,9 +7,9 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_maps"
         android:layout_width="0dp"
-        android:layout_height="180dp"
+        android:layout_height="300dp"
         android:layout_margin="8dp"
-        android:scaleType="fitXY"
+        android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
