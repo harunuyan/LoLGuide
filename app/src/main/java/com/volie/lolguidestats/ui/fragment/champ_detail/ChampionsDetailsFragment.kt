@@ -144,6 +144,10 @@ class ChampionsDetailsFragment : Fragment() {
                 mBinding.ivChampClassFirst.setImageResource(R.drawable.ic_tank)
             }
 
+            "Slayer" -> {
+                mBinding.ivChampClassFirst.setImageResource(R.drawable.ic_slayer)
+            }
+
             else -> {
                 mBinding.ivChampClassFirst.visibility = View.INVISIBLE
             }
@@ -171,6 +175,10 @@ class ChampionsDetailsFragment : Fragment() {
 
                 "Marksman" -> {
                     mBinding.ivChampClassSecond.setImageResource(R.drawable.ic_marksman)
+                }
+
+                "Slayer" -> {
+                    mBinding.ivChampClassSecond.setImageResource(R.drawable.ic_slayer)
                 }
 
                 else -> {
