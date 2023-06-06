@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.item.Item
 import com.volie.lolguidestats.databinding.ItemItemBinding
-import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
+import com.volie.lolguidestats.helper.Constant.BASE_URL
 
 class ItemRVAdapter(
     private val onItemClick: (Item) -> Unit
@@ -22,7 +22,7 @@ class ItemRVAdapter(
             val item = currentList[position]
 
             Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}item/${item.itemImage?.full}")
+                .load("${BASE_URL}img/item/${item.itemImage?.full}")
                 .into(binding.ivItemImage)
 
             binding.tvItemName.text = item.name

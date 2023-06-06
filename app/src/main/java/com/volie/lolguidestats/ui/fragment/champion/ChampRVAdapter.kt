@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.champion.Champion
 import com.volie.lolguidestats.databinding.ItemChampionBinding
-import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
+import com.volie.lolguidestats.helper.Constant.BASE_URL
 
 class ChampRVAdapter(
     val onChampClick: (Champion) -> Unit
@@ -20,7 +20,7 @@ class ChampRVAdapter(
         fun bind(position: Int) {
             val champ = currentList[position]
             Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}champion/${champ.image?.full}")
+                .load("${BASE_URL}img/champion/${champ.image?.full}")
                 .into(binding.ivChampImageItem)
             binding.tvChampNameItem.text = champ.name
 

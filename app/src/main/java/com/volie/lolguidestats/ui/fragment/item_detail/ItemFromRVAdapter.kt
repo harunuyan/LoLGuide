@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.databinding.ItemIntoAndFromBinding
-import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
+import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
 class ItemFromRVAdapter(
@@ -21,7 +21,7 @@ class ItemFromRVAdapter(
 
             if (!itemFrom.isNullOrEmpty()) {
                 Glide.with(binding.root)
-                    .load("${CHAMPION_IMAGE_URL}item/${itemFrom}.png")
+                    .load("${BASE_URL}img/item/${itemFrom}.png")
                     .into(binding.ivItem)
             } else {
                 binding.ivItem.visibility = View.GONE

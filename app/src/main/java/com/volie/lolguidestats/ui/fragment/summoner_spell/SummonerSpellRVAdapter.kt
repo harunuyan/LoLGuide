@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.summoner_spell.SummonerSpell
 import com.volie.lolguidestats.databinding.ItemSummonerSpellBinding
-import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
+import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
 class SummonerSpellRVAdapter : BaseAdapter<SummonerSpell>(SummonerSpellDiffCallback()) {
@@ -17,7 +17,7 @@ class SummonerSpellRVAdapter : BaseAdapter<SummonerSpell>(SummonerSpellDiffCallb
         fun bind(position: Int) {
             val spell = currentList[position]
             Glide.with(binding.root)
-                .load("${CHAMPION_IMAGE_URL}spell/${spell.id}.png")
+                .load("${BASE_URL}img/spell/${spell.id}.png")
                 .into(binding.ivItemImage)
 
             binding.tvItemName.text = spell.name

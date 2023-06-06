@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.databinding.FragmentProfileIconDetailsBinding
-import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
+import com.volie.lolguidestats.helper.Constant.BASE_URL
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -39,7 +39,7 @@ class ProfileIconDetailsFragment : Fragment() {
 
     private fun showDetails() {
         Glide.with(requireContext())
-            .load("${CHAMPION_IMAGE_URL}profileicon/${mArgs.itemImage}")
+            .load("${BASE_URL}img/profileicon/${mArgs.itemImage}")
             .into(mBinding.ivProfileIcon)
     }
 

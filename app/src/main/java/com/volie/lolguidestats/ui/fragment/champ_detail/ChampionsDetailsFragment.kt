@@ -15,7 +15,7 @@ import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.android.material.tabs.TabLayoutMediator
 import com.volie.lolguidestats.R
 import com.volie.lolguidestats.databinding.FragmentChampionsDetailsBinding
-import com.volie.lolguidestats.helper.Constant.CHAMPION_IMAGE_URL
+import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.helper.Constant.CHAMPION_URL
 import com.volie.lolguidestats.helper.Status
 import dagger.hilt.android.AndroidEntryPoint
@@ -215,7 +215,7 @@ class ChampionsDetailsFragment : Fragment() {
                             SkillPageFragment(
                                 result.passive?.name!!,
                                 result.passive.description!!,
-                                "${CHAMPION_IMAGE_URL}passive/${result.passive.image?.full}"
+                                "${BASE_URL}img/passive/${result.passive.image?.full}"
                             )
                         )
 
@@ -223,7 +223,7 @@ class ChampionsDetailsFragment : Fragment() {
                             SkillPageFragment(
                                 result.spells?.get(0)!!.name,
                                 result.spells.get(0).description,
-                                "${CHAMPION_IMAGE_URL}spell/${result.spells.get(0).image.full}"
+                                "${BASE_URL}img/spell/${result.spells.get(0).image.full}"
                             )
                         )
 
@@ -231,7 +231,7 @@ class ChampionsDetailsFragment : Fragment() {
                             SkillPageFragment(
                                 result.spells.get(1).name,
                                 result.spells.get(1).description,
-                                "${CHAMPION_IMAGE_URL}spell/${result.spells.get(1).image.full}"
+                                "${BASE_URL}img/spell/${result.spells.get(1).image.full}"
                             )
                         )
 
@@ -239,7 +239,7 @@ class ChampionsDetailsFragment : Fragment() {
                             SkillPageFragment(
                                 result.spells.get(2).name,
                                 result.spells.get(2).description,
-                                "${CHAMPION_IMAGE_URL}spell/${result.spells.get(2).image.full}"
+                                "${BASE_URL}img/spell/${result.spells.get(2).image.full}"
                             )
                         )
 
@@ -247,7 +247,7 @@ class ChampionsDetailsFragment : Fragment() {
                             SkillPageFragment(
                                 result.spells.get(3).name,
                                 result.spells.get(3).description,
-                                "${CHAMPION_IMAGE_URL}spell/${result.spells.get(3).image.full}"
+                                "${BASE_URL}img/spell/${result.spells.get(3).image.full}"
                             )
                         )
                     }
