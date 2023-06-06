@@ -6,9 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.tabs.TabLayoutMediator
 import com.volie.lolguidestats.R
 import com.volie.lolguidestats.databinding.FragmentHomeBinding
+import com.volie.lolguidestats.helper.Status
 import com.volie.lolguidestats.ui.adapter.BaseViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,6 +19,13 @@ import dagger.hilt.android.AndroidEntryPoint
 class HomeFragment : Fragment() {
     private var _mBinding: FragmentHomeBinding? = null
     private val mBinding get() = _mBinding!!
+    private val mViewModel: HomeViewModel by viewModels()
+    private val mAdapter: ChampRVAdapter by lazy {
+        ChampRVAdapter {
+            val action = HomeFragmentDirections.actionHomeFragmentToChampionsDetailsFragment(it)
+            findNavController().navigate(action)
+        }
+    }
     private val fragment = ArrayList<Fragment>()
 
     override fun onCreateView(
@@ -24,6 +34,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _mBinding = FragmentHomeBinding.inflate(inflater, container, false)
+        mBinding.rvChamp.adapter = mAdapter
         return mBinding.root
     }
 
@@ -31,6 +42,8 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         showChampClasses()
+        mViewModel.getChamp()
+        observeLiveData()
     }
 
     private fun showChampClasses() {
@@ -106,6 +119,20 @@ class HomeFragment : Fragment() {
                 5 -> tab.icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_tank)
             }
         }.attach()
+    }
+
+    private fun observeLiveData() {
+        mViewModel.champ.observe(viewLifecycleOwner) {
+            when (it.status) {
+                Status.SUCCESS -> {
+                    it.data?.let { }
+                    mAdapter.submitList(it.data?.data?.values?.toList())
+                }
+
+                Status.ERROR -> {}
+                Status.LOADING -> {}
+            }
+        }
     }
 
     override fun onDestroy() {
