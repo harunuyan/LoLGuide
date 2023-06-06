@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentRankBinding
 import com.volie.lolguidestats.helper.Status
 import dagger.hilt.android.AndroidEntryPoint
@@ -16,7 +17,10 @@ class RankFragment : Fragment() {
     private val mBinding get() = _mBinding!!
     private val mViewModel: RankViewModel by viewModels()
     private val mAdapter: RankRVAdapter by lazy {
-        RankRVAdapter()
+        RankRVAdapter {
+            val action = RankFragmentDirections.actionRankFragmentToRankDetailsFragment(it)
+            findNavController().navigate(action)
+        }
     }
 
     override fun onCreateView(
