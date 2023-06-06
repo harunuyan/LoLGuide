@@ -39,6 +39,16 @@ class InfoFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        mBinding.ivRanks.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoFragmentToRankFragment()
+            findNavController().navigate(action)
+        }
+
+        mBinding.ivMaps.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoFragmentToMapsFragment()
+            findNavController().navigate(action)
+        }
+
         mBinding.ivGameModes.setOnClickListener {
             val action = InfoFragmentDirections.actionInfoFragmentToGameModeFragment()
             findNavController().navigate(action)

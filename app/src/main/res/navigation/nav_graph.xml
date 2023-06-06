@@ -32,6 +32,12 @@
         <action
             android:id="@+id/action_infoFragment_to_gameModeFragment"
             app:destination="@id/gameModeFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_rankFragment"
+            app:destination="@id/rankFragment" />
     </fragment>
     <fragment
         android:id="@+id/statsFragment"
@@ -104,5 +110,25 @@
         <argument
             android:name="modeDetails"
             app:argType="com.volie.lolguidestats.data.model.mode.Mode" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.map.MapsFragment"
+        android:label="MapsFragment" />
+    <fragment
+        android:id="@+id/rankFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.rank.RankFragment"
+        android:label="RankFragment">
+        <action
+            android:id="@+id/action_rankFragment_to_rankDetailsFragment"
+            app:destination="@id/rankDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rankDetailsFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.rank_detail.RankDetailsFragment"
+        android:label="RankDetailsFragment">
+        <argument
+            android:name="rank"
+            app:argType="com.volie.lolguidestats.data.model.rank.Season" />
     </fragment>
 </navigation>
