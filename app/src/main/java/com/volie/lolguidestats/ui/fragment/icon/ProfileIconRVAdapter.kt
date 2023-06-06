@@ -10,12 +10,12 @@ import com.volie.lolguidestats.databinding.ItemIntoAndFromBinding
 import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
-class ProfileIconRVAdapter(
-    val onIconClick: (Icon) -> Unit
-) : BaseAdapter<Icon>(IconDiffCallback()) {
+class ProfileIconRVAdapter(private val onItemClick: (Icon) -> Unit) :
+    BaseAdapter<Icon>(IconDiffCallback()) {
 
     inner class ProfileIconViewHolder(private val binding: ItemIntoAndFromBinding) :
         RecyclerView.ViewHolder(binding.root) {
+
         fun bind(position: Int) {
 
             val icon = currentList[position]
@@ -25,7 +25,7 @@ class ProfileIconRVAdapter(
                 .into(binding.ivItem)
 
             binding.root.setOnClickListener {
-                onIconClick(icon)
+                onItemClick(icon)
             }
         }
     }
