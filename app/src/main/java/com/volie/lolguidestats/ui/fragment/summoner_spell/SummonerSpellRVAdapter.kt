@@ -16,14 +16,17 @@ class SummonerSpellRVAdapter : BaseAdapter<SummonerSpell>(SummonerSpellDiffCallb
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val spell = currentList[position]
-            Glide.with(binding.root)
-                .load("${BASE_URL}img/spell/${spell.id}.png")
-                .into(binding.ivItemImage)
 
-            binding.tvItemName.text = spell.name
-            binding.tvItemPlain.text = spell.description
-            binding.tvLevel.text = "Level ${spell.summonerLevel.toString()}"
-            binding.tvItemMode.text = spell.modes.toString().trim('[', ']')
+            with(binding) {
+                Glide.with(root)
+                    .load("${BASE_URL}img/spell/${spell.id}.png")
+                    .into(ivItemImage)
+
+                tvItemName.text = spell.name
+                tvItemPlain.text = spell.description
+                tvLevel.text = "Level ${spell.summonerLevel.toString()}"
+                tvItemMode.text = spell.modes.toString().trim('[', ']')
+            }
         }
     }
 

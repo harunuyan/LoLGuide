@@ -44,13 +44,17 @@ class ChampionsDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mBinding.flBack.setOnClickListener {
-            findNavController().navigateUp()
+        with(mBinding) {
+            flBack.setOnClickListener {
+                findNavController().navigateUp()
+            }
+
+            tvChampName.setOnClickListener {
+                findNavController().navigateUp()
+            }
         }
 
-        mBinding.tvChampName.setOnClickListener {
-            findNavController().navigateUp()
-        }
+
 
         showDetails()
         mViewModel.getChampionDetails("${mArgs.details.name}")
@@ -68,140 +72,149 @@ class ChampionsDetailsFragment : Fragment() {
 
         mBinding.tvChampTitle.text = champ.title
 
-        updateLinearProgressWithAnimator(
-            mBinding.pbHp,
-            mBinding.tvHpCount,
-            champ.stats!!.hp.toInt()
-        )
-        if (champ.stats.mp.toInt() == 0) {
-            mBinding.pbMp.visibility = View.GONE
-            mBinding.tvMp.visibility = View.GONE
-            mBinding.tvMpCount.visibility = View.GONE
-        } else {
+        with(mBinding) {
+
             updateLinearProgressWithAnimator(
-                mBinding.pbMp,
-                mBinding.tvMpCount,
-                champ.stats.mp.toInt()
+                pbHp,
+                tvHpCount,
+                champ.stats!!.hp.toInt()
+            )
+            if (champ.stats.mp.toInt() == 0) {
+                pbMp.visibility = View.GONE
+                tvMp.visibility = View.GONE
+                tvMpCount.visibility = View.GONE
+            } else {
+                updateLinearProgressWithAnimator(
+                    pbMp,
+                    tvMpCount,
+                    champ.stats.mp.toInt()
+                )
+            }
+
+            updateLinearProgressWithAnimator(
+                pbArmor,
+                tvArmorCount,
+                champ.stats.armor.toInt()
+            )
+            updateLinearProgressWithAnimator(
+                pbSpellBlock,
+                tvSpellBlockCount,
+                champ.stats.spellblock.toInt()
+            )
+            updateLinearProgressWithAnimator(
+                pbAttackDamage,
+                tvAttackDamageCount,
+                champ.stats.attackdamage.toInt()
+            )
+            updateLinearProgressWithAnimator(
+                pbHpRegen,
+                tvHpRegenCount,
+                champ.stats.hpregen.toInt()
+            )
+            if (champ.stats.mpregen.toInt() == 0) {
+                tvMpRegen.visibility = View.GONE
+                pbMpRegen.visibility = View.GONE
+                tvMpRegenCount.visibility = View.GONE
+            } else {
+                updateLinearProgressWithAnimator(
+                    pbMpRegen,
+                    tvMpRegenCount,
+                    champ.stats.mpregen.toInt()
+                )
+            }
+
+            updateLinearProgressWithAnimator(
+                pbAttackRange,
+                tvAttackRangeCount,
+                champ.stats.attackrange.toInt()
             )
         }
-
-        updateLinearProgressWithAnimator(
-            mBinding.pbArmor,
-            mBinding.tvArmorCount,
-            champ.stats.armor.toInt()
-        )
-        updateLinearProgressWithAnimator(
-            mBinding.pbSpellBlock,
-            mBinding.tvSpellBlockCount,
-            champ.stats.spellblock.toInt()
-        )
-        updateLinearProgressWithAnimator(
-            mBinding.pbAttackDamage,
-            mBinding.tvAttackDamageCount,
-            champ.stats.attackdamage.toInt()
-        )
-        updateLinearProgressWithAnimator(
-            mBinding.pbHpRegen,
-            mBinding.tvHpRegenCount,
-            champ.stats.hpregen.toInt()
-        )
-
-        if (champ.stats.mpregen.toInt() == 0) {
-            mBinding.tvMpRegen.visibility = View.GONE
-            mBinding.pbMpRegen.visibility = View.GONE
-            mBinding.tvMpRegenCount.visibility = View.GONE
-        } else {
-            updateLinearProgressWithAnimator(
-                mBinding.pbMpRegen,
-                mBinding.tvMpRegenCount,
-                champ.stats.mpregen.toInt()
-            )
-        }
-
-        updateLinearProgressWithAnimator(
-            mBinding.pbAttackRange,
-            mBinding.tvAttackRangeCount,
-            champ.stats.attackrange.toInt()
-        )
 
         val champInfo = champ.info
-        if (champInfo != null) {
-            mBinding.circularPbAttack.progress = champInfo.attack
-            mBinding.circularPbDefense.progress = champInfo.defense
-            mBinding.circularPbMagic.progress = champInfo.magic
-            mBinding.circularPbDifficulty.progress = champInfo.difficulty
-        } else {
-            mBinding.circularPbAttack.visibility = View.GONE
-            mBinding.circularPbDefense.visibility = View.GONE
-            mBinding.circularPbMagic.visibility = View.GONE
-            mBinding.circularPbDifficulty.visibility = View.GONE
-        }
-
-
-        when (champ.tags?.get(0)) {
-            "Fighter" -> {
-                mBinding.ivChampClassFirst.setImageResource(R.drawable.ic_fighter)
-            }
-
-            "Tank" -> {
-                mBinding.ivChampClassFirst.setImageResource(R.drawable.ic_tank)
-            }
-
-            "Mage" -> {
-                mBinding.ivChampClassFirst.setImageResource(R.drawable.ic_mage)
-            }
-
-            "Assassin" -> {
-                mBinding.ivChampClassFirst.setImageResource(R.drawable.ic_assassin)
-            }
-
-            "Marksman" -> {
-                mBinding.ivChampClassFirst.setImageResource(R.drawable.ic_marksman)
-            }
-
-            "Support" -> {
-                mBinding.ivChampClassFirst.setImageResource(R.drawable.ic_tank)
-            }
-
-            "Slayer" -> {
-                mBinding.ivChampClassFirst.setImageResource(R.drawable.ic_slayer)
-            }
-
-            else -> {
-                mBinding.ivChampClassFirst.visibility = View.INVISIBLE
+        with(mBinding) {
+            if (champInfo != null) {
+                circularPbAttack.progress = champInfo.attack
+                circularPbDefense.progress = champInfo.defense
+                circularPbMagic.progress = champInfo.magic
+                circularPbDifficulty.progress = champInfo.difficulty
+            } else {
+                circularPbAttack.visibility = View.GONE
+                circularPbDefense.visibility = View.GONE
+                circularPbMagic.visibility = View.GONE
+                circularPbDifficulty.visibility = View.GONE
             }
         }
 
-        if (champ.tags?.size == 1) {
-            mBinding.ivChampClassSecond.visibility = View.GONE
-        } else {
-            when (champ.tags?.get(1)) {
+
+        with(mBinding.ivChampClassFirst) {
+            when (champ.tags?.get(0)) {
+
                 "Fighter" -> {
-                    mBinding.ivChampClassSecond.setImageResource(R.drawable.ic_fighter)
+                    setImageResource(R.drawable.ic_fighter)
                 }
 
                 "Tank" -> {
-                    mBinding.ivChampClassSecond.setImageResource(R.drawable.ic_tank)
+                    setImageResource(R.drawable.ic_tank)
                 }
 
                 "Mage" -> {
-                    mBinding.ivChampClassSecond.setImageResource(R.drawable.ic_mage)
+                    setImageResource(R.drawable.ic_mage)
                 }
 
                 "Assassin" -> {
-                    mBinding.ivChampClassSecond.setImageResource(R.drawable.ic_assassin)
+                    setImageResource(R.drawable.ic_assassin)
                 }
 
                 "Marksman" -> {
-                    mBinding.ivChampClassSecond.setImageResource(R.drawable.ic_marksman)
+                    setImageResource(R.drawable.ic_marksman)
+                }
+
+                "Support" -> {
+                    setImageResource(R.drawable.ic_tank)
                 }
 
                 "Slayer" -> {
-                    mBinding.ivChampClassSecond.setImageResource(R.drawable.ic_slayer)
+                    setImageResource(R.drawable.ic_slayer)
                 }
 
                 else -> {
-                    mBinding.ivChampClassSecond.visibility = View.INVISIBLE
+                    visibility = View.INVISIBLE
+                }
+            }
+        }
+
+        with(mBinding.ivChampClassSecond) {
+            if (champ.tags?.size == 1) {
+                visibility = View.GONE
+            } else {
+                when (champ.tags?.get(1)) {
+                    "Fighter" -> {
+                        setImageResource(R.drawable.ic_fighter)
+                    }
+
+                    "Tank" -> {
+                        setImageResource(R.drawable.ic_tank)
+                    }
+
+                    "Mage" -> {
+                        setImageResource(R.drawable.ic_mage)
+                    }
+
+                    "Assassin" -> {
+                        setImageResource(R.drawable.ic_assassin)
+                    }
+
+                    "Marksman" -> {
+                        setImageResource(R.drawable.ic_marksman)
+                    }
+
+                    "Slayer" -> {
+                        setImageResource(R.drawable.ic_slayer)
+                    }
+
+                    else -> {
+                        visibility = View.INVISIBLE
+                    }
                 }
             }
         }
@@ -213,120 +226,121 @@ class ChampionsDetailsFragment : Fragment() {
                 Status.SUCCESS -> {
                     val result = it.data!!.data[mArgs.details.id]!!
 
-                    mBinding.tvBlurb.text = result.lore
+                    with(mBinding) {
 
-                    if (!result.allytips.isNullOrEmpty()) {
-                        for (i in result.allytips.indices) {
-                            mBinding.tvTipsContent.append("${result.allytips[i]}\n\n")
+                        tvBlurb.text = result.lore
+
+                        if (!result.allytips.isNullOrEmpty()) {
+                            for (i in result.allytips.indices) {
+                                tvTipsContent.append("${result.allytips[i]}\n\n")
+                            }
+                        } else {
+                            tvTips.visibility = View.GONE
+                            tvTipsContent.visibility = View.GONE
+                            viewTips.visibility = View.GONE
+                            viewTipsEnd.visibility = View.GONE
                         }
-                    } else {
-                        mBinding.tvTips.visibility = View.GONE
-                        mBinding.tvTipsContent.visibility = View.GONE
-                        mBinding.viewTips.visibility = View.GONE
-                        mBinding.viewTipsEnd.visibility = View.GONE
-                    }
 
-                    if (!result.enemytips.isNullOrEmpty()) {
-                        for (i in result.enemytips.indices) {
-                            mBinding.tvEnemyTipsContent.append("${result.enemytips[i]}\n\n")
+                        if (!result.enemytips.isNullOrEmpty()) {
+                            for (i in result.enemytips.indices) {
+                                tvEnemyTipsContent.append("${result.enemytips[i]}\n\n")
+                            }
+                        } else {
+                            tvEnemyTips.visibility = View.GONE
+                            tvEnemyTipsContent.visibility = View.GONE
+                            viewEnemyTips.visibility = View.GONE
+                            viewEnemyTipsEnd.visibility = View.GONE
                         }
-                    } else {
-                        mBinding.tvEnemyTips.visibility = View.GONE
-                        mBinding.tvEnemyTipsContent.visibility = View.GONE
-                        mBinding.viewEnemyTips.visibility = View.GONE
-                        mBinding.viewEnemyTipsEnd.visibility = View.GONE
-                    }
 
-                    with(skillFragment) {
-                        add(
-                            SkillPageFragment(
-                                result.passive?.name!!,
-                                result.passive.description!!,
-                                "${BASE_URL}img/passive/${result.passive.image?.full}"
+                        with(skillFragment) {
+                            add(
+                                SkillPageFragment(
+                                    result.passive?.name!!,
+                                    result.passive.description!!,
+                                    "${BASE_URL}img/passive/${result.passive.image?.full}"
+                                )
                             )
-                        )
 
-                        add(
-                            SkillPageFragment(
-                                result.spells?.get(0)!!.name,
-                                result.spells.get(0).description,
-                                "${BASE_URL}img/spell/${result.spells.get(0).image.full}"
+                            add(
+                                SkillPageFragment(
+                                    result.spells?.get(0)!!.name,
+                                    result.spells[0].description,
+                                    "${BASE_URL}img/spell/${result.spells[0].image.full}"
+                                )
                             )
-                        )
 
-                        add(
-                            SkillPageFragment(
-                                result.spells.get(1).name,
-                                result.spells.get(1).description,
-                                "${BASE_URL}img/spell/${result.spells.get(1).image.full}"
+                            add(
+                                SkillPageFragment(
+                                    result.spells[1].name,
+                                    result.spells[1].description,
+                                    "${BASE_URL}img/spell/${result.spells[1].image.full}"
+                                )
                             )
-                        )
 
-                        add(
-                            SkillPageFragment(
-                                result.spells.get(2).name,
-                                result.spells.get(2).description,
-                                "${BASE_URL}img/spell/${result.spells.get(2).image.full}"
+                            add(
+                                SkillPageFragment(
+                                    result.spells[2].name,
+                                    result.spells[2].description,
+                                    "${BASE_URL}img/spell/${result.spells[2].image.full}"
+                                )
                             )
-                        )
 
-                        add(
-                            SkillPageFragment(
-                                result.spells.get(3).name,
-                                result.spells.get(3).description,
-                                "${BASE_URL}img/spell/${result.spells.get(3).image.full}"
+                            add(
+                                SkillPageFragment(
+                                    result.spells[3].name,
+                                    result.spells[3].description,
+                                    "${BASE_URL}img/spell/${result.spells[3].image.full}"
+                                )
                             )
-                        )
-                    }
-
-                    for (i in 0 until result.skins!!.size) {
-                        skinFragment.add(
-                            SkinPageFragment("${CHAMPION_URL}${result.id}_$i.jpg")
-                        )
-                    }
-
-                    val skinVPAdapter = SkinViewPagerAdapter(
-                        skinFragment,
-                        requireActivity()
-                    )
-
-                    mBinding.viewPagerSkins.isUserInputEnabled = false
-                    mBinding.viewPagerSkins.offscreenPageLimit = result.skins.size
-                    mBinding.viewPagerSkins.adapter = skinVPAdapter
-
-
-                    val skillVPAdapter = SkillViewPagerAdapter(
-                        skillFragment,
-                        requireActivity()
-                    )
-
-                    skinTabLayoutMediator = TabLayoutMediator(
-                        mBinding.tabLayoutSkins,
-                        mBinding.viewPagerSkins
-                    ) { tab, position ->
-                        if (position < result.skins.size) {
-                            tab.text = result.skins[position].name
                         }
-                    }
 
-                    skinTabLayoutMediator.attach()
-
-                    mBinding.viewPagerSkills.adapter = skillVPAdapter
-
-                    skillTabLayoutMediator = TabLayoutMediator(
-                        mBinding.tabLayoutSkills,
-                        mBinding.viewPagerSkills
-                    ) { tab, position ->
-                        when (position) {
-                            0 -> tab.text = "Passive"
-                            1 -> tab.text = "Q"
-                            2 -> tab.text = "W"
-                            3 -> tab.text = "E"
-                            4 -> tab.text = "R"
+                        for (i in 0 until result.skins!!.size) {
+                            skinFragment.add(
+                                SkinPageFragment("${CHAMPION_URL}${result.id}_$i.jpg")
+                            )
                         }
+
+                        val skinVPAdapter = SkinViewPagerAdapter(
+                            skinFragment,
+                            requireActivity()
+                        )
+
+                        viewPagerSkins.adapter = skinVPAdapter
+
+                        val skillVPAdapter = SkillViewPagerAdapter(
+                            skillFragment,
+                            requireActivity()
+                        )
+
+                        skinTabLayoutMediator = TabLayoutMediator(
+                            tabLayoutSkins,
+                            viewPagerSkins
+                        ) { tab, position ->
+                            if (position < result.skins.size) {
+                                tab.text = result.skins[position].name
+                            }
+                        }
+
+                        skinTabLayoutMediator.attach()
+
+                        viewPagerSkills.adapter = skillVPAdapter
+
+                        skillTabLayoutMediator = TabLayoutMediator(
+                            tabLayoutSkills,
+                            viewPagerSkills
+                        ) { tab, position ->
+                            when (position) {
+                                0 -> tab.text = "Passive"
+                                1 -> tab.text = "Q"
+                                2 -> tab.text = "W"
+                                3 -> tab.text = "E"
+                                4 -> tab.text = "R"
+                            }
+                        }
+
+                        skillTabLayoutMediator.attach()
                     }
 
-                    skillTabLayoutMediator.attach()
                 }
 
                 Status.LOADING -> {}

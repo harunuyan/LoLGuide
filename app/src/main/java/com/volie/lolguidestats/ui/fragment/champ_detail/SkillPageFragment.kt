@@ -25,11 +25,14 @@ class SkillPageFragment(
         savedInstanceState: Bundle?
     ): View {
         _mBinding = FragmentSkillPageBinding.inflate(inflater, container, false)
-        mBinding.tvSkillName.text = skillName
-        mBinding.tvSkillDescription.text = skillDescription
-        Glide.with(requireContext())
-            .load(skillImage)
-            .into(mBinding.ivSkillImage)
+        with(mBinding) {
+            tvSkillName.text = skillName
+            tvSkillDescription.text = skillDescription
+            Glide.with(requireContext())
+                .load(skillImage)
+                .into(ivSkillImage)
+        }
+
         return mBinding.root
     }
 

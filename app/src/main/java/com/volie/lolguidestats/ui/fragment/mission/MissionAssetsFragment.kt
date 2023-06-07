@@ -43,16 +43,17 @@ class MissionAssetsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        with(mBinding) {
+            flBack.setOnClickListener {
+                findNavController().navigateUp()
+            }
 
-        mBinding.flBack.setOnClickListener {
-            findNavController().navigateUp()
-        }
-
-        mBinding.ivBack.setOnClickListener {
-            mBinding.flAssetsDetail.visibility = View.GONE
-            mBinding.tvTitle.visibility = View.VISIBLE
-            mBinding.view.visibility = View.VISIBLE
-            mBinding.flBack.visibility = View.VISIBLE
+            ivBack.setOnClickListener {
+                flAssetsDetail.visibility = View.GONE
+                tvTitle.visibility = View.VISIBLE
+                view.visibility = View.VISIBLE
+                flBack.visibility = View.VISIBLE
+            }
         }
 
         observeLiveData()

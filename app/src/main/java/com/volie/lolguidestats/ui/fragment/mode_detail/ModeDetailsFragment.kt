@@ -38,13 +38,15 @@ class ModeDetailsFragment : Fragment() {
 
     private fun showDetails() {
 
-        Glide.with(requireContext())
-            .load(mArgs.modeDetails.url)
-            .into(mBinding.ivGameMode)
+        with(mBinding) {
+            Glide.with(requireContext())
+                .load(mArgs.modeDetails.url)
+                .into(ivGameMode)
 
-        mBinding.tvGameModeTitle.text = mArgs.modeDetails.gameMode
-        mBinding.tvGameModeName.text = mArgs.modeDetails.gameMode
-        mBinding.tvGameModeDescription.text = mArgs.modeDetails.description
+            tvGameModeTitle.text = mArgs.modeDetails.gameMode
+            tvGameModeName.text = mArgs.modeDetails.gameMode
+            tvGameModeDescription.text = mArgs.modeDetails.description
+        }
     }
 
     override fun onDestroy() {

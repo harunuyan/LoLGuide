@@ -17,14 +17,17 @@ class GameModeRVAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val mode = currentList[position]
-            Glide.with(binding.root)
-                .load(mode.url)
-                .into(binding.ivGameMode)
 
-            binding.tvGameMode.text = mode.gameMode
+            with(binding) {
+                Glide.with(root)
+                    .load(mode.url)
+                    .into(ivGameMode)
 
-            binding.root.setOnClickListener {
-                onItemClicked(mode)
+                tvGameMode.text = mode.gameMode
+
+                root.setOnClickListener {
+                    onItemClicked(mode)
+                }
             }
         }
     }

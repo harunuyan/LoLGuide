@@ -29,9 +29,7 @@ class ItemDetailsFragment : Fragment() {
     }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _mBinding = FragmentItemDetailsBinding.inflate(inflater, container, false)
         mBinding.rvInto.adapter = intoAdapter
@@ -51,45 +49,46 @@ class ItemDetailsFragment : Fragment() {
 
     private fun showDetails() {
 
-        intoAdapter.submitList(mArgs.items.into)
-        fromAdapter.submitList(mArgs.items.from)
+        with(mBinding) {
+            intoAdapter.submitList(mArgs.items.into)
+            fromAdapter.submitList(mArgs.items.from)
 
-        if (mArgs.items.from.isNullOrEmpty()) {
-            mBinding.tvFrom.visibility = View.GONE
-            mBinding.rvFrom.visibility = View.GONE
-            mBinding.viewFrom.visibility = View.GONE
+            if (mArgs.items.from.isNullOrEmpty()) {
+                tvFrom.visibility = View.GONE
+                rvFrom.visibility = View.GONE
+                viewFrom.visibility = View.GONE
+            }
+
+            if (mArgs.items.into.isNullOrEmpty()) {
+                tvInto.visibility = View.GONE
+                rvInto.visibility = View.GONE
+                viewInto.visibility = View.GONE
+            }
+
+
+            Glide.with(requireContext()).load("${BASE_URL}img/item/${mArgs.items.itemImage?.full}")
+                .into(ivItemImage)
+
+
+            if (mArgs.items.gold?.sell != 0) {
+                tvGoldSell.text = "-${mArgs.items.gold?.sell.toString()}"
+            } else {
+                ivGoldSell.visibility = View.GONE
+                tvGoldSell.visibility = View.GONE
+            }
+
+            if (mArgs.items.gold?.total != 0) {
+                tvGold.text = mArgs.items.gold?.total.toString()
+            } else {
+                tvGold.visibility = View.GONE
+                ivGold.visibility = View.GONE
+            }
+
+            tvItemName.text = mArgs.items.name
+            tvItemPlain.text = mArgs.items.plaintext
+            tvItemTags.text = mArgs.items.tags.toString().trim('[', ']')
+            tvItemDescription.text = mArgs.items.description
         }
-
-        if (mArgs.items.into.isNullOrEmpty()) {
-            mBinding.tvInto.visibility = View.GONE
-            mBinding.rvInto.visibility = View.GONE
-            mBinding.viewInto.visibility = View.GONE
-        }
-
-
-        Glide.with(requireContext())
-            .load("${BASE_URL}img/item/${mArgs.items.itemImage?.full}")
-            .into(mBinding.ivItemImage)
-
-
-        if (mArgs.items.gold?.sell != 0) {
-            mBinding.tvGoldSell.text = "-${mArgs.items.gold?.sell.toString()}"
-        } else {
-            mBinding.ivGoldSell.visibility = View.GONE
-            mBinding.tvGoldSell.visibility = View.GONE
-        }
-
-        if (mArgs.items.gold?.total != 0) {
-            mBinding.tvGold.text = mArgs.items.gold?.total.toString()
-        } else {
-            mBinding.tvGold.visibility = View.GONE
-            mBinding.ivGold.visibility = View.GONE
-        }
-
-        mBinding.tvItemName.text = mArgs.items.name
-        mBinding.tvItemPlain.text = mArgs.items.plaintext
-        mBinding.tvItemTags.text = mArgs.items.tags.toString().trim('[', ']')
-        mBinding.tvItemDescription.text = mArgs.items.description
     }
 
     override fun onDestroy() {

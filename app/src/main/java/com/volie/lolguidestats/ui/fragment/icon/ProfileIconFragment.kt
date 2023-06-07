@@ -21,14 +21,17 @@ class ProfileIconFragment : Fragment() {
 
     private val mAdapter: ProfileIconRVAdapter by lazy {
         ProfileIconRVAdapter {
-            Glide.with(requireContext())
-                .load("${BASE_URL}img/profileicon/${it.image.full}")
-                .into(mBinding.ivProfileIcon)
+            with(mBinding) {
+                Glide.with(requireContext())
+                    .load("${BASE_URL}img/profileicon/${it.image.full}")
+                    .into(ivProfileIcon)
 
-            mBinding.flIconDetail.visibility = View.VISIBLE
-            mBinding.tvTitle.visibility = View.GONE
-            mBinding.view.visibility = View.GONE
-            mBinding.flBack.visibility = View.GONE
+                flIconDetail.visibility = View.VISIBLE
+                tvTitle.visibility = View.GONE
+                view.visibility = View.GONE
+                flBack.visibility = View.GONE
+            }
+
         }
     }
 
@@ -45,16 +48,20 @@ class ProfileIconFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mBinding.flBack.setOnClickListener {
-            findNavController().navigateUp()
+        with(mBinding) {
+            flBack.setOnClickListener {
+                findNavController().navigateUp()
+            }
+
+            ivBack.setOnClickListener {
+                flIconDetail.visibility = View.GONE
+                tvTitle.visibility = View.VISIBLE
+                view.visibility = View.VISIBLE
+                flBack.visibility = View.VISIBLE
+            }
         }
 
-        mBinding.ivBack.setOnClickListener {
-            mBinding.flIconDetail.visibility = View.GONE
-            mBinding.tvTitle.visibility = View.VISIBLE
-            mBinding.view.visibility = View.VISIBLE
-            mBinding.flBack.visibility = View.VISIBLE
-        }
+
 
         observeLiveData()
         mViewModel.getProfileIcons()

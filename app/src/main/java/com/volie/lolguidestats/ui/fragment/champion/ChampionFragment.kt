@@ -50,25 +50,26 @@ class ChampionFragment : Fragment() {
 
         searchForChampions()
 
-        mBinding.ivSearch.setOnClickListener {
-            if (mBinding.etSearch.isVisible) {
-                mBinding.tvChampionsFeedTitle.visibility = View.VISIBLE
-                mBinding.etSearch.visibility = View.INVISIBLE
-                mBinding.ivSearch.setImageResource(R.drawable.ic_search).also {
-                    val color = ContextCompat.getColor(requireContext(), R.color.white)
-                    mBinding.ivSearch.setColorFilter(color)
-                }
-            } else {
-                mBinding.tvChampionsFeedTitle.visibility = View.GONE
-                mBinding.etSearch.visibility = View.VISIBLE
-                mBinding.ivSearch.setImageResource(R.drawable.ic_champ).also {
-                    val color = ContextCompat.getColor(requireContext(), R.color.lol_yellow)
-                    mBinding.ivSearch.setColorFilter(color)
+        with(mBinding) {
+            ivSearch.setOnClickListener {
+                if (etSearch.isVisible) {
+                    tvChampionsFeedTitle.visibility = View.VISIBLE
+                    etSearch.visibility = View.INVISIBLE
+                    ivSearch.setImageResource(R.drawable.ic_search).also {
+                        val color = ContextCompat.getColor(requireContext(), R.color.white)
+                        ivSearch.setColorFilter(color)
+                    }
+                } else {
+                    tvChampionsFeedTitle.visibility = View.GONE
+                    etSearch.visibility = View.VISIBLE
+                    ivSearch.setImageResource(R.drawable.ic_champ).also {
+                        val color = ContextCompat.getColor(requireContext(), R.color.lol_yellow)
+                        ivSearch.setColorFilter(color)
+                    }
                 }
             }
+            rvChampions.adapter = mAdapter
         }
-
-        mBinding.rvChampions.adapter = mAdapter
 
         mViewModel.getChampions()
         observeLiveData()

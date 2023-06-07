@@ -17,14 +17,16 @@ class RankRVAdapter(
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val rank = currentList[position]
-            binding.tvSeason.text = rank.name
+            with(binding) {
+                tvSeason.text = rank.name
 
-            Glide.with(binding.root)
-                .load(rank.image)
-                .into(binding.ivSeason)
+                Glide.with(root)
+                    .load(rank.image)
+                    .into(ivSeason)
 
-            binding.root.setOnClickListener {
-                onItemClickListener(rank)
+                root.setOnClickListener {
+                    onItemClickListener(rank)
+                }
             }
         }
     }

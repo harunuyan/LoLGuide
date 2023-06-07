@@ -21,25 +21,27 @@ class ItemRVAdapter(
         fun bind(position: Int) {
             val item = currentList[position]
 
-            Glide.with(binding.root)
-                .load("${BASE_URL}img/item/${item.itemImage?.full}")
-                .into(binding.ivItemImage)
+            with(binding) {
+                Glide.with(root)
+                    .load("${BASE_URL}img/item/${item.itemImage?.full}")
+                    .into(ivItemImage)
 
-            binding.tvItemName.text = item.name
+                tvItemName.text = item.name
 
-            binding.tvItemPlain.text = item.plaintext
+                tvItemPlain.text = item.plaintext
 
-            if (item.gold?.base != 0) {
-                binding.tvGold.text = item.gold?.total.toString()
-            } else {
-                binding.tvGold.visibility = View.GONE
-                binding.ivGold.visibility = View.GONE
-            }
+                if (item.gold?.base != 0) {
+                    tvGold.text = item.gold?.total.toString()
+                } else {
+                    tvGold.visibility = View.GONE
+                    ivGold.visibility = View.GONE
+                }
 
-            binding.tvItemTags.text = item.tags.toString().trim('[', ']')
+                tvItemTags.text = item.tags.toString().trim('[', ']')
 
-            binding.root.setOnClickListener {
-                onItemClick(item)
+                root.setOnClickListener {
+                    onItemClick(item)
+                }
             }
         }
     }
