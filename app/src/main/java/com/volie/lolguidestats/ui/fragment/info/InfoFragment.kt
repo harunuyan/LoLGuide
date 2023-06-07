@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.volie.lolguidestats.databinding.FragmentInfoBinding
 
 class InfoFragment : Fragment() {
@@ -51,6 +52,15 @@ class InfoFragment : Fragment() {
 
         mBinding.ivGameModes.setOnClickListener {
             val action = InfoFragmentDirections.actionInfoFragmentToGameModeFragment()
+            findNavController().navigate(action)
+        }
+
+        Glide.with(requireContext())
+            .load("https://1.bp.blogspot.com/-TXZfsdm7NoM/WR4Bg0c45lI/AAAAAAAAlhM/m6cqTR3JgIQclAecqA7P7TV-5OqSK2S9gCLcB/s1600/MissionsBanner_1920x1080.jpg")
+            .into(mBinding.ivMissionAssets)
+
+        mBinding.ivMissionAssets.setOnClickListener {
+            val action = InfoFragmentDirections.actionInfoFragmentToMissionAssetsFragment()
             findNavController().navigate(action)
         }
     }

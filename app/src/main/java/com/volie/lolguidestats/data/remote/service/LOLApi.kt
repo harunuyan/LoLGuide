@@ -3,6 +3,7 @@ package com.volie.lolguidestats.data.remote.service
 import com.volie.lolguidestats.data.model.champion.Data
 import com.volie.lolguidestats.data.model.item.ItemData
 import com.volie.lolguidestats.data.model.map.MapData
+import com.volie.lolguidestats.data.model.mission.MissionAssetsData
 import com.volie.lolguidestats.data.model.profile_icon.IconData
 import com.volie.lolguidestats.data.model.summoner_spell.SummonerSpellData
 import retrofit2.Response
@@ -42,4 +43,10 @@ interface LOLApi {
         @Path("region")
         region: String = "en_US"
     ): Response<MapData>
+
+    @GET("data/{region}/mission-assets.json")
+    suspend fun getAssets(
+        @Path("region")
+        region: String = "en_US"
+    ): Response<MissionAssetsData>
 }

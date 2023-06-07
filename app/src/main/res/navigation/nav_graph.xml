@@ -42,6 +42,9 @@
         <action
             android:id="@+id/action_infoFragment_to_rankFragment"
             app:destination="@id/rankFragment" />
+        <action
+            android:id="@+id/action_infoFragment_to_missionAssetsFragment"
+            app:destination="@id/missionAssetsFragment" />
     </fragment>
     <fragment
         android:id="@+id/statsFragment"
@@ -135,4 +138,12 @@
             android:name="rank"
             app:argType="com.volie.lolguidestats.data.model.rank.Season" />
     </fragment>
+    <fragment
+        android:id="@+id/champClassesFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.home.ChampClassesFragment"
+        android:label="ChampClassesFragment" />
+    <fragment
+        android:id="@+id/missionAssetsFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.mission.MissionAssetsFragment"
+        android:label="MissionAssetsFragment" />
 </navigation>
