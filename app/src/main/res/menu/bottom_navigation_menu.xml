@@ -16,9 +16,9 @@
         android:icon="@drawable/ic_map"
         android:title="@string/game_info" />
 
-    <item
-        android:id="@+id/statsFragment"
-        android:icon="@drawable/ic_statistics"
-        android:title="@string/statistics" />
+    <!--    <item-->
+    <!--        android:id="@+id/statsFragment"-->
+    <!--        android:icon="@drawable/ic_statistics"-->
+    <!--        android:title="@string/statistics" />-->
 
 </menu>
