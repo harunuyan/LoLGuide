@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.bumptech.glide.Glide
+import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentProfileIconBinding
-import com.volie.lolguidestats.helper.Constant
 import com.volie.lolguidestats.helper.Status
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -20,13 +19,11 @@ class ProfileIconFragment : Fragment() {
 
     private val mAdapter: ProfileIconRVAdapter by lazy {
         ProfileIconRVAdapter {
-            Glide.with(requireContext())
-                .load("${Constant.BASE_URL}img/profileicon/${it.image.full}")
-                .into(mBinding.ivProfileIcon)
-
-            mBinding.flIconDetail.visibility = View.VISIBLE
-            mBinding.tvTitle.visibility = View.GONE
-            mBinding.view.visibility = View.GONE
+            val action =
+                ProfileIconFragmentDirections.actionProfileIconFragmentToProfileIconDetailsFragment(
+                    it.image.full
+                )
+            findNavController().navigate(action)
         }
     }
 
@@ -42,12 +39,6 @@ class ProfileIconFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        mBinding.ivBack.setOnClickListener {
-            mBinding.flIconDetail.visibility = View.GONE
-            mBinding.tvTitle.visibility = View.VISIBLE
-            mBinding.view.visibility = View.VISIBLE
-        }
 
         observeLiveData()
         mViewModel.getProfileIcons()
