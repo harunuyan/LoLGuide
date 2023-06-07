@@ -315,6 +315,54 @@
             app:layout_constraintStart_toStartOf="@id/tv_game_modes"
             app:layout_constraintTop_toBottomOf="@id/tv_game_modes" />
 
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/iv_mission_assets"
+            android:layout_width="0dp"
+            android:layout_height="190dp"
+            android:layout_margin="12dp"
+            android:padding="6dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/game_modes"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iv_game_modes"
+            app:shapeAppearanceOverlay="@style/RadiusImageView"
+            app:strokeColor="@color/lol_yellow"
+            app:strokeWidth="2dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="8dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintBottom_toTopOf="@id/tv_mission_assets"
+            app:layout_constraintEnd_toEndOf="@id/tv_mission_assets"
+            app:layout_constraintStart_toStartOf="@id/tv_mission_assets" />
+
+        <TextView
+            android:id="@+id/tv_mission_assets"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/gradient_blue"
+            android:fontFamily="@font/audiowide"
+            android:padding="4dp"
+            android:text="@string/mission_assets"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_mission_assets"
+            app:layout_constraintEnd_toEndOf="@id/iv_mission_assets"
+            app:layout_constraintStart_toStartOf="@id/iv_mission_assets" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintEnd_toEndOf="@id/tv_game_modes"
+            app:layout_constraintStart_toStartOf="@id/tv_mission_assets"
+            app:layout_constraintTop_toBottomOf="@id/tv_mission_assets" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
