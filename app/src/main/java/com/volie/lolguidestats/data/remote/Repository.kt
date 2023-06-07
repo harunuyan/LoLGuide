@@ -20,9 +20,9 @@ class Repository
     private val serviceGithub: LOLApiGithub
 ) {
 
-    suspend fun getChampions(detail: String): Resource<Data> {
+    suspend fun getChampions(): Resource<Data> {
         return try {
-            val response = service.getChampions(champ = detail)
+            val response = service.getChampions()
             if (response.isSuccessful) {
                 response.body()?.let {
                     return@let Resource.success(it)

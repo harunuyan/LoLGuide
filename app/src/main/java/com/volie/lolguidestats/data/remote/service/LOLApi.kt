@@ -12,12 +12,10 @@ import retrofit2.http.Path
 
 interface LOLApi {
 
-    @GET("data/{region}/champion{detail}")
+    @GET("data/{region}/championFull.json")
     suspend fun getChampions(
         @Path("region")
-        region: String = "en_US",
-        @Path("detail")
-        champ: String = ".json"
+        region: String = "en_US"
     ): Response<Data>
 
     @GET("data/{region}/item.json")

@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
@@ -18,14 +17,12 @@ import com.volie.lolguidestats.R
 import com.volie.lolguidestats.databinding.FragmentChampionsDetailsBinding
 import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.helper.Constant.CHAMPION_URL
-import com.volie.lolguidestats.helper.Status
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class ChampionsDetailsFragment : Fragment() {
     private var _mBinding: FragmentChampionsDetailsBinding? = null
     private val mBinding get() = _mBinding!!
-    private val mViewModel: ChampionsDetailsViewModel by viewModels()
     private val mArgs: ChampionsDetailsFragmentArgs by navArgs()
     private val skillFragment = ArrayList<Fragment>()
     private val skinFragment = ArrayList<Fragment>()
@@ -54,11 +51,10 @@ class ChampionsDetailsFragment : Fragment() {
             }
         }
 
-
+        setupViewPagerSkill()
+        setupViewPagerSkin()
 
         showDetails()
-        mViewModel.getChampionDetails("${mArgs.details.name}")
-        observeLiveData()
     }
 
     private fun showDetails() {
@@ -74,60 +70,66 @@ class ChampionsDetailsFragment : Fragment() {
 
         with(mBinding) {
 
-            updateLinearProgressWithAnimator(
-                pbHp,
-                tvHpCount,
-                champ.stats!!.hp.toInt()
-            )
-            if (champ.stats.mp.toInt() == 0) {
-                pbMp.visibility = View.GONE
-                tvMp.visibility = View.GONE
-                tvMpCount.visibility = View.GONE
-            } else {
-                updateLinearProgressWithAnimator(
-                    pbMp,
-                    tvMpCount,
-                    champ.stats.mp.toInt()
-                )
-            }
+            with(champ.stats) {
 
-            updateLinearProgressWithAnimator(
-                pbArmor,
-                tvArmorCount,
-                champ.stats.armor.toInt()
-            )
-            updateLinearProgressWithAnimator(
-                pbSpellBlock,
-                tvSpellBlockCount,
-                champ.stats.spellblock.toInt()
-            )
-            updateLinearProgressWithAnimator(
-                pbAttackDamage,
-                tvAttackDamageCount,
-                champ.stats.attackdamage.toInt()
-            )
-            updateLinearProgressWithAnimator(
-                pbHpRegen,
-                tvHpRegenCount,
-                champ.stats.hpregen.toInt()
-            )
-            if (champ.stats.mpregen.toInt() == 0) {
-                tvMpRegen.visibility = View.GONE
-                pbMpRegen.visibility = View.GONE
-                tvMpRegenCount.visibility = View.GONE
-            } else {
-                updateLinearProgressWithAnimator(
-                    pbMpRegen,
-                    tvMpRegenCount,
-                    champ.stats.mpregen.toInt()
-                )
-            }
+                this?.let {
+                    updateLinearProgressWithAnimator(
+                        pbHp,
+                        tvHpCount,
+                        hp.toInt()
+                    )
+                    if (mp.toInt() == 0) {
+                        pbMp.visibility = View.GONE
+                        tvMp.visibility = View.GONE
+                        tvMpCount.visibility = View.GONE
+                    } else {
+                        updateLinearProgressWithAnimator(
+                            pbMp,
+                            tvMpCount,
+                            mp.toInt()
+                        )
+                    }
 
-            updateLinearProgressWithAnimator(
-                pbAttackRange,
-                tvAttackRangeCount,
-                champ.stats.attackrange.toInt()
-            )
+                    updateLinearProgressWithAnimator(
+                        pbArmor,
+                        tvArmorCount,
+                        armor.toInt()
+                    )
+                    updateLinearProgressWithAnimator(
+                        pbSpellBlock,
+                        tvSpellBlockCount,
+                        spellblock.toInt()
+                    )
+                    updateLinearProgressWithAnimator(
+                        pbAttackDamage,
+                        tvAttackDamageCount,
+                        attackdamage.toInt()
+                    )
+                    updateLinearProgressWithAnimator(
+                        pbHpRegen,
+                        tvHpRegenCount,
+                        hpregen.toInt()
+                    )
+                    if (mpregen.toInt() == 0) {
+                        tvMpRegen.visibility = View.GONE
+                        pbMpRegen.visibility = View.GONE
+                        tvMpRegenCount.visibility = View.GONE
+                    } else {
+                        updateLinearProgressWithAnimator(
+                            pbMpRegen,
+                            tvMpRegenCount,
+                            mpregen.toInt()
+                        )
+                    }
+
+                    updateLinearProgressWithAnimator(
+                        pbAttackRange,
+                        tvAttackRangeCount,
+                        attackrange.toInt()
+                    )
+                }
+
+            }
         }
 
         val champInfo = champ.info
@@ -218,134 +220,131 @@ class ChampionsDetailsFragment : Fragment() {
                 }
             }
         }
-    }
 
-    private fun observeLiveData() {
-        mViewModel.champions.observe(viewLifecycleOwner) {
-            when (it.status) {
-                Status.SUCCESS -> {
-                    val result = it.data!!.data[mArgs.details.id]!!
+        with(mBinding) {
 
-                    with(mBinding) {
+            with(mArgs.details) {
 
-                        tvBlurb.text = result.lore
+                tvBlurb.text = lore
 
-                        if (!result.allytips.isNullOrEmpty()) {
-                            for (i in result.allytips.indices) {
-                                tvTipsContent.append("${result.allytips[i]}\n\n")
-                            }
-                        } else {
-                            tvTips.visibility = View.GONE
-                            tvTipsContent.visibility = View.GONE
-                            viewTips.visibility = View.GONE
-                            viewTipsEnd.visibility = View.GONE
-                        }
-
-                        if (!result.enemytips.isNullOrEmpty()) {
-                            for (i in result.enemytips.indices) {
-                                tvEnemyTipsContent.append("${result.enemytips[i]}\n\n")
-                            }
-                        } else {
-                            tvEnemyTips.visibility = View.GONE
-                            tvEnemyTipsContent.visibility = View.GONE
-                            viewEnemyTips.visibility = View.GONE
-                            viewEnemyTipsEnd.visibility = View.GONE
-                        }
-
-                        with(skillFragment) {
-                            add(
-                                SkillPageFragment(
-                                    result.passive?.name!!,
-                                    result.passive.description!!,
-                                    "${BASE_URL}img/passive/${result.passive.image?.full}"
-                                )
-                            )
-
-                            add(
-                                SkillPageFragment(
-                                    result.spells?.get(0)!!.name,
-                                    result.spells[0].description,
-                                    "${BASE_URL}img/spell/${result.spells[0].image.full}"
-                                )
-                            )
-
-                            add(
-                                SkillPageFragment(
-                                    result.spells[1].name,
-                                    result.spells[1].description,
-                                    "${BASE_URL}img/spell/${result.spells[1].image.full}"
-                                )
-                            )
-
-                            add(
-                                SkillPageFragment(
-                                    result.spells[2].name,
-                                    result.spells[2].description,
-                                    "${BASE_URL}img/spell/${result.spells[2].image.full}"
-                                )
-                            )
-
-                            add(
-                                SkillPageFragment(
-                                    result.spells[3].name,
-                                    result.spells[3].description,
-                                    "${BASE_URL}img/spell/${result.spells[3].image.full}"
-                                )
-                            )
-                        }
-
-                        for (i in 0 until result.skins!!.size) {
-                            skinFragment.add(
-                                SkinPageFragment("${CHAMPION_URL}${result.id}_$i.jpg")
-                            )
-                        }
-
-                        val skinVPAdapter = SkinViewPagerAdapter(
-                            skinFragment,
-                            requireActivity()
-                        )
-
-                        viewPagerSkins.adapter = skinVPAdapter
-
-                        val skillVPAdapter = SkillViewPagerAdapter(
-                            skillFragment,
-                            requireActivity()
-                        )
-
-                        skinTabLayoutMediator = TabLayoutMediator(
-                            tabLayoutSkins,
-                            viewPagerSkins
-                        ) { tab, position ->
-                            if (position < result.skins.size) {
-                                tab.text = result.skins[position].name
-                            }
-                        }
-
-                        skinTabLayoutMediator.attach()
-
-                        viewPagerSkills.adapter = skillVPAdapter
-
-                        skillTabLayoutMediator = TabLayoutMediator(
-                            tabLayoutSkills,
-                            viewPagerSkills
-                        ) { tab, position ->
-                            when (position) {
-                                0 -> tab.text = "Passive"
-                                1 -> tab.text = "Q"
-                                2 -> tab.text = "W"
-                                3 -> tab.text = "E"
-                                4 -> tab.text = "R"
-                            }
-                        }
-
-                        skillTabLayoutMediator.attach()
+                if (!allytips.isNullOrEmpty()) {
+                    for (i in allytips.indices) {
+                        tvTipsContent.append("${allytips[i]}\n\n")
                     }
-
+                } else {
+                    tvTips.visibility = View.GONE
+                    tvTipsContent.visibility = View.GONE
+                    viewTips.visibility = View.GONE
+                    viewTipsEnd.visibility = View.GONE
                 }
 
-                Status.LOADING -> {}
-                Status.ERROR -> {}
+                if (!enemytips.isNullOrEmpty()) {
+                    for (i in enemytips.indices) {
+                        tvEnemyTipsContent.append("${enemytips[i]}\n\n")
+                    }
+                } else {
+                    tvEnemyTips.visibility = View.GONE
+                    tvEnemyTipsContent.visibility = View.GONE
+                    viewEnemyTips.visibility = View.GONE
+                    viewEnemyTipsEnd.visibility = View.GONE
+                }
             }
+
+
+        }
+    }
+
+    private fun setupViewPagerSkill() {
+        with(skillFragment) {
+            with(mArgs.details) {
+                add(
+                    SkillPageFragment(
+                        passive?.name!!,
+                        passive.description!!,
+                        "${BASE_URL}img/passive/${passive.image?.full}"
+                    )
+                )
+
+                add(
+                    SkillPageFragment(
+                        spells?.get(0)!!.name,
+                        spells[0].description,
+                        "${BASE_URL}img/spell/${spells[0].image.full}"
+                    )
+                )
+
+                add(
+                    SkillPageFragment(
+                        spells[1].name,
+                        spells[1].description,
+                        "${BASE_URL}img/spell/${spells[1].image.full}"
+                    )
+                )
+
+                add(
+                    SkillPageFragment(
+                        spells[2].name,
+                        spells[2].description,
+                        "${BASE_URL}img/spell/${spells[2].image.full}"
+                    )
+                )
+
+                add(
+                    SkillPageFragment(
+                        spells[3].name,
+                        spells[3].description,
+                        "${BASE_URL}img/spell/${spells[3].image.full}"
+                    )
+                )
+            }
+        }
+
+        val skillVPAdapter = SkillViewPagerAdapter(
+            skillFragment,
+            requireActivity()
+        )
+        mBinding.viewPagerSkills.adapter = skillVPAdapter
+
+        skillTabLayoutMediator = TabLayoutMediator(
+            mBinding.tabLayoutSkills,
+            mBinding.viewPagerSkills
+        ) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Passive"
+                1 -> tab.text = "Q"
+                2 -> tab.text = "W"
+                3 -> tab.text = "E"
+                4 -> tab.text = "R"
+            }
+        }
+
+        skillTabLayoutMediator.attach()
+    }
+
+    private fun setupViewPagerSkin() {
+        with(mArgs.details) {
+            for (i in 0 until skins!!.size) {
+                skinFragment.add(
+                    SkinPageFragment("${CHAMPION_URL}${id}_$i.jpg")
+                )
+            }
+            val skinVPAdapter = SkinViewPagerAdapter(
+                skinFragment,
+                requireActivity()
+            )
+
+            mBinding.viewPagerSkins.adapter = skinVPAdapter
+
+            skinTabLayoutMediator = TabLayoutMediator(
+                mBinding.tabLayoutSkins,
+                mBinding.viewPagerSkins
+            ) { tab, position ->
+                if (position < skins.size) {
+                    tab.text = skins[position].name
+                }
+            }
+
+            skinTabLayoutMediator.attach()
         }
     }
 

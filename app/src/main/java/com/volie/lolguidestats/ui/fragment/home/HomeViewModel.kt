@@ -24,7 +24,7 @@ class HomeViewModel
     fun getChamp() {
         _champ.postValue(Resource.loading(null))
         viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.getChampions(".json")
+            val result = repository.getChampions()
             _champ.postValue(result)
         }
     }
