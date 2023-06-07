@@ -1,6 +1,7 @@
 package com.volie.lolguidestats.data.model.champion
 
 import android.os.Parcelable
+import com.volie.lolguidestats.data.model.image.Image
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
@@ -17,7 +18,6 @@ data class Champion(
     val allytips: List<String>? = null,
     val enemytips: List<String>? = null,
     val tags: List<String>? = null,
-    val partype: String? = null,
     val stats: Stats? = null,
     val spells: List<Spell>? = null,
 ) : Parcelable

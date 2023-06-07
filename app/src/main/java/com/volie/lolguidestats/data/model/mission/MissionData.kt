@@ -1,6 +1,6 @@
 package com.volie.lolguidestats.data.model.mission
 
-import com.volie.lolguidestats.data.model.champion.Image
+import com.volie.lolguidestats.data.model.image.Image
 
 data class MissionData(
     val image: Image? = null

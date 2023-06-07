@@ -1,7 +1,7 @@
 package com.volie.lolguidestats.data.model.profile_icon
 
 import android.os.Parcelable
-import com.volie.lolguidestats.data.model.champion.Image
+import com.volie.lolguidestats.data.model.image.Image
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
