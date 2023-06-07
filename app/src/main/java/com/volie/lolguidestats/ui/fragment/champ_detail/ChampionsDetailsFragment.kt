@@ -9,6 +9,7 @@ import android.view.animation.LinearInterpolator
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.google.android.material.progressindicator.LinearProgressIndicator
@@ -28,6 +29,9 @@ class ChampionsDetailsFragment : Fragment() {
     private val mArgs: ChampionsDetailsFragmentArgs by navArgs()
     private val skillFragment = ArrayList<Fragment>()
     private val skinFragment = ArrayList<Fragment>()
+    private lateinit var skillTabLayoutMediator: TabLayoutMediator
+    private lateinit var skinTabLayoutMediator: TabLayoutMediator
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -40,10 +44,17 @@ class ChampionsDetailsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        observeLiveData()
+        mBinding.flBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
+        mBinding.tvChampName.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
         showDetails()
         mViewModel.getChampionDetails("${mArgs.details.name}")
+        observeLiveData()
     }
 
     private fun showDetails() {
@@ -113,10 +124,18 @@ class ChampionsDetailsFragment : Fragment() {
             champ.stats.attackrange.toInt()
         )
 
-        mBinding.circularPbAttack.progress = champ.info!!.attack
-        mBinding.circularPbDefense.progress = champ.info.defense
-        mBinding.circularPbMagic.progress = champ.info.magic
-        mBinding.circularPbDifficulty.progress = champ.info.difficulty
+        val champInfo = champ.info
+        if (champInfo != null) {
+            mBinding.circularPbAttack.progress = champInfo.attack
+            mBinding.circularPbDefense.progress = champInfo.defense
+            mBinding.circularPbMagic.progress = champInfo.magic
+            mBinding.circularPbDifficulty.progress = champInfo.difficulty
+        } else {
+            mBinding.circularPbAttack.visibility = View.GONE
+            mBinding.circularPbDefense.visibility = View.GONE
+            mBinding.circularPbMagic.visibility = View.GONE
+            mBinding.circularPbDifficulty.visibility = View.GONE
+        }
 
 
         when (champ.tags?.get(0)) {
@@ -281,16 +300,20 @@ class ChampionsDetailsFragment : Fragment() {
                         requireActivity()
                     )
 
-                    TabLayoutMediator(
+                    skinTabLayoutMediator = TabLayoutMediator(
                         mBinding.tabLayoutSkins,
                         mBinding.viewPagerSkins
                     ) { tab, position ->
-                        tab.text = result.skins[position].name
-                    }.attach()
+                        if (position < result.skins.size) {
+                            tab.text = result.skins[position].name
+                        }
+                    }
+
+                    skinTabLayoutMediator.attach()
 
                     mBinding.viewPagerSkills.adapter = skillVPAdapter
 
-                    TabLayoutMediator(
+                    skillTabLayoutMediator = TabLayoutMediator(
                         mBinding.tabLayoutSkills,
                         mBinding.viewPagerSkills
                     ) { tab, position ->
@@ -301,7 +324,9 @@ class ChampionsDetailsFragment : Fragment() {
                             3 -> tab.text = "E"
                             4 -> tab.text = "R"
                         }
-                    }.attach()
+                    }
+
+                    skillTabLayoutMediator.attach()
                 }
 
                 Status.LOADING -> {}
@@ -324,6 +349,14 @@ class ChampionsDetailsFragment : Fragment() {
             interpolator = LinearInterpolator()
             start()
         }
+    }
+
+    override fun onPause() {
+        skinFragment.clear()
+        skinTabLayoutMediator.detach()
+        skillFragment.clear()
+        skillTabLayoutMediator.detach()
+        super.onPause()
     }
 
     override fun onDestroy() {

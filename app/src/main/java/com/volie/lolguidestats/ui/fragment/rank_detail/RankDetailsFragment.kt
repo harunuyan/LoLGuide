@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.volie.lolguidestats.databinding.FragmentRankDetailsBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,6 +29,10 @@ class RankDetailsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        mBinding.flBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
 
         mAdapter.submitList(mArgs.rank.rank)
     }

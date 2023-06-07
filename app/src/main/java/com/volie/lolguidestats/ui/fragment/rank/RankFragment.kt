@@ -36,6 +36,10 @@ class RankFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mBinding.flBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         observeLiveData()
         mViewModel.getRanks()
     }

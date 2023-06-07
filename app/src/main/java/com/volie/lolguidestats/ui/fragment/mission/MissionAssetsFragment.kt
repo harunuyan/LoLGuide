@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.databinding.FragmentMissionAssetsBinding
 import com.volie.lolguidestats.helper.Constant
@@ -26,6 +27,7 @@ class MissionAssetsFragment : Fragment() {
             mBinding.flAssetsDetail.visibility = View.VISIBLE
             mBinding.tvTitle.visibility = View.GONE
             mBinding.view.visibility = View.GONE
+            mBinding.flBack.visibility = View.GONE
         }
     }
 
@@ -42,10 +44,15 @@ class MissionAssetsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        mBinding.flBack.setOnClickListener {
+            findNavController().navigateUp()
+        }
+
         mBinding.ivBack.setOnClickListener {
             mBinding.flAssetsDetail.visibility = View.GONE
             mBinding.tvTitle.visibility = View.VISIBLE
             mBinding.view.visibility = View.VISIBLE
+            mBinding.flBack.visibility = View.VISIBLE
         }
 
         observeLiveData()

@@ -11,28 +11,24 @@
         android:layout_height="200dp"
         android:layout_gravity="center"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="12dp"
         app:shapeAppearanceOverlay="@style/RadiusImageView"
-        app:strokeColor="@color/lol_yellow"
+        app:strokeColor="@color/gray_tab"
         app:strokeWidth="5dp" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="6dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginEnd="6dp"
-        android:background="@drawable/radius_background"
-        android:backgroundTint="@color/lol_yellow" />
+        android:background="@drawable/gradient_background" />
 
     <TextView
         android:id="@+id/tv_rank"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:background="@drawable/radius_background"
-        android:backgroundTint="@color/lol_yellow"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/gradient_background"
         android:fontFamily="@font/audiowide"
         android:text="rank"
         android:textAlignment="center"
@@ -43,9 +39,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="6dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginEnd="2dp"
-        android:background="@drawable/radius_background"
-        android:backgroundTint="@color/lol_yellow" />
+        android:background="@drawable/gradient_background" />
 
 </LinearLayout>
