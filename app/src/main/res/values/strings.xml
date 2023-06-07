@@ -28,4 +28,14 @@
     <string name="champions_classes">Champions Classes</string>
     <string name="tank_description">Champions Classes</string>
     <string name="mission_assets">Mission Assets</string>
+    <string name="choose_champion_class">Choose Champion Class</string>
+    <string name="fighter">Fighter</string>
+    <string name="tank">Tank</string>
+    <string name="mage">Mage</string>
+    <string name="assassin">Assassin</string>
+    <string name="marksman">Marksman</string>
+    <string name="support">Support</string>
+    <string name="slayer">Slayer</string>
+    <string name="all_classes">All Classes</string>
+    <string name="search_champions">Search Champions...</string>
 </resources>

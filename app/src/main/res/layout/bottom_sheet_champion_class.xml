@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/radius_background"
+    android:backgroundTint="@color/lol_blue"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="8dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/radius_background"
+        android:backgroundTint="@color/gray_tab" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="25dp"
+        android:fontFamily="@font/audiowide"
+        android:text="@string/choose_champion_class"
+        android:textColor="@color/lol_yellow"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/radius_background"
+        android:backgroundTint="@color/lol_yellow" />
+
+    <FrameLayout
+        android:id="@+id/fl_all"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_blue"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/all_classes"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_fighter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_blue"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/fighter"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_tank"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_blue"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/tank"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_mage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_blue"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/mage"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_assassin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_blue"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/assassin"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_marksman"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_blue"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/marksman"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_support"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/gradient_blue"
+        android:foreground="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="24dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/audiowide"
+            android:text="@string/support"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </FrameLayout>
+
+</LinearLayout>
