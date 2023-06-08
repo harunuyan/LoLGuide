@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity() {
             with(mBinding.bottomNavigationView) {
                 visibility = when (destination.id) {
                     R.id.profileIconDetailsFragment -> View.GONE
+                    R.id.championsDetailsFragment -> View.GONE
+                    R.id.selectLanguageFragment -> View.GONE
                     else -> View.VISIBLE
                 }
             }
