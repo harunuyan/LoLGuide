@@ -148,7 +148,7 @@
         android:label="MissionAssetsFragment" />
     <fragment
         android:id="@+id/selectLanguageFragment"
-        android:name="com.volie.lolguidestats.ui.fragment.SelectLanguageFragment"
+        android:name="com.volie.lolguidestats.ui.fragment.splash.SelectLanguageFragment"
         android:label="SelectLanguageFragment">
         <action
             android:id="@+id/action_selectScreenFragment_to_homeFragment"

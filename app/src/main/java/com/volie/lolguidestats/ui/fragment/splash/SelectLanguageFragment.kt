@@ -1,4 +1,4 @@
-package com.volie.lolguidestats.ui.fragment
+package com.volie.lolguidestats.ui.fragment.splash
 
 import android.content.Context
 import android.os.Bundle
@@ -13,9 +13,11 @@ import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentSelectLanguageBinding
 import com.volie.lolguidestats.helper.SharedPreferenceUtil
 import com.volie.lolguidestats.helper.SharedPreferenceUtil.Companion.REGION
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class SelectLanguageFragment : Fragment() {
     private var _mBinding: FragmentSelectLanguageBinding? = null
     private val mBinding get() = _mBinding!!
@@ -104,7 +106,7 @@ class SelectLanguageFragment : Fragment() {
             mBinding.ivSelectLanguage.visibility = View.GONE
 
             lifecycleScope.launch {
-                delay(1000)
+                delay(1500)
 
                 REGION = sharedPreferenceUtil.getSelectedItem().toString()
 
