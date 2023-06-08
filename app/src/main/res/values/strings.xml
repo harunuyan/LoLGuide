@@ -38,4 +38,5 @@
     <string name="slayer">Slayer</string>
     <string name="all_classes">All Classes</string>
     <string name="search_champions">Search Champions...</string>
+    <string name="select_language">Select Language</string>
 </resources>
