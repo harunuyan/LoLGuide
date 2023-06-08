@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">LoL Guide &amp; Stats</string>
+    <string name="app_name">LoL Rehber</string>
     <string name="home">Anasayfa</string>
     <string name="champions">Şampiyonlar</string>
     <string name="game_info">Oyun Bilgileri</string>
@@ -17,8 +17,8 @@
     <string name="tips">İpuçları</string>
     <string name="tips_against_the_enemy">Düşman karşısında ipuçları</string>
     <string name="items">Eşyalar</string>
-    <string name="from">Alt Eşya</string>
-    <string name="into">Yükseltilebilir</string>
+    <string name="from">Bu Eşyalardan yükseltilebilir</string>
+    <string name="into">Bu Eşyalara Yükseltilebilir</string>
     <string name="summoner_spell">Sihirdar Büyüleri</string>
     <string name="profile_icons">Profil</string>
     <string name="ranks">Ligler</string>
