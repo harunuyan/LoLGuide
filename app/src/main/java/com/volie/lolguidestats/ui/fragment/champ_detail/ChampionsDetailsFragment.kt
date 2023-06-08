@@ -310,7 +310,7 @@ class ChampionsDetailsFragment : Fragment() {
             mBinding.viewPagerSkills
         ) { tab, position ->
             when (position) {
-                0 -> tab.text = "Passive"
+                0 -> tab.text = getString(R.string.passive)
                 1 -> tab.text = "Q"
                 2 -> tab.text = "W"
                 3 -> tab.text = "E"
