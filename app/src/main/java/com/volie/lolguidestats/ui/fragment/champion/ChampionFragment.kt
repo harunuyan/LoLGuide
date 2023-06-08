@@ -98,67 +98,29 @@ class ChampionFragment : Fragment() {
             val mView = BottomSheetChampionClassBinding.bind(bottomSheetView)
 
             with(mView) {
-                flAll.setOnClickListener {
 
-                    mBinding.tvChampionsFeedTitle.text = getString(R.string.champions)
+                val buttons = listOf(
+                    Pair(flAll, getString(R.string.champions)),
+                    Pair(flFighter, getString(R.string.fighter)),
+                    Pair(flTank, getString(R.string.tank)),
+                    Pair(flMage, getString(R.string.mage)),
+                    Pair(flAssassin, getString(R.string.assassin)),
+                    Pair(flMarksman, getString(R.string.marksman)),
+                    Pair(flSupport, getString(R.string.support))
+                )
 
-                    observeLiveData()
+                buttons.forEach { (button, title) ->
+                    button.setOnClickListener {
+                        mBinding.tvChampionsFeedTitle.text = title
 
-                    bottomSheetDialog.dismiss()
-                }
-                flFighter.setOnClickListener {
-
-                    mBinding.tvChampionsFeedTitle.text = getString(R.string.fighter)
-
-                    val filteredChampions = filterChampionsByTag(champions, "Fighter")
-                    mAdapter.submitList(filteredChampions)
-
-                    bottomSheetDialog.dismiss()
-                }
-                flTank.setOnClickListener {
-
-                    mBinding.tvChampionsFeedTitle.text = getString(R.string.tank)
-
-                    val filteredChampions = filterChampionsByTag(champions, "Tank")
-                    mAdapter.submitList(filteredChampions)
-
-                    bottomSheetDialog.dismiss()
-                }
-                flMage.setOnClickListener {
-
-                    mBinding.tvChampionsFeedTitle.text = getString(R.string.mage)
-
-                    val filteredChampions = filterChampionsByTag(champions, "Mage")
-                    mAdapter.submitList(filteredChampions)
-
-                    bottomSheetDialog.dismiss()
-                }
-                flAssassin.setOnClickListener {
-
-                    mBinding.tvChampionsFeedTitle.text = getString(R.string.assassin)
-
-                    val filteredChampions = filterChampionsByTag(champions, "Assassin")
-                    mAdapter.submitList(filteredChampions)
-
-                    bottomSheetDialog.dismiss()
-                }
-                flMarksman.setOnClickListener {
-
-                    mBinding.tvChampionsFeedTitle.text = getString(R.string.marksman)
-
-                    val filteredChampions = filterChampionsByTag(champions, "Marksman")
-                    mAdapter.submitList(filteredChampions)
-
-                    bottomSheetDialog.dismiss()
-                }
-                flSupport.setOnClickListener {
-
-                    mBinding.tvChampionsFeedTitle.text = getString(R.string.support)
-
-                    val filteredChampions = filterChampionsByTag(champions, "Support")
-                    mAdapter.submitList(filteredChampions)
-
-                    bottomSheetDialog.dismiss()
+                        when (title) {
+                            getString(R.string.champions) -> mAdapter.submitList(champions)
+                            else -> {
+                                mAdapter.submitList(filterChampionsByTag(champions, title))
+                            }
+                        }
+                        bottomSheetDialog.dismiss()
+                    }
                 }
             }
         }

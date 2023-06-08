@@ -23,7 +23,7 @@ class ItemRVAdapter(
 
             with(binding) {
                 Glide.with(root)
-                    .load("${BASE_URL}img/item/${item.itemImage?.full}")
+                    .load("${BASE_URL}img/item/${item.itemImage.full}")
                     .into(ivItemImage)
 
                 tvItemName.text = item.name

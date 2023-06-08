@@ -157,7 +157,7 @@ class ItemFragment : Fragment() {
                         mBinding.title.text = tag
 
                         when (tag) {
-                            "Items" -> mAdapter.submitList(items)
+                            getString(R.string.items) -> mAdapter.submitList(items)
                             else -> mAdapter.submitList(filterItemByTag(items, tag))
                         }
                         bottomSheetDialog.dismiss()
