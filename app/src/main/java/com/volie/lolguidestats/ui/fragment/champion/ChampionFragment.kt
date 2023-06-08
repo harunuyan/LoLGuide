@@ -1,9 +1,11 @@
 package com.volie.lolguidestats.ui.fragment.champion
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
 import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.core.widget.addTextChangedListener
@@ -51,8 +53,14 @@ class ChampionFragment : Fragment() {
         searchForChampions()
 
         with(mBinding) {
-            ivSearch.setOnClickListener {
+            flSearch.setOnClickListener {
                 if (etSearch.isVisible) {
+                    val closeKeyboard =
+                        requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    closeKeyboard.hideSoftInputFromWindow(etSearch.windowToken, 0)
+
+                    etSearch.text = null
+
                     tvChampionsFeedTitle.visibility = View.VISIBLE
                     etSearch.visibility = View.INVISIBLE
                     ivSearch.setImageResource(R.drawable.ic_search).also {
@@ -63,7 +71,7 @@ class ChampionFragment : Fragment() {
                     tvChampionsFeedTitle.visibility = View.GONE
                     etSearch.visibility = View.VISIBLE
                     ivSearch.setImageResource(R.drawable.ic_champ).also {
-                        val color = ContextCompat.getColor(requireContext(), R.color.lol_yellow)
+                        val color = ContextCompat.getColor(requireContext(), R.color.lol_blue)
                         ivSearch.setColorFilter(color)
                     }
                 }

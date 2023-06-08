@@ -10,10 +10,10 @@
         android:id="@+id/et_search"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@drawable/gradient_blue"
+        android:background="@drawable/gradient_background"
         android:hint="@string/search_champions"
-        android:padding="12dp"
         android:maxLength="25"
+        android:padding="12dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:visibility="invisible"
@@ -35,25 +35,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/iv_sort"
+    <FrameLayout
+        android:id="@+id/fl_sort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:src="@drawable/ic_filter"
+        android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="@color/white" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <ImageView
-        android:id="@+id/iv_search"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_search"
-        app:layout_constraintBottom_toBottomOf="@id/iv_sort"
-        app:layout_constraintEnd_toStartOf="@id/iv_sort"
-        app:layout_constraintTop_toTopOf="@id/iv_sort" />
+        <ImageView
+            android:id="@+id/iv_sort"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_filter_white"
+            app:tint="@color/white" />
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_search"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        app:layout_constraintBottom_toBottomOf="@id/fl_sort"
+        app:layout_constraintEnd_toStartOf="@id/fl_sort"
+        app:layout_constraintTop_toTopOf="@id/fl_sort">
+
+        <ImageView
+            android:id="@+id/iv_search"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_search" />
+
+    </FrameLayout>
 
     <View
         android:id="@+id/view"
