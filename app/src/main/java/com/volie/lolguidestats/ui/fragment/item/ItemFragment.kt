@@ -12,8 +12,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.volie.lolguidestats.R
 import com.volie.lolguidestats.data.model.item.Item
+import com.volie.lolguidestats.databinding.BottomSheetFilterItemBinding
 import com.volie.lolguidestats.databinding.FragmentItemBinding
 import com.volie.lolguidestats.helper.Status
 import dagger.hilt.android.AndroidEntryPoint
@@ -27,18 +29,15 @@ class ItemFragment : Fragment() {
     private val mBinding get() = _mBinding!!
     private val mViewModel: ItemViewModel by viewModels()
     private val mAdapter: ItemRVAdapter by lazy {
-        ItemRVAdapter(
-            onItemClick = {
-                val action = ItemFragmentDirections.actionItemFragmentToItemDetailsFragment(it)
-                findNavController().navigate(action)
-            }
-        )
+        ItemRVAdapter(onItemClick = {
+            val action = ItemFragmentDirections.actionItemFragmentToItemDetailsFragment(it)
+            findNavController().navigate(action)
+        })
     }
+    private var itemList: List<Item> = emptyList()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         _mBinding = FragmentItemBinding.inflate(inflater, container, false)
         mBinding.rvItems.adapter = mAdapter
@@ -98,6 +97,82 @@ class ItemFragment : Fragment() {
         }
     }
 
+    private fun setupBottomSheet(items: List<Item>) {
+        itemList = items
+
+        mBinding.flFilter.setOnClickListener {
+            val bottomSheetDialog = BottomSheetDialog(requireContext())
+            val bottomSheetView = LayoutInflater.from(requireContext())
+                .inflate(R.layout.bottom_sheet_filter_item, mBinding.root, false)
+            bottomSheetDialog.setContentView(bottomSheetView)
+            bottomSheetDialog.show()
+
+            val mView = BottomSheetFilterItemBinding.bind(bottomSheetView)
+
+            with(mView) {
+
+                val buttons = listOf(
+                    Pair(flAll, getString(R.string.items)),
+                    Pair(flBoots, getString(R.string.boots)),
+                    Pair(flManaRegen, getString(R.string.mana_regen).replace(" ", "")),
+                    Pair(flHealthRegen, getString(R.string.health_regen).replace(" ", "")),
+                    Pair(flHealth, getString(R.string.health)),
+                    Pair(flSpellDamage, getString(R.string.spell_damage).replace(" ", "")),
+                    Pair(flMana, getString(R.string.mana)),
+                    Pair(flArmor, getString(R.string.armor)),
+                    Pair(flSpellBlock, getString(R.string.spell_block).replace(" ", "")),
+                    Pair(flLifeSteal, getString(R.string.life_steal).replace(" ", "")),
+                    Pair(flSpellVamp, getString(R.string.spell_vamp).replace(" ", "")),
+                    Pair(flJungle, getString(R.string.jungle)),
+                    Pair(flDamage, getString(R.string.damage)),
+                    Pair(flLane, getString(R.string.lane)),
+                    Pair(flAttackSpeed, getString(R.string.attack_speed).replace(" ", "")),
+                    Pair(flOnHit, getString(R.string.on_hit).replace(" ", "")),
+                    Pair(flTrinket, getString(R.string.trinket)),
+                    Pair(flActive, getString(R.string.active)),
+                    Pair(flConsumable, getString(R.string.consumable)),
+                    Pair(flStealth, getString(R.string.stealth)),
+                    Pair(flVision, getString(R.string.vision)),
+                    Pair(
+                        flCoolDownReduction, getString(R.string.cooldownreduction).replace(" ", "")
+                    ),
+                    Pair(
+                        flNonBootsMovement, getString(R.string.nonboots_movement).replace(" ", "")
+                    ),
+                    Pair(flAbilityHaste, getString(R.string.ability_haste).replace(" ", "")),
+                    Pair(flTenacity, getString(R.string.tenacity)),
+                    Pair(
+                        flArmorPenetration, getString(R.string.armor_penetration).replace(" ", "")
+                    ),
+                    Pair(
+                        flMagicPenetration, getString(R.string.magic_penetration).replace(" ", "")
+                    ),
+                    Pair(flSlow, getString(R.string.slow)),
+                    Pair(flGoldPer, getString(R.string.gold_per).replace(" ", ""))
+                )
+
+                buttons.forEach { (button, tag) ->
+                    button.setOnClickListener {
+
+                        mBinding.title.text = tag
+
+                        when (tag) {
+                            "Items" -> mAdapter.submitList(items)
+                            else -> mAdapter.submitList(filterItemByTag(items, tag))
+                        }
+                        bottomSheetDialog.dismiss()
+                    }
+                }
+            }
+        }
+    }
+
+    private fun filterItemByTag(item: List<Item>, tags: String): List<Item> {
+        return item.filter { item ->
+            item.tags?.contains(tags) == true
+        }
+    }
+
     private fun observeLiveData() {
         mViewModel.items.observe(viewLifecycleOwner) {
             when (it.status) {
@@ -107,8 +182,9 @@ class ItemFragment : Fragment() {
                         val itemList = itemMap.values.toList()
 
                         searchForItems(itemList)
-
                         mAdapter.submitList(itemList)
+
+                        setupBottomSheet(itemList)
                     }
                 }
 
