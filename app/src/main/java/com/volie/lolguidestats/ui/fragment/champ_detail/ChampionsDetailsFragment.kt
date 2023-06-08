@@ -260,7 +260,9 @@ class ChampionsDetailsFragment : Fragment() {
                 add(
                     SkillPageFragment(
                         passive?.name!!,
-                        passive.description!!,
+                        passive.description!!.replace("<br>", "\n")
+                            .replace("<physicalDamage>", "")
+                            .replace("</physicalDamage>", ""),
                         "${BASE_URL}img/passive/${passive.image?.full}"
                     )
                 )
@@ -268,7 +270,9 @@ class ChampionsDetailsFragment : Fragment() {
                 add(
                     SkillPageFragment(
                         spells?.get(0)!!.name,
-                        spells[0].description,
+                        spells[0].description.replace("<br>", "\n")
+                            .replace("<physicalDamage>", "")
+                            .replace("</physicalDamage>", ""),
                         "${BASE_URL}img/spell/${spells[0].image.full}"
                     )
                 )
@@ -276,7 +280,9 @@ class ChampionsDetailsFragment : Fragment() {
                 add(
                     SkillPageFragment(
                         spells[1].name,
-                        spells[1].description,
+                        spells[1].description.replace("<br>", "\n")
+                            .replace("<physicalDamage>", "")
+                            .replace("</physicalDamage>", ""),
                         "${BASE_URL}img/spell/${spells[1].image.full}"
                     )
                 )
@@ -284,7 +290,9 @@ class ChampionsDetailsFragment : Fragment() {
                 add(
                     SkillPageFragment(
                         spells[2].name,
-                        spells[2].description,
+                        spells[2].description.replace("<br>", "\n")
+                            .replace("<physicalDamage>", "")
+                            .replace("</physicalDamage>", ""),
                         "${BASE_URL}img/spell/${spells[2].image.full}"
                     )
                 )
@@ -292,7 +300,9 @@ class ChampionsDetailsFragment : Fragment() {
                 add(
                     SkillPageFragment(
                         spells[3].name,
-                        spells[3].description,
+                        spells[3].description.replace("<br>", "\n")
+                            .replace("<physicalDamage>", "")
+                            .replace("</physicalDamage>", ""),
                         "${BASE_URL}img/spell/${spells[3].image.full}"
                     )
                 )

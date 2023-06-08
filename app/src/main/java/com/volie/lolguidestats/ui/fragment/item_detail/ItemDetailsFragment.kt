@@ -66,7 +66,7 @@ class ItemDetailsFragment : Fragment() {
             }
 
 
-            Glide.with(requireContext()).load("${BASE_URL}img/item/${mArgs.items.itemImage?.full}")
+            Glide.with(requireContext()).load("${BASE_URL}img/item/${mArgs.items.itemImage.full}")
                 .into(ivItemImage)
 
 
@@ -84,10 +84,39 @@ class ItemDetailsFragment : Fragment() {
                 ivGold.visibility = View.GONE
             }
 
+            tvItemHeader.text = mArgs.items.name
             tvItemName.text = mArgs.items.name
             tvItemPlain.text = mArgs.items.plaintext
             tvItemTags.text = mArgs.items.tags.toString().trim('[', ']')
-            tvItemDescription.text = mArgs.items.description
+            tvItemDescription.text =
+                mArgs.items.description?.replace("<mainText><stats><attention>", "")
+                    ?.replace("<attention>", "")
+                    ?.replace("<stats>", "")
+                    ?.replace("<status>", "")
+                    ?.replace("</status>", "")
+                    ?.replace("<mainText>", "")
+                    ?.replace("<magicDamage>", "")
+                    ?.replace("</magicDamage>", "")
+                    ?.replace("</onHit>", "")
+                    ?.replace("<onHit>", "")
+                    ?.replace("<rarityMythic>", "")
+                    ?.replace("</rarityMythic>", "")
+                    ?.replace("</rarityLegendary>", "")
+                    ?.replace("<rarityLegendary>", "")
+                    ?.replace("</attention>", "")
+                    ?.replace("</stats>", "")
+                    ?.replace("<br>", "\n")
+                    ?.replace("<passive>", "")
+                    ?.replace("<li>", "")
+                    ?.replace("</passive>", "")
+                    ?.replace("</li>", "")
+                    ?.replace("</mainText>", "")
+                    ?.replace("<active>", "")
+                    ?.replace("</active>", "")
+                    ?.replace("<scalemana>", "")
+                    ?.replace("</scalemana>", "")
+                    ?.replace("<rules>", "")
+                    ?.replace("</rules>", "")
         }
     }
 
