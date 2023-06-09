@@ -26,9 +26,18 @@ class MainActivity : AppCompatActivity() {
         navController.addOnDestinationChangedListener { _, destination, _ ->
             with(mBinding.bottomNavigationView) {
                 visibility = when (destination.id) {
-                    R.id.profileIconDetailsFragment -> View.GONE
                     R.id.championsDetailsFragment -> View.GONE
                     R.id.selectLanguageFragment -> View.GONE
+                    R.id.summonerSpellFragment -> View.GONE
+                    R.id.itemFragment -> View.GONE
+                    R.id.itemDetailsFragment -> View.GONE
+                    R.id.profileIconFragment -> View.GONE
+                    R.id.rankFragment -> View.GONE
+                    R.id.rankDetailsFragment -> View.GONE
+                    R.id.mapsFragment -> View.GONE
+                    R.id.gameModeFragment -> View.GONE
+                    R.id.modeDetailsFragment -> View.GONE
+                    R.id.missionAssetsFragment -> View.GONE
                     else -> View.VISIBLE
                 }
             }
