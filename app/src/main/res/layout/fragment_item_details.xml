@@ -15,7 +15,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/lol_blue"
-            android:padding="12dp">
+            android:padding="24dp">
 
             <ImageView
                 android:layout_width="24dp"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
-            android:padding="12dp"
+            android:padding="24dp"
             android:text="@string/items"
             android:textColor="@color/white"
             android:textSize="18sp"
@@ -159,7 +159,7 @@
             android:id="@+id/tv_from"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient_background"
+            android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
             android:padding="12dp"
             android:text="@string/from"
@@ -194,7 +194,7 @@
             android:id="@+id/tv_into"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient_background"
+            android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
             android:padding="12dp"
             android:text="@string/into"

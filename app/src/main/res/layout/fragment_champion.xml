@@ -13,7 +13,7 @@
         android:background="@drawable/gradient_background"
         android:hint="@string/search_champions"
         android:maxLength="25"
-        android:padding="12dp"
+        android:padding="24dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:visibility="invisible"
@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/gradient_blue"
         android:fontFamily="@font/audiowide"
-        android:padding="12dp"
+        android:padding="24dp"
         android:text="@string/champions"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -39,7 +39,7 @@
         android:id="@+id/fl_sort"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="12dp"
+        android:padding="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 

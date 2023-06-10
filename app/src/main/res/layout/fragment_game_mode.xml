@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@color/lol_blue"
-            android:padding="12dp">
+            android:padding="24dp">
 
             <ImageView
                 android:layout_width="24dp"
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
-            android:padding="12dp"
+            android:padding="24dp"
             android:layout_gravity="center"
             android:text="@string/game_modes"
             android:textColor="@color/white"

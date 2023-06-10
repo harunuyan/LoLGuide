@@ -8,11 +8,12 @@
     <TextView
         android:id="@+id/tv_skill_name"
         android:layout_width="match_parent"
-        android:background="@drawable/gradient_background"
+        android:background="@drawable/gradient_blue"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:fontFamily="@font/audiowide"
         android:text="Example"
-        android:padding="4dp"
+        android:padding="12dp"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="18sp"
@@ -40,16 +41,24 @@
             android:src="@color/lol_blue"
             app:shapeAppearanceOverlay="@style/RadiusImageView" />
 
-        <TextView
-            android:id="@+id/tv_skill_description"
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="top"
-            android:layout_margin="12dp"
-            android:textColor="@color/white"
-            android:text="Example"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_skill_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top"
+                android:layout_margin="12dp"
+                android:fontFamily="@font/audiowide"
+                android:textColor="@color/white"
+                android:text="Example"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </androidx.core.widget.NestedScrollView>
+
 
     </LinearLayout>
 

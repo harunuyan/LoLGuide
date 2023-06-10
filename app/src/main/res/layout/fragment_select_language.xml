@@ -35,11 +35,11 @@
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
             android:background="@drawable/spinner_background"
-            android:backgroundTint="@color/lol_yellow"
+            android:backgroundTint="@color/white"
             android:gravity="center_vertical"
             android:padding="12dp"
             android:spinnerMode="dialog"
-            android:textColor="@color/white"
+            android:textColor="@color/lol_yellow"
             android:textSize="16sp" />
 
         <ImageView

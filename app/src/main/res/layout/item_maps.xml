@@ -7,7 +7,7 @@
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_maps"
         android:layout_width="0dp"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
         android:layout_margin="8dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,14 +28,15 @@
 
         <TextView
             android:id="@+id/tv_maps"
-            android:layout_margin="6dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@drawable/radius_background"
-            android:backgroundTint="#40FFFFFF"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginBottom="24dp"
+            android:background="@drawable/gradient_background"
             android:fontFamily="@font/audiowide"
-            android:padding="14dp"
+            android:padding="8dp"
             android:text="@string/maps"
             android:textColor="@color/white"
             android:textSize="18sp"

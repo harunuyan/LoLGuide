@@ -1,96 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <FrameLayout
+            android:id="@+id/fl_back"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:background="@color/lol_blue"
+            android:padding="24dp">
 
-            <FrameLayout
-                android:id="@+id/fl_back"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@color/lol_blue"
-                android:padding="12dp">
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_back_lol" />
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_back_lol" />
-
-            </FrameLayout>
-
-            <TextView
-                android:id="@+id/tv_game_mode_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@drawable/gradient_blue"
-                android:fontFamily="@font/audiowide"
-                android:padding="12dp"
-                android:text="@string/game_modes"
-                android:textColor="@color/white"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/lol_yellow" />
-
-        <ImageView
-            android:id="@+id/iv_game_mode"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:scaleType="center"
-            android:src="@color/lol_blue" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="@color/lol_yellow" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:layout_marginTop="12dp"
-            android:background="@color/lol_yellow" />
+        </FrameLayout>
 
         <TextView
-            android:id="@+id/tv_game_mode_name"
+            android:id="@+id/tv_game_mode_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:background="@drawable/gradient_blue"
-            android:text="CLASSİC"
-            android:textAlignment="center"
-            android:textColor="@color/lol_yellow"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@color/lol_yellow" />
-
-        <TextView
-            android:id="@+id/tv_game_mode_description"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="12dp"
-            android:text="Classic Summoner's Rift and Twisted Treeline games\nOn both Classic maps, the primary goal is to destroy the enemy Nexus. Defending each Nexus are several turrets and inhibitors; each structure must be destroyed in sequence (one cannot skip straight to the Nexus). There are many ways to destroy turrets: making use of the automatic minions to take the brunt of the turret's fire or focusing it with several teamates while a tank draws aggro are a few of the many methods of destroying turrets while minimizing casualties. After the turrets have been destroyed, the inhibitors defend the Nexus. They do not attack but are a vital part of winning. Destroying them will allow their respective lane to spawn super minions, powerful beings that can crush ordinary minions and even champios with ease.\nSummoner's Rift - A Field that draws inspiration from the Defense of the Ancients: Allstars (often shortened to DotA) version of the map, with several tweaked features and mechanics. The game consists of five summoners on each team, who are pitted against each other in an attempt to destroy the enemy Nexus and win. The general time it takes to complete a game ranges from 35–50 minutes."
+            android:fontFamily="@font/audiowide"
+            android:padding="24dp"
+            android:text="@string/game_modes"
             android:textColor="@color/white"
-            android:textSize="17sp"
+            android:textSize="18sp"
             android:textStyle="bold" />
 
     </LinearLayout>
 
-</ScrollView>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/lol_yellow" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:id="@+id/iv_game_mode"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:scaleType="center"
+                android:src="@color/lol_blue" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:background="@color/lol_yellow" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/lol_yellow" />
+
+            <TextView
+                android:id="@+id/tv_game_mode_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/gradient_blue"
+                android:text="CLASSİC"
+                android:textAlignment="center"
+                android:padding="12dp"
+                android:fontFamily="@font/audiowide"
+                android:textColor="@color/lol_yellow"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@color/lol_yellow" />
+
+            <TextView
+                android:id="@+id/tv_game_mode_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:fontFamily="@font/audiowide"
+                android:text="Classic Summoner's Rift and Twisted Treeline games\nOn both Classic maps, the primary goal is to destroy the enemy Nexus. Defending each Nexus are several turrets and inhibitors; each structure must be destroyed in sequence (one cannot skip straight to the Nexus). There are many ways to destroy turrets: making use of the automatic minions to take the brunt of the turret's fire or focusing it with several teamates while a tank draws aggro are a few of the many methods of destroying turrets while minimizing casualties. After the turrets have been destroyed, the inhibitors defend the Nexus. They do not attack but are a vital part of winning. Destroying them will allow their respective lane to spawn super minions, powerful beings that can crush ordinary minions and even champios with ease.\nSummoner's Rift - A Field that draws inspiration from the Defense of the Ancients: Allstars (often shortened to DotA) version of the map, with several tweaked features and mechanics. The game consists of five summoners on each team, who are pitted against each other in an attempt to destroy the enemy Nexus and win. The general time it takes to complete a game ranges from 35–50 minutes."
+                android:textColor="@color/white"
+                android:textSize="17sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
