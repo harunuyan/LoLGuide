@@ -140,6 +140,8 @@
         android:label="SelectLanguageFragment">
         <action
             android:id="@+id/action_selectScreenFragment_to_homeFragment"
+            app:popUpTo="@id/selectLanguageFragment"
+            app:popUpToInclusive="true"
             app:destination="@id/homeFragment" />
     </fragment>
 </navigation>
