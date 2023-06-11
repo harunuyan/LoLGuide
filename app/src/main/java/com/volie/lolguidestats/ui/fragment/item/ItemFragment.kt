@@ -117,6 +117,7 @@ class ItemFragment : Fragment() {
                     Pair(flManaRegen, getString(R.string.mana_regen).replace(" ", "")),
                     Pair(flHealthRegen, getString(R.string.health_regen).replace(" ", "")),
                     Pair(flHealth, getString(R.string.health)),
+                    Pair(flCriticalStrike, getString(R.string.critical_strike).replace(" ", "")),
                     Pair(flSpellDamage, getString(R.string.spell_damage).replace(" ", "")),
                     Pair(flMana, getString(R.string.mana)),
                     Pair(flArmor, getString(R.string.armor)),
