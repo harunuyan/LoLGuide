@@ -27,11 +27,13 @@
 
 ## Android 📱 Application Screens 📸 Pixel 6 Pro
 
-![Screenshot_1](https://github.com/harunuyan/LoLGuide-Stats/raw/main/assets/55163968/ebdc3b72-852e-4587-b633-6fea914b1b79 | width=200)
-![Screenshot_2](https://github.com/harunuyan/LoLGuide-Stats/raw/main/assets/55163968/8a2e85c0-3b8f-4ed8-889a-e596eb75c1cd | width=200)
-![Screenshot_3](https://github.com/harunuyan/LoLGuide-Stats/raw/main/assets/55163968/5992e09c-dfca-4190-8b1b-ce8c4f6aa442 | width=200)
-![Screenshot_4](https://github.com/harunuyan/LoLGuide-Stats/raw/main/assets/55163968/2c80ae14-6658-45f5-8ea4-7a8eae69646f | width=200)
-![Screenshot_5](https://github.com/harunuyan/LoLGuide-Stats/raw/main/assets/55163968/5eebd5b9-2a97-4f58-98ec-0630c28d00d4 | width=200)
-![Screenshot_6](https://github.com/harunuyan/LoLGuide-Stats/raw/main/assets/55163968/b6f273ec-4ab4-4e4b-b6d3-bb78b70e71ea | width=200)
-![Screenshot_7](https://github.com/harunuyan/LoLGuide-Stats/raw/main/assets/55163968/d5d38fc8-dac2-4b8a-bb91-80131d32916c | width=200)
-![Screenshot_8](https://github.com/harunuyan/LoLGuide-Stats/raw/main/assets/55163968/19db1b6a-0a9b-42f2-9a3a-19b72e1de404 | width=200)
+<p align="center">
+<img src="https://github.com/harunuyan/LoLGuide-Stats/assets/55163968/85037e51-6a6d-4c22-93a1-1cc6c297d947" alt="1" width="200">
+<img src="https://github.com/harunuyan/LoLGuide-Stats/assets/55163968/197d077a-63d4-4b92-a22c-ead60b38ade1" alt="2" width="200">
+<img src="https://github.com/harunuyan/LoLGuide-Stats/assets/55163968/017225b4-7459-49d9-b6b4-1594b8f78f09" alt="3" width="200">
+<img src="https://github.com/harunuyan/LoLGuide-Stats/assets/55163968/3306f979-13cd-4a1a-b82f-28cdd050a253" alt="4" width="200">
+<img src="https://github.com/harunuyan/LoLGuide-Stats/assets/55163968/6ca141fa-4713-4ec9-b0c9-e0adf36251a6" alt="5" width="200">
+<img src="https://github.com/harunuyan/LoLGuide-Stats/assets/55163968/88703e33-8115-4704-ba2e-1f76b06103a6" alt="6" width="200">
+<img src="https://github.com/harunuyan/LoLGuide-Stats/assets/55163968/61727d48-6a72-4da5-8758-76a013b49c64" alt="7" width="200">
+<img src="https://github.com/harunuyan/LoLGuide-Stats/assets/55163968/cc0c2b9f-4430-4ef2-b035-f72ed5bec0ee" alt="8" width="200">
+  </p>
