@@ -100,13 +100,13 @@ class ChampionFragment : Fragment() {
             with(mView) {
 
                 val buttons = listOf(
-                    Pair(flAll, getString(R.string.champions)),
-                    Pair(flFighter, getString(R.string.fighter)),
-                    Pair(flTank, getString(R.string.tank)),
-                    Pair(flMage, getString(R.string.mage)),
-                    Pair(flAssassin, getString(R.string.assassin)),
-                    Pair(flMarksman, getString(R.string.marksman)),
-                    Pair(flSupport, getString(R.string.support))
+                    Pair(flAll, "Champions"),
+                    Pair(flFighter, "Fighter"),
+                    Pair(flTank, "Tank"),
+                    Pair(flMage, "Mage"),
+                    Pair(flAssassin, "Assassin"),
+                    Pair(flMarksman, "Marksman"),
+                    Pair(flSupport, "Support")
                 )
 
                 buttons.forEach { (button, title) ->
@@ -114,7 +114,7 @@ class ChampionFragment : Fragment() {
                         mBinding.tvChampionsFeedTitle.text = title
 
                         when (title) {
-                            getString(R.string.champions) -> mAdapter.submitList(champions)
+                            "Champions" -> mAdapter.submitList(champions)
                             else -> {
                                 mAdapter.submitList(filterChampionsByTag(champions, title))
                             }
