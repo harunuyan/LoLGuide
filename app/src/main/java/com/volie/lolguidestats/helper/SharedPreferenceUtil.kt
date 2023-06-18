@@ -5,7 +5,7 @@ import android.content.SharedPreferences
 
 class SharedPreferenceUtil(private val context: Context) {
 
-    val sharedPreferences: SharedPreferences =
+    private val sharedPreferences: SharedPreferences =
         context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
 
     companion object {
@@ -19,5 +19,10 @@ class SharedPreferenceUtil(private val context: Context) {
 
     fun getSelectedItem(): String? {
         return sharedPreferences.getString("selectedItem", null)
+    }
+
+    fun deleteSelectedItem() {
+        val editor = sharedPreferences.edit()
+        editor.remove("selectedItem").apply()
     }
 }

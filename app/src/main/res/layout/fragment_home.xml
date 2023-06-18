@@ -13,8 +13,8 @@
             android:id="@+id/fl_header"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="12dp"
             android:background="@drawable/gradient_blue"
+            android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
@@ -27,6 +27,29 @@
 
         </FrameLayout>
 
+        <ImageView
+            android:id="@+id/iv_select_language"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:padding="12dp"
+            android:src="@drawable/ic_language"
+            app:layout_constraintEnd_toStartOf="@id/tv_language"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_language"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:text="en_US"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/iv_select_language"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/iv_select_language" />
+
         <TextView
             android:id="@+id/tv_title"
             android:layout_width="0dp"
@@ -34,10 +57,10 @@
             android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
             android:gravity="center"
+            android:padding="12dp"
             android:text="@string/league_of_legends"
             android:textColor="@color/lol_yellow"
             android:textSize="22sp"
-            android:padding="12dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,8 +116,8 @@
             android:id="@+id/tv_champ_classes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/gradient_blue"
             android:layout_marginTop="8dp"
+            android:background="@drawable/gradient_blue"
             android:fontFamily="@font/audiowide"
             android:padding="12dp"
             android:text="@string/champions_classes"
@@ -118,8 +141,8 @@
             android:id="@+id/tab_layout_champ_classes"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:padding="3dp"
             android:background="@drawable/gradient_blue"
+            android:padding="3dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/view_champ_classes"
@@ -131,6 +154,15 @@
             app:tabMode="scrollable"
             app:tabTextColor="@color/white" />
 
+        <View
+            android:id="@+id/view"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:background="@drawable/gradient_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tab_layout_champ_classes" />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager_champ_classes"
             android:layout_width="0dp"
@@ -138,7 +170,7 @@
             android:background="@drawable/background_blue_800_200"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tab_layout_champ_classes" />
+            app:layout_constraintTop_toBottomOf="@id/view" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
