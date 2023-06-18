@@ -79,4 +79,12 @@
         app:layout_constraintEnd_toStartOf="@id/iv_gold"
         app:layout_constraintTop_toTopOf="@id/iv_gold" />
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@drawable/gradient_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/iv_item_image" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

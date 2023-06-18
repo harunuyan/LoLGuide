@@ -2,20 +2,20 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:background="@drawable/background_blue_800_200"
     android:layout_height="wrap_content"
-    android:layout_margin="12dp">
+    android:layout_margin="12dp"
+    android:background="@drawable/background_blue_800_200">
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/iv_item_image"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        app:strokeWidth="4dp"
-        app:strokeColor="@color/lol_yellow"
         android:src="@color/lol_blue"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:shapeAppearanceOverlay="@style/RadiusImageView" />
+        app:shapeAppearanceOverlay="@style/RadiusImageView"
+        app:strokeColor="@color/lol_yellow"
+        app:strokeWidth="4dp" />
 
     <TextView
         android:id="@+id/tv_item_name"
@@ -44,19 +44,35 @@
         app:layout_constraintStart_toEndOf="@id/iv_item_image"
         app:layout_constraintTop_toBottomOf="@id/tv_item_name" />
 
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@drawable/gradient_background"
+        app:layout_constraintBottom_toTopOf="@id/tv_item_tags"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_item_name" />
+
     <TextView
         android:id="@+id/tv_item_tags"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:fontFamily="@font/audiowide"
-        android:textSize="12sp"
         android:padding="2dp"
         android:text="Broken Stopwatch"
         android:textColor="@color/lol_yellow"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/iv_item_image"
         app:layout_constraintTop_toBottomOf="@id/tv_item_plain" />
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@drawable/gradient_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/tv_item_name" />
 
     <ImageView
         android:id="@+id/iv_gold"

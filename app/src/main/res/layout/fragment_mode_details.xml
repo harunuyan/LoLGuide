@@ -94,6 +94,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="12dp"
+                android:textAlignment="center"
                 android:fontFamily="@font/audiowide"
                 android:text="Classic Summoner's Rift and Twisted Treeline games\nOn both Classic maps, the primary goal is to destroy the enemy Nexus. Defending each Nexus are several turrets and inhibitors; each structure must be destroyed in sequence (one cannot skip straight to the Nexus). There are many ways to destroy turrets: making use of the automatic minions to take the brunt of the turret's fire or focusing it with several teamates while a tank draws aggro are a few of the many methods of destroying turrets while minimizing casualties. After the turrets have been destroyed, the inhibitors defend the Nexus. They do not attack but are a vital part of winning. Destroying them will allow their respective lane to spawn super minions, powerful beings that can crush ordinary minions and even champios with ease.\nSummoner's Rift - A Field that draws inspiration from the Defense of the Ancients: Allstars (often shortened to DotA) version of the map, with several tweaked features and mechanics. The game consists of five summoners on each team, who are pitted against each other in an attempt to destroy the enemy Nexus and win. The general time it takes to complete a game ranges from 35–50 minutes."
                 android:textColor="@color/white"

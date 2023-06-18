@@ -11,6 +11,9 @@
         <action
             android:id="@+id/action_homeFragment_to_championsDetailsFragment"
             app:destination="@id/championsDetailsFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_selectLanguageFragment"
+            app:destination="@id/selectLanguageFragment" />
     </fragment>
     <fragment
         android:id="@+id/championFragment"
