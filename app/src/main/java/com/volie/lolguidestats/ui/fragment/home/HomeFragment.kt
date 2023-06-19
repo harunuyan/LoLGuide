@@ -12,7 +12,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.volie.lolguidestats.R
 import com.volie.lolguidestats.databinding.FragmentHomeBinding
 import com.volie.lolguidestats.helper.SharedPreferenceUtil
-import com.volie.lolguidestats.helper.SharedPreferenceUtil.Companion.REGION
 import com.volie.lolguidestats.helper.Status
 import com.volie.lolguidestats.ui.adapter.BaseViewPagerAdapter
 import dagger.hilt.android.AndroidEntryPoint
@@ -50,6 +49,8 @@ class HomeFragment : Fragment() {
             val action = HomeFragmentDirections.actionHomeFragmentToSelectLanguageFragment()
             findNavController().navigate(action)
         }
+
+        mBinding.tvLanguage.text = mSharedPreferenceUtil.getSelectedItem()
 
         mViewModel.getChamp()
         observeLiveData()
