@@ -25,10 +25,4 @@ class SkinPageFragment(private val skinsImage: String) : Fragment() {
             .into(mBinding.ivSkins)
         return mBinding.root
     }
-
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _mBinding = null
-    }
 }

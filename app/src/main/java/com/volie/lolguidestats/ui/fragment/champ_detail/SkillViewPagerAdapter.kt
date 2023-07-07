@@ -12,5 +12,4 @@ class SkillViewPagerAdapter(
     override fun getItemCount(): Int = pages.size
 
     override fun createFragment(position: Int): Fragment = pages[position]
-
 }

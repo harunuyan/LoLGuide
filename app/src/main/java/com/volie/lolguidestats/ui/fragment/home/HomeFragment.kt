@@ -132,6 +132,51 @@ class HomeFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        if (!tabLayoutMediator.isAttached) {
+            with(fragment) {
+                add(
+                    ChampClassesFragment(
+                        "Controller",
+                        getString(R.string.controller_plain)
+                    )
+                )
+                add(
+                    ChampClassesFragment(
+                        "Fighter",
+                        getString(R.string.fighter_plain)
+                    )
+                )
+                add(
+                    ChampClassesFragment(
+                        "Mage",
+                        getString(R.string.mage_plain)
+                    )
+                )
+                add(
+                    ChampClassesFragment(
+                        "Marksman",
+                        getString(R.string.marksman_plain)
+                    )
+                )
+                add(
+                    ChampClassesFragment(
+                        "Slayer",
+                        getString(R.string.slayer_plain)
+                    )
+                )
+                add(
+                    ChampClassesFragment(
+                        "Tank",
+                        getString(R.string.tank_plain)
+                    )
+                )
+            }
+            tabLayoutMediator.attach()
+        }
+    }
+
     override fun onPause() {
         fragment.clear()
         tabLayoutMediator.detach()

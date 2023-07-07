@@ -35,9 +35,4 @@ class SkillPageFragment(
 
         return mBinding.root
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _mBinding = null
-    }
 }
