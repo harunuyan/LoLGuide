@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentMapsBinding
 import com.volie.lolguidestats.helper.Status
+import com.volie.lolguidestats.ui.viewmodel.map_vm.MapsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

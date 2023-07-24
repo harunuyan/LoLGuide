@@ -1,4 +1,4 @@
-package com.volie.lolguidestats.data.remote
+package com.volie.lolguidestats.data.remote.repo
 
 import android.util.Log
 import com.volie.lolguidestats.data.model.champion.Data
@@ -9,8 +9,8 @@ import com.volie.lolguidestats.data.model.mode.ModeData
 import com.volie.lolguidestats.data.model.profile_icon.IconData
 import com.volie.lolguidestats.data.model.rank.SeasonData
 import com.volie.lolguidestats.data.model.summoner_spell.SummonerSpellData
-import com.volie.lolguidestats.data.remote.service.LOLApi
-import com.volie.lolguidestats.data.remote.service.LOLApiGithub
+import com.volie.lolguidestats.data.remote.api.LOLApi
+import com.volie.lolguidestats.data.remote.api.LOLApiGithub
 import com.volie.lolguidestats.helper.Resource
 import javax.inject.Inject
 

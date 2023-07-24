@@ -18,6 +18,7 @@ import com.volie.lolguidestats.data.model.item.Item
 import com.volie.lolguidestats.databinding.BottomSheetFilterItemBinding
 import com.volie.lolguidestats.databinding.FragmentItemBinding
 import com.volie.lolguidestats.helper.Status
+import com.volie.lolguidestats.ui.viewmodel.item_vm.ItemViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -101,6 +102,22 @@ class ItemFragment : Fragment() {
         itemList = items
 
         mBinding.flFilter.setOnClickListener {
+
+            with(mBinding) {
+                if (etSearch.isVisible) {
+                    val closeKeyboard =
+                        requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    closeKeyboard.hideSoftInputFromWindow(etSearch.windowToken, 0)
+
+                    etSearch.text = null
+
+                    title.visibility = View.VISIBLE
+                    etSearch.visibility = View.INVISIBLE
+                    flBack.visibility = View.VISIBLE
+                    ivSearch.setImageResource(R.drawable.ic_search)
+                }
+            }
+
             val bottomSheetDialog = BottomSheetDialog(requireContext())
             val bottomSheetView = LayoutInflater.from(requireContext())
                 .inflate(R.layout.bottom_sheet_filter_item, mBinding.root, false)

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.mission.MissionData
-import com.volie.lolguidestats.databinding.ItemIntoAndFromBinding
+import com.volie.lolguidestats.databinding.AdapterItemIntoAndFromBinding
 import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
@@ -14,7 +14,7 @@ class MissionAssetsRVAdapter(
     private val onItemClick: (MissionData) -> Unit
 ) : BaseAdapter<MissionData>(MissionAssetsDiffUtilCallback()) {
 
-    inner class MissionAssetsViewHolder(private val binding: ItemIntoAndFromBinding) :
+    inner class MissionAssetsViewHolder(private val binding: AdapterItemIntoAndFromBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val assets = currentList[position]
@@ -34,7 +34,7 @@ class MissionAssetsRVAdapter(
         inflater: LayoutInflater,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        val binding = ItemIntoAndFromBinding.inflate(inflater, parent, false)
+        val binding = AdapterItemIntoAndFromBinding.inflate(inflater, parent, false)
         return MissionAssetsViewHolder(binding)
     }
 

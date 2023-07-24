@@ -14,6 +14,7 @@ import com.volie.lolguidestats.databinding.FragmentHomeBinding
 import com.volie.lolguidestats.helper.SharedPreferenceUtil
 import com.volie.lolguidestats.helper.Status
 import com.volie.lolguidestats.ui.adapter.BaseViewPagerAdapter
+import com.volie.lolguidestats.ui.viewmodel.home_vm.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -50,7 +51,38 @@ class HomeFragment : Fragment() {
             findNavController().navigate(action)
         }
 
-        mBinding.tvLanguage.text = mSharedPreferenceUtil.getSelectedItem()
+        when (mSharedPreferenceUtil.getSelectedItem()) {
+            "cs_CZ" -> mBinding.tvLanguage.text = "Czech (Czech Republic)"
+            "el_GR" -> mBinding.tvLanguage.text = "Greek (Greece)"
+            "pl_PL" -> mBinding.tvLanguage.text = "Polish (Poland)"
+            "ro_RO" -> mBinding.tvLanguage.text = "Romanian (Romania)"
+            "hu_HU" -> mBinding.tvLanguage.text = "Hungarian (Hungary)"
+            "en_GB" -> mBinding.tvLanguage.text = "English (United Kingdom)"
+            "de_DE" -> mBinding.tvLanguage.text = "German (Germany)"
+            "es_ES" -> mBinding.tvLanguage.text = "Spanish (Spain)"
+            "it_IT" -> mBinding.tvLanguage.text = "Italian (Italy)"
+            "fr_FR" -> mBinding.tvLanguage.text = "French (France)"
+            "ja_JP" -> mBinding.tvLanguage.text = "Japanese (Japan)"
+            "ko_KR" -> mBinding.tvLanguage.text = "Korean (Korea)"
+            "es_MX" -> mBinding.tvLanguage.text = "Spanish (Mexico)"
+            "es_AR" -> mBinding.tvLanguage.text = "Spanish (Argentina)"
+            "pt_BR" -> mBinding.tvLanguage.text = "Portuguese (Brazil)"
+            "en_US" -> mBinding.tvLanguage.text = "English (United States)"
+            "en_AU" -> mBinding.tvLanguage.text = "English (Australia)"
+            "ru_RU" -> mBinding.tvLanguage.text = "Russian (Russia)"
+            "tr_TR" -> mBinding.tvLanguage.text = "Turkish (Turkey)"
+            "ms_MY" -> mBinding.tvLanguage.text = "Malay (Malaysia)"
+            "en_PH" -> mBinding.tvLanguage.text = "English (Republic of the Philippines)"
+            "en_SG" -> mBinding.tvLanguage.text = "English (Singapore)"
+            "th_TH" -> mBinding.tvLanguage.text = "Thai (Thailand)"
+            "vi_VN" -> mBinding.tvLanguage.text = "Vietnamese (Viet Nam)"
+            "id_ID" -> mBinding.tvLanguage.text = "Indonesian (Indonesia)"
+            "zh_MY" -> mBinding.tvLanguage.text = "Chinese (Malaysia)"
+            "zh_CN" -> mBinding.tvLanguage.text = "Chinese (China)"
+            "zh_TW" -> mBinding.tvLanguage.text = "Chinese (Taiwan)"
+            else -> mBinding.tvLanguage.text = ""
+        }
+
 
         mViewModel.getChamp()
         observeLiveData()
@@ -107,7 +139,6 @@ class HomeFragment : Fragment() {
             when (position) {
                 0 -> tab.icon =
                     ContextCompat.getDrawable(requireContext(), R.drawable.ic_controller)
-
                 1 -> tab.icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_fighter)
                 2 -> tab.icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_mage)
                 3 -> tab.icon = ContextCompat.getDrawable(requireContext(), R.drawable.ic_marksman)

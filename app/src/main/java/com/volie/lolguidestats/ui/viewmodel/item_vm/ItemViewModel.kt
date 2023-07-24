@@ -1,11 +1,11 @@
-package com.volie.lolguidestats.ui.fragment.home
+package com.volie.lolguidestats.ui.viewmodel.item_vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.volie.lolguidestats.data.model.champion.Data
-import com.volie.lolguidestats.data.remote.Repository
+import com.volie.lolguidestats.data.model.item.ItemData
+import com.volie.lolguidestats.data.remote.repo.Repository
 import com.volie.lolguidestats.helper.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -13,19 +13,19 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel
+class ItemViewModel
 @Inject constructor(
     private val repository: Repository
 ) : ViewModel() {
 
-    private val _champ = MutableLiveData<Resource<Data>>()
-    val champ: LiveData<Resource<Data>> = _champ
+    private val _items = MutableLiveData<Resource<ItemData>>()
+    val items: LiveData<Resource<ItemData>> = _items
 
-    fun getChamp() {
-        _champ.postValue(Resource.loading(null))
+    fun getItems() {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = repository.getChampions()
-            _champ.postValue(result)
+            _items.postValue(Resource.loading(null))
+            val result = repository.getItems()
+            _items.postValue(result)
         }
     }
 }

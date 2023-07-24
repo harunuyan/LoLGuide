@@ -50,6 +50,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_game_mode" />
+        tools:listitem="@layout/adapter_item_game_mode" />
 
 </LinearLayout>

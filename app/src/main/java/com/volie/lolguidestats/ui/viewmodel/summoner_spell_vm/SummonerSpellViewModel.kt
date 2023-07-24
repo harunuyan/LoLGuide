@@ -1,11 +1,11 @@
-package com.volie.lolguidestats.ui.fragment.summoner_spell
+package com.volie.lolguidestats.ui.viewmodel.summoner_spell_vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.volie.lolguidestats.data.model.summoner_spell.SummonerSpellData
-import com.volie.lolguidestats.data.remote.Repository
+import com.volie.lolguidestats.data.remote.repo.Repository
 import com.volie.lolguidestats.helper.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

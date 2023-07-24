@@ -6,13 +6,13 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.map.Map
-import com.volie.lolguidestats.databinding.ItemMapsBinding
+import com.volie.lolguidestats.databinding.AdapterItemMapsBinding
 import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
 class MapsRVAdapter : BaseAdapter<Map>(MapDiffUtilCallback()) {
 
-    inner class MapsViewHolder(private val binding: ItemMapsBinding) :
+    inner class MapsViewHolder(private val binding: AdapterItemMapsBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
 
@@ -31,7 +31,7 @@ class MapsRVAdapter : BaseAdapter<Map>(MapDiffUtilCallback()) {
         inflater: LayoutInflater,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        val binding = ItemMapsBinding.inflate(inflater, parent, false)
+        val binding = AdapterItemMapsBinding.inflate(inflater, parent, false)
         return MapsViewHolder(binding)
     }
 

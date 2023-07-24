@@ -1,4 +1,4 @@
-package com.volie.lolguidestats
+package com.volie.lolguidestats.ui.activity
 
 import android.os.Bundle
 import android.view.View
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.volie.lolguidestats.R
 import com.volie.lolguidestats.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

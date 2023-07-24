@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.volie.lolguidestats.databinding.FragmentProfileIconBinding
 import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.helper.Status
+import com.volie.lolguidestats.ui.viewmodel.icon_vm.ProfileIconViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

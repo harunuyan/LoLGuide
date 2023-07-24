@@ -19,6 +19,7 @@ import com.volie.lolguidestats.data.model.champion.Champion
 import com.volie.lolguidestats.databinding.BottomSheetChampionClassBinding
 import com.volie.lolguidestats.databinding.FragmentChampionBinding
 import com.volie.lolguidestats.helper.Status
+import com.volie.lolguidestats.ui.viewmodel.champion_vm.ChampionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -88,6 +89,38 @@ class ChampionFragment : Fragment() {
         championList = champions
 
         mBinding.ivSort.setOnClickListener {
+
+            with(mBinding) {
+                if (etSearch.isVisible) {
+                    val closeKeyboard =
+                        requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                    closeKeyboard.hideSoftInputFromWindow(etSearch.windowToken, 0)
+
+                    etSearch.text = null
+
+                    tvChampionsFeedTitle.visibility = View.VISIBLE
+                    etSearch.visibility = View.INVISIBLE
+                    ivSearch.setImageResource(R.drawable.ic_search).also {
+                        val color = ContextCompat.getColor(requireContext(), R.color.white)
+                        ivSearch.setColorFilter(color)
+                    }
+                }
+            }
+            if (mBinding.etSearch.isVisible) {
+                val closeKeyboard =
+                    requireActivity().getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                closeKeyboard.hideSoftInputFromWindow(mBinding.etSearch.windowToken, 0)
+
+                mBinding.etSearch.text = null
+
+                mBinding.tvChampionsFeedTitle.visibility = View.VISIBLE
+                mBinding.etSearch.visibility = View.INVISIBLE
+                mBinding.ivSearch.setImageResource(R.drawable.ic_search).also {
+                    val color = ContextCompat.getColor(requireContext(), R.color.white)
+                    mBinding.ivSearch.setColorFilter(color)
+                }
+            }
+
             val bottomSheetDialog =
                 BottomSheetDialog(requireContext())
             val bottomSheetView = LayoutInflater.from(requireContext())

@@ -51,7 +51,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        tools:listitem="@layout/item_season" />
+        tools:listitem="@layout/adapter_item_season" />
 
 
 </LinearLayout>

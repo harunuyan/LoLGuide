@@ -16,8 +16,8 @@
         android:theme="@style/Theme.LoLGuideStats"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
-            android:windowSoftInputMode="stateAlwaysHidden"
+            android:name=".ui.activity.MainActivity"
+            android:windowSoftInputMode="adjustResize"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

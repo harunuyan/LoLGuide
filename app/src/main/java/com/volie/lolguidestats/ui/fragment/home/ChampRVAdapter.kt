@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.champion.Champion
-import com.volie.lolguidestats.databinding.ItemChampionHomeBinding
+import com.volie.lolguidestats.databinding.AdapterItemChampionHomeBinding
 import com.volie.lolguidestats.helper.Constant
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
@@ -14,7 +14,7 @@ class ChampRVAdapter(
     private val listener: (Champion) -> Unit
 ) : BaseAdapter<Champion>(ChampionHomeDiffUtilCallback()) {
 
-    inner class ChampionHomeViewHolder(private val binding: ItemChampionHomeBinding) :
+    inner class ChampionHomeViewHolder(private val binding: AdapterItemChampionHomeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val champ = currentList[position]
@@ -35,7 +35,7 @@ class ChampRVAdapter(
         inflater: LayoutInflater,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        val binding = ItemChampionHomeBinding.inflate(inflater, parent, false)
+        val binding = AdapterItemChampionHomeBinding.inflate(inflater, parent, false)
         return ChampionHomeViewHolder(binding)
     }
 

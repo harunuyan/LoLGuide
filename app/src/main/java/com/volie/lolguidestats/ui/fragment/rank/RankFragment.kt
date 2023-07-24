@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentRankBinding
 import com.volie.lolguidestats.helper.Status
+import com.volie.lolguidestats.ui.viewmodel.rank_vm.RankViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

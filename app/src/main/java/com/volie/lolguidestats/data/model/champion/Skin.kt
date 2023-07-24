@@ -5,7 +5,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Skin(
-    val id: String,
-    val num: Int,
     val name: String,
 ) : Parcelable

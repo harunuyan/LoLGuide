@@ -6,7 +6,5 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Image(
-    val full: String,
-    val sprite: String,
-    val group: String,
+    val full: String
 ) : Parcelable

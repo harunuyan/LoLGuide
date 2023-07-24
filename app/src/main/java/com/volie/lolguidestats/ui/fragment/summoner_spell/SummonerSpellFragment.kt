@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.volie.lolguidestats.databinding.FragmentSummonerSpellBinding
 import com.volie.lolguidestats.helper.Status
+import com.volie.lolguidestats.ui.viewmodel.summoner_spell_vm.SummonerSpellViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

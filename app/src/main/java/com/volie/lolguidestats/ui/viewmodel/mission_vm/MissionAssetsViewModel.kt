@@ -1,11 +1,11 @@
-package com.volie.lolguidestats.ui.fragment.mission
+package com.volie.lolguidestats.ui.viewmodel.mission_vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.volie.lolguidestats.data.model.mission.MissionAssetsData
-import com.volie.lolguidestats.data.remote.Repository
+import com.volie.lolguidestats.data.remote.repo.Repository
 import com.volie.lolguidestats.helper.Resource
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers

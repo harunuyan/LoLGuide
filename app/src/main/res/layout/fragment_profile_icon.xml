@@ -79,6 +79,6 @@
         android:orientation="vertical"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="5"
-        tools:listitem="@layout/item_into_and_from" />
+        tools:listitem="@layout/adapter_item_into_and_from" />
 
 </LinearLayout>

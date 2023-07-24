@@ -89,6 +89,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/view"
         app:spanCount="3"
-        tools:listitem="@layout/item_champion" />
+        tools:listitem="@layout/adapter_item_champion" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

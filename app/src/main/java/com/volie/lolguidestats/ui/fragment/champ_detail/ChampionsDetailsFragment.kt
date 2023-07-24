@@ -98,19 +98,19 @@ class ChampionsDetailsFragment : Fragment() {
                     updateLinearProgressWithAnimator(
                         pbSpellBlock,
                         tvSpellBlockCount,
-                        spellblock.toInt()
+                        spellBlock.toInt()
                     )
                     updateLinearProgressWithAnimator(
                         pbAttackDamage,
                         tvAttackDamageCount,
-                        attackdamage.toInt()
+                        attackDamage.toInt()
                     )
                     updateLinearProgressWithAnimator(
                         pbHpRegen,
                         tvHpRegenCount,
-                        hpregen.toInt()
+                        hpRegen.toInt()
                     )
-                    if (mpregen.toInt() == 0) {
+                    if (mpRegen.toInt() == 0) {
                         tvMpRegen.visibility = View.GONE
                         pbMpRegen.visibility = View.GONE
                         tvMpRegenCount.visibility = View.GONE
@@ -118,14 +118,14 @@ class ChampionsDetailsFragment : Fragment() {
                         updateLinearProgressWithAnimator(
                             pbMpRegen,
                             tvMpRegenCount,
-                            mpregen.toInt()
+                            mpRegen.toInt()
                         )
                     }
 
                     updateLinearProgressWithAnimator(
                         pbAttackRange,
                         tvAttackRangeCount,
-                        attackrange.toInt()
+                        attackRange.toInt()
                     )
                 }
 
@@ -227,9 +227,9 @@ class ChampionsDetailsFragment : Fragment() {
 
                 tvBlurb.text = lore
 
-                if (!allytips.isNullOrEmpty()) {
-                    for (i in allytips.indices) {
-                        tvTipsContent.append("${allytips[i]}\n\n")
+                if (!allyTips.isNullOrEmpty()) {
+                    for (i in allyTips.indices) {
+                        tvTipsContent.append("${allyTips[i]}\n\n")
                     }
                 } else {
                     tvTips.visibility = View.GONE
@@ -238,9 +238,9 @@ class ChampionsDetailsFragment : Fragment() {
                     viewTipsEnd.visibility = View.GONE
                 }
 
-                if (!enemytips.isNullOrEmpty()) {
-                    for (i in enemytips.indices) {
-                        tvEnemyTipsContent.append("${enemytips[i]}\n\n")
+                if (!enemyTips.isNullOrEmpty()) {
+                    for (i in enemyTips.indices) {
+                        tvEnemyTipsContent.append("${enemyTips[i]}\n\n")
                     }
                 } else {
                     tvEnemyTips.visibility = View.GONE

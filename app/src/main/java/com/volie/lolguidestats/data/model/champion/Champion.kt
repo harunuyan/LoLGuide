@@ -1,6 +1,7 @@
 package com.volie.lolguidestats.data.model.champion
 
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import com.volie.lolguidestats.data.model.image.Image
 import kotlinx.parcelize.Parcelize
 
@@ -15,8 +16,10 @@ data class Champion(
     val skins: List<Skin>? = null,
     val lore: String? = null,
     val passive: Passive? = null,
-    val allytips: List<String>? = null,
-    val enemytips: List<String>? = null,
+    @SerializedName("allytips")
+    val allyTips: List<String>? = null,
+    @SerializedName("enemytips")
+    val enemyTips: List<String>? = null,
     val tags: List<String>? = null,
     val stats: Stats? = null,
     val spells: List<Spell>? = null,

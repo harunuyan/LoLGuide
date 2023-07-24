@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.rank.Season
-import com.volie.lolguidestats.databinding.ItemSeasonBinding
+import com.volie.lolguidestats.databinding.AdapterItemSeasonBinding
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
 class RankRVAdapter(
     private val onItemClickListener: ((Season) -> Unit)
 ) : BaseAdapter<Season>(SeasonDiffUtilCallback()) {
 
-    inner class SeasonViewHolder(private val binding: ItemSeasonBinding) :
+    inner class SeasonViewHolder(private val binding: AdapterItemSeasonBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val rank = currentList[position]
@@ -36,7 +36,7 @@ class RankRVAdapter(
         inflater: LayoutInflater,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        val binding = ItemSeasonBinding.inflate(inflater, parent, false)
+        val binding = AdapterItemSeasonBinding.inflate(inflater, parent, false)
         return SeasonViewHolder(binding)
     }
 

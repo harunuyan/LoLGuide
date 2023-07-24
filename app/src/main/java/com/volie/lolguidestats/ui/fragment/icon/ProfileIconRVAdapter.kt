@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.profile_icon.Icon
-import com.volie.lolguidestats.databinding.ItemIntoAndFromBinding
+import com.volie.lolguidestats.databinding.AdapterItemIntoAndFromBinding
 import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
 class ProfileIconRVAdapter(private val onItemClick: (Icon) -> Unit) :
     BaseAdapter<Icon>(IconDiffCallback()) {
 
-    inner class ProfileIconViewHolder(private val binding: ItemIntoAndFromBinding) :
+    inner class ProfileIconViewHolder(private val binding: AdapterItemIntoAndFromBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(position: Int) {
@@ -35,7 +35,7 @@ class ProfileIconRVAdapter(private val onItemClick: (Icon) -> Unit) :
         inflater: LayoutInflater,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        val binding = ItemIntoAndFromBinding.inflate(inflater, parent, false)
+        val binding = AdapterItemIntoAndFromBinding.inflate(inflater, parent, false)
         return ProfileIconViewHolder(binding)
     }
 

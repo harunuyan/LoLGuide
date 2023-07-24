@@ -11,6 +11,7 @@ import com.bumptech.glide.Glide
 import com.volie.lolguidestats.databinding.FragmentMissionAssetsBinding
 import com.volie.lolguidestats.helper.Constant
 import com.volie.lolguidestats.helper.Status
+import com.volie.lolguidestats.ui.viewmodel.mission_vm.MissionAssetsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

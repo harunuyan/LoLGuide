@@ -1,4 +1,4 @@
-package com.volie.lolguidestats.data.remote.service
+package com.volie.lolguidestats.data.remote.api
 
 import com.volie.lolguidestats.data.model.champion.Data
 import com.volie.lolguidestats.data.model.item.ItemData

@@ -1,7 +1,7 @@
 package com.volie.lolguidestats.data.di
 
-import com.volie.lolguidestats.data.remote.service.LOLApi
-import com.volie.lolguidestats.data.remote.service.LOLApiGithub
+import com.volie.lolguidestats.data.remote.api.LOLApi
+import com.volie.lolguidestats.data.remote.api.LOLApiGithub
 import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.helper.Constant.INFO_BASE_URL
 import dagger.Module

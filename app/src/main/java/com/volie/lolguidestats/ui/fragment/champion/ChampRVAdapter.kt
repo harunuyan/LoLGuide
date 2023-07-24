@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.champion.Champion
-import com.volie.lolguidestats.databinding.ItemChampionBinding
+import com.volie.lolguidestats.databinding.AdapterItemChampionBinding
 import com.volie.lolguidestats.helper.Constant.BASE_URL
 
 class ChampRVAdapter(
@@ -15,7 +15,7 @@ class ChampRVAdapter(
 ) : ListAdapter<Champion, ChampRVAdapter.ChampViewHolder>(
     ChampDiffCallback()
 ) {
-    inner class ChampViewHolder(private val binding: ItemChampionBinding) :
+    inner class ChampViewHolder(private val binding: AdapterItemChampionBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val champ = currentList[position]
@@ -35,7 +35,7 @@ class ChampRVAdapter(
         viewType: Int
     ): ChampViewHolder {
         val binding =
-            ItemChampionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+            AdapterItemChampionBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ChampViewHolder(binding)
     }
 

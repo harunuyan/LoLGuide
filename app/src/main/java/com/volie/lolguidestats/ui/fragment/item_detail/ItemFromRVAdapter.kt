@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.volie.lolguidestats.databinding.ItemIntoAndFromBinding
+import com.volie.lolguidestats.databinding.AdapterItemIntoAndFromBinding
 import com.volie.lolguidestats.helper.Constant.BASE_URL
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
@@ -14,7 +14,7 @@ class ItemFromRVAdapter(
     private val onItemClick: () -> Unit
 ) : BaseAdapter<String>(ItemFromDiffCallback()) {
 
-    inner class ItemFromViewHolder(private val binding: ItemIntoAndFromBinding) :
+    inner class ItemFromViewHolder(private val binding: AdapterItemIntoAndFromBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val itemFrom = currentList[position]
@@ -39,7 +39,7 @@ class ItemFromRVAdapter(
         inflater: LayoutInflater,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        val binding = ItemIntoAndFromBinding.inflate(inflater, parent, false)
+        val binding = AdapterItemIntoAndFromBinding.inflate(inflater, parent, false)
         return ItemFromViewHolder(binding)
     }
 

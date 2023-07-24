@@ -6,14 +6,14 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.volie.lolguidestats.data.model.mode.Mode
-import com.volie.lolguidestats.databinding.ItemGameModeBinding
+import com.volie.lolguidestats.databinding.AdapterItemGameModeBinding
 import com.volie.lolguidestats.ui.adapter.BaseAdapter
 
 class GameModeRVAdapter(
     private val onItemClicked: (Mode) -> Unit
 ) : BaseAdapter<Mode>(ModeDiffUtilCallback()) {
 
-    inner class ModeViewHolder(private val binding: ItemGameModeBinding) :
+    inner class ModeViewHolder(private val binding: AdapterItemGameModeBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(position: Int) {
             val mode = currentList[position]
@@ -37,7 +37,7 @@ class GameModeRVAdapter(
         inflater: LayoutInflater,
         viewType: Int
     ): RecyclerView.ViewHolder {
-        val binding = ItemGameModeBinding.inflate(inflater, parent, false)
+        val binding = AdapterItemGameModeBinding.inflate(inflater, parent, false)
         return ModeViewHolder(binding)
     }
 
